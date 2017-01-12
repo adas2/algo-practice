@@ -33,7 +33,7 @@ Solved:
 29. array_rotate: Rotate array of lenght N by K elements 
 30. point_dist: Given N points in a 2D plain, find k points closests to the origin (0,0). Note: k<<N find optimal solution in log[k]
 31. Lined_list_problems: Linked list implementation and functions from meetup group assigmment
-32.
+32. bst_lca: Find lowest commong ancestor for Binary Search Tree (no parent pointers given)
 
 
 Todo Questions:
