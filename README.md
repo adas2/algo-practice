@@ -43,5 +43,10 @@ Todo Questions:
 4. Print perimeter of a tree
 5. Closest 3sum problem
 6. Given text file T and pattern P, find the number of anagrams of 'P' in T; (any ASCII character is a valid literal)
+7. Suppose you have a sorted array of integers. Apply a function of the form f(x)=a*x^2 + b*x + c to each element 
+	x of the array such that the resulting array is still sorted. Can you do it in better than O(n)
+8. Given two n-ary trees how can you check if their structures are same? (Hard problem).
 
+
+	
 
