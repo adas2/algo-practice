@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <list>
 #include <bitset>
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
   static string reverse(string &str, int start_indx, int end_idx);
   static string reverseWords(string sentence);
   static int findSubstr(string target, string body);
+  static void findSubstrBM(string target, string body);
   static string IntegerToString(int num);
   static int StringToInt(string str);
   static void allSubsets(string str);
@@ -123,14 +125,67 @@ int StrUtils::findSubstr(string target, string body)
 }
 
 
-/***
+/***/
 //Boyer moore bad character rule implementation
-int StrUtils::findSubstr(string target, string body)
+void StrUtils::findSubstrBM(string target, string body)
 {
-  //empty case
-  if (body.empty() || target.empty())
-    return -1;
+  //empty body case
+  if (body.empty())
+    {
+      cout << "Error:  Empty String" << endl;
+      return;
+    }
+  int m = target.size();
+  int n = body.size();
+  int i, j, k;
 
+  //populate the bad character array: last index of a character 
+  vector<int> bad_char(256, -1) ;
+  //for (k=0; K < 256; 
+  for (k=0; k<m ; ++k)
+    {
+      bad_char[int(target[k])]=k;
+    }
+
+  int shift=0;
+  //check conditions till last position is reached
+  while(shift <= (n-m))
+    {
+      //start checking from the last element of target
+      j=m-1;
+      i=shift + j;
+      cout << i << " " << j << endl;
+      while (j>=0 && (body[i]==target[j])) //character match
+	{
+	  i--;j--;
+	}
+
+      if(j==-1)
+	{
+	  cout << "Match occured at : " << shift << endl;
+	  //align the target with the last occurence of the next characater 
+	  shift += (shift+m < n)?(m-bad_char[int(body[shift+m])]):1;
+	  //cout << "New shift: " << shift << endl;
+	}
+      else //mismatch 
+	{
+	  //align the  bad charcater to its last occurent in the body
+	  if(bad_char[int(body[i])] != -1) //bad charcater present
+	    {
+	      //shift by (j-bad_char[body[i]]); This could be negative
+	      shift += max(1,(j - bad_char[int(body[i])]));
+	    }
+	  else // bad character not present in target 
+	    {
+	      //shift to align first chacarter of target past bad charcater
+	      shift += (j+1);
+	    }
+	}
+
+    }
+
+
+  /*****
   //preprocess target to hold position of index
   int i;
   int j=target.size()-1;
@@ -181,10 +236,8 @@ int StrUtils::findSubstr(string target, string body)
     }
 
   return -1;
-
+  *****/
 }
-
-*****/
 
 
 
@@ -335,7 +388,8 @@ int main()
 	cout << StrUtils::reverseWords("the quick brown") << endl;
 	//cout << u.reverse(" abc") << endl;
 	cout << StrUtils::findSubstr("Pan", "Japan") << endl;
-	//cout << StrUtils::findSubstr("abb", "aaaababab bba ab ababb") << endl;
+	//StrUtils::findSubstrBM("abb", "aaaababab bba ab ababb");
+	StrUtils::findSubstrBM("abb", "aaaababbabbb");
 	/***
 	cout << StrUtils::IntegerToString(-123) << endl;
 	cout << StrUtils::StringToInt("-0345") << endl;

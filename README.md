@@ -46,7 +46,11 @@ Todo Questions:
 7. Suppose you have a sorted array of integers. Apply a function of the form f(x)=a*x^2 + b*x + c to each element 
 	x of the array such that the resulting array is still sorted. Can you do it in better than O(n)
 8. Given two n-ary trees how can you check if their structures are same? (Hard problem).
-
-
-	
-
+9. Design a game of life matrix: cell of 0's and 1's with conditions: 
+	(i) any alive cell with <2 neighbor dies
+	(ii) any alive cell with 2-3 neighbors lives
+	(iii) any  alive cell with > 3 neighbors dies
+	(iv) any dead cell with 3 live neighbors becomes alive
+10. Given a array of integers find if there is an element whose sum in the left side == sum in the right side (exclude the element).
+	Optimize the soltuions to use O(1) space and O(n) time complexity
+11. 
