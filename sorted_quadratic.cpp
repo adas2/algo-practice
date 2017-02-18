@@ -37,7 +37,48 @@ bool mycompare(int p, int q)
   return (p<q);
 }
 
-//Uses O(n) storage
+//O(1) storagea O(n^2) time : Naive approach
+// argument backwards tells whether top or bottom needs to be traveresed backwards:
+//            1: for top backwards, 2: for bottom backwards, 0: Both ascending order
+void inPlaceMerge(vector<int> &arr,int top_start, int top_end, int bottom_start, int bottom_end, int backwards )
+{
+  int i=top_end, j=bottom_end;
+  //only j moves down and while it reaches the end of top
+  while(j>top_end){
+    //cout << arr[i] << " " << arr[j] << endl;
+    if(arr[i] > arr[j]) //top last is greater than bootk last
+      {
+	//swap the largest element to the bottom 
+	int temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+	
+	//important: change ponter for bootm
+	//--j;
+	
+      }
+    //decrement to next element
+    --j;
+    //cout << arr[i] << " " << arr[i-1] << endl;
+    //if the new top last element is smaller than previos change top index, else keep same
+    
+    while ((arr[i] < arr[i-1]) && (i> top_start))
+      {
+	//cout << "SWapped " <<arr[i] << " " << arr[i-1] << endl;
+	//swap a[i] and a[i-1]
+	int temp = arr[i-1];
+	arr[i-1]=arr[i];
+	arr[i]=temp;
+	--i;
+      }
+    //restore i to top_end
+    i=top_end;
+    
+  }
+}
+
+//Uses O(n) storage in linear time i.e. O(n); 
+//   assumes top part from start to mid is sorted and bootm from mid to end is sorted
 void merge(vector<int> &arr, int start,int mid, int end)
 {
   //make a new array of lenght n
@@ -116,23 +157,51 @@ void sort_quadratic_arr(vector<int> &arr, int a, int b, int c)
 int main()
 {
   vector <int> arr;
+  /***/
   arr.push_back(-3);
   arr.push_back(1);
   arr.push_back(3);
   arr.push_back(7);
   arr.push_back(10);
   arr.push_back(12);
+  /****/
+  /***
+  arr.push_back(1);
+  arr.push_back(3);
+  arr.push_back(5);
+  arr.push_back(7);
+  arr.push_back(15);
+  arr.push_back(2);
+  arr.push_back(4);
+  arr.push_back(6);
+  arr.push_back(11);
+  ****/
+
 
   int a=-2, b =16, c=5;
   
   //cout << bin_search(arr, 0, 5, 8) << endl;
+
+  /****/
   sort_quadratic_arr(arr, a, b, c);
+  /****/
+  cout << "Original array: " << endl;
+  for(int i=0; i<arr.size(); ++i)
+    {
+      cout << arr[i] << " ";
+    } 
+  cout << endl;
+  //inPlaceMerge(arr, 0, 4, 5, 8, 0);
   cout << "Sorted array: " << endl;
   for(int i=0; i<arr.size(); ++i)
     {
       cout << arr[i] << " ";
     } 
   cout << endl;
+  
+
+  
+
   
 }
 

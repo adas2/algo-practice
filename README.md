@@ -7,7 +7,7 @@ Solved:
 3. bytelandian problem:
 4. DFS, BFS, TopSort: implementation of graphs
 5. Graph problems
-6. Division wihout using divide operation
+6. integer_division: Division wihout using divide operation
 7. GCD of two numbers
 8. hammingwt: Calculate hamming weight
 9. Heapsort of a vector
@@ -29,17 +29,24 @@ Solved:
 25. ipcheck: Check whehter given string is a valid IP address
 26. midsum: Find the index of an array where the sum of the left part equals the sum of the right part( const space, linear time)
 27. twosum: Given an array and a target value find two elements in the array whose sum = target
-28: threesum: Given an array and target find 3 numbers in array whose sum = target 
+28. threesum: Given an array and target find 3 numbers in array whose sum = target 
 29. array_rotate: Rotate array of lenght N by K elements 
-30. point_dist: Given N points in a 2D plain, find k points closests to the origin (0,0). Note: k<<N find optimal solution in log[k]
+30. point_dist: Given N points in a 2D plain, find k points closests to the origin (0,0). Note: k << N find optimal solution in log[k]
 31. Lined_list_problems: Linked list implementation and functions from meetup group assigmment
 32. bst_lca: Find lowest commong ancestor for Binary Search Tree (no parent pointers given)
+33. dictionary: Implement a word dictionary with follwing funcs: (i) insert word, (ii) search is a word is present 
+	(iii) find the number of words that start with a given prefix (prefix cannot be the whole word)
+34. sorted_quadratic: Soltuion to problem 7 below
+35. Implement stack using a queue
+36. k_sorted_merge: merge k sorted lists in an efficient way Hint: O(nklogk) where n is the avg. len of lists
+37. wsum: Find the first index i of an array (of integers) such that sum of elements over a window is equal to target.
+38. Given a integer array, find the max sum of a subarray (need to be contiguos in the orifinal array)
+39. btree_lcs: Lowest Common Ancestor in a B Tree
 
 
 Todo Questions:
 1. Robot Problem
 2. Using Rand5() design Rand7()
-3. Lowest Common Ancestor in a B Tree
 4. Print perimeter of a tree
 5. Closest 3sum problem
 6. Given text file T and pattern P, find the number of anagrams of 'P' in T; (any ASCII character is a valid literal)
@@ -53,4 +60,13 @@ Todo Questions:
 	(iv) any dead cell with 3 live neighbors becomes alive
 10. Given a array of integers find if there is an element whose sum in the left side == sum in the right side (exclude the element).
 	Optimize the soltuions to use O(1) space and O(n) time complexity
-11. 
+11. Given a string return whether there is a permutation that is a palindrome
+12. Given a double array find the max product of a sunarray (contiguous in original array). [Hint: Kaden's algo]
+13. Find the number of primes within internal A and B (A, B large numbers) try to optimize the time complexity to O(B-A) i.e. range.
+14. Given a list of nodes (integer values) in inorder traversal, reconstruct a balanced binary tree.
+	[Hint: Standard approach O(nlong); can you do it in O(n)? Create empty btree?]
+15. Given a singly linked list; Zip it. Zip operation is defined as follows:
+	1->2->3->4->5 ==> 1->5->2->4->3 (like a zipper); 1->2->3->4->5->6 ==> 1->6->2->5->3->4
+	Notes: Try doing this with O(1) space
+16.
+
