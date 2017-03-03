@@ -34,7 +34,7 @@ public:
 	cnt++;
 	if(k==cnt)
 	  {
-	    cout << str << " " << cnt << endl;
+	    cout << cnt << "-th permutation of original string " << str << endl;
 	  }
 	
       }
