@@ -42,7 +42,12 @@ Solved:
 37. wsum: Find the first index i of an array (of integers) such that sum of elements over a window is equal to target.
 38. Given a integer array, find the max sum of a subarray (need to be contiguos in the orifinal array)
 39. btree_lcs: Lowest Common Ancestor in a B Tree
-
+40. Binary search tree find k-th largest node 
+41. ks: Knapsack implementation in DP
+42. mcnugget: Given you can buy mcnuggets in pack of 4, 6, and 9; can you buy N macnuggets? E.g. 17 can be bought by (4+4+9)?
+	Hint: Try DP? Can you generalize for more than 3 pack sizes. Note gcd(size1, size2, size3, ...sizen) = 1
+43. num_subsequence: Problem solving Workshop #21 March 4,2017
+44. paranthesis: Given a set of braces determine if the order of paranthesis is correct. E,g, ((())()) is correct , but ()()) is wrong
 
 Todo Questions:
 1. Robot Problem
@@ -61,12 +66,16 @@ Todo Questions:
 10. Given a array of integers find if there is an element whose sum in the left side == sum in the right side (exclude the element).
 	Optimize the soltuions to use O(1) space and O(n) time complexity
 11. Given a string return whether there is a permutation that is a palindrome
-12. Given a double array find the max product of a sunarray (contiguous in original array). [Hint: Kaden's algo]
+12. Given a double array find the max product of a subarray (contiguous in original array). [Hint: Kaden's algo]
 13. Find the number of primes within internal A and B (A, B large numbers) try to optimize the time complexity to O(B-A) i.e. range.
 14. Given a list of nodes (integer values) in inorder traversal, reconstruct a balanced binary tree.
 	[Hint: Standard approach O(nlong); can you do it in O(n)? Create empty btree?]
 15. Given a singly linked list; Zip it. Zip operation is defined as follows:
 	1->2->3->4->5 ==> 1->5->2->4->3 (like a zipper); 1->2->3->4->5->6 ==> 1->6->2->5->3->4
 	Notes: Try doing this with O(1) space
-16.
+16. Find the longest increasing snake in a 2D matrix of integers. Note that you can go in all 8 directions  left right top down and diagonal.
+	Return the longest path size. Tip: snake is a increasing subsequence where next elements differs by 1 (consecutive path)
+17. Given a huge database with n records (equivalent to n rows), a user has changed k records (k<<n) without remembering which k-s have been
+	changed; how to sync the database without transmitiing the entire database.
+18. 
 
