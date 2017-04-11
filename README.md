@@ -1,5 +1,6 @@
-# practice
+#!practice
 Problem solving practice 
+========================
 
 Solved:
 1. Alphapermutation: Find all permutations of a string
@@ -40,7 +41,7 @@ Solved:
 35. Implement stack using a queue
 36. k_sorted_merge: merge k sorted lists in an efficient way Hint: O(nklogk) where n is the avg. len of lists
 37. wsum: Find the first index i of an array (of integers) such that sum of elements over a window is equal to target.
-38. Given a integer array, find the max sum of a subarray (need to be contiguos in the orifinal array)
+38. max_sum_subarray: Given a integer array, find the max sum of a subarray (need to be contiguos in the orifinal array)
 39. btree_lcs: Lowest Common Ancestor in a B Tree
 40. Binary search tree find k-th largest node 
 41. ks: Knapsack implementation in DP
@@ -48,8 +49,12 @@ Solved:
 	Hint: Try DP? Can you generalize for more than 3 pack sizes. Note gcd(size1, size2, size3, ...sizen) = 1
 43. num_subsequence: Problem solving Workshop #21 March 4,2017
 44. paranthesis: Given a set of braces determine if the order of paranthesis is correct. E,g, ((())()) is correct , but ()()) is wrong
+45. thread_order: execute threads in a specific order; e.g. 3 threads with id 1,2, and 3 should execute first() second() and third() in order
+46. TestCache: sample cache implmentation using LRU policy
+
 
 Todo Questions:
+===============
 1. Robot Problem
 2. Using Rand5() design Rand7()
 4. Print perimeter of a tree
@@ -75,7 +80,18 @@ Todo Questions:
 	Notes: Try doing this with O(1) space
 16. Find the longest increasing snake in a 2D matrix of integers. Note that you can go in all 8 directions  left right top down and diagonal.
 	Return the longest path size. Tip: snake is a increasing subsequence where next elements differs by 1 (consecutive path)
-17. Given a huge database with n records (equivalent to n rows), a user has changed k records (k<<n) without remembering which k-s have been
+17. Given a huge database with n records (equivalent to n rows), a user has changed k records (k << n) without remembering which k-s have been
 	changed; how to sync the database without transmitiing the entire database.
-18. 
+18. Given a number M find the smallest number consisiting of 0's and 1's that is divisible by M; e.g. for M=3 Num=111, for M=7 Num=1001
+	Hint: http://math.stackexchange.com/questions/388165/how-to-find-the-smallest-number-with-just-0-and-1-which-is-divided-by-a-give
+	Target O(M^2)
+19. Find the longest substring without repeating characters in a given string. target O(n) time. Hint: similar to max_sum
+20. Word break: Given a sentence (in string) return true if the characters can be broken down into words which are contained in a dictionary.
+	You are given the Dict structure with a method Dict.contains(string s) which return true or false.
+21. Given a map with Parcels (small variable boundary area) and given a list of points find the parcels with the max points. 
+	Note: you are given an API bool PointInParcel(lat, long, parcel_boundary) which returns true or false; but this is very expensive
+	So ideally you would like to minimize the calls to this function as much a possible. If needed you can represent the parcles
+	using your own data structures.
+22. Anti-spiral traversal in a matrix
+23. 
 
