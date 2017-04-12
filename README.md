@@ -1,5 +1,5 @@
-#!practice
-Problem solving practice 
+#! Practice
+Problem solving  
 ========================
 
 Solved:
@@ -23,10 +23,10 @@ Solved:
 18. Quicksort implementation
 19. reversesentence: reverse the words of a sentence
 20. threadpool: threadpool implementation
-21. tmplt: 
+21. tmplt: C++ 11 template use cases
 22. toggle: Toggle the alternate bulb problem (leetcode)
 23. trailing_zero_in_factorial: Given the number find the tralling zeros in its factorial
-24. wiggle:  Lenght of wiggle sequence ina vector
+24. wiggle:  Length of wiggle sequence ina vector
 25. ipcheck: Check whehter given string is a valid IP address
 26. midsum: Find the index of an array where the sum of the left part equals the sum of the right part( const space, linear time)
 27. twosum: Given an array and a target value find two elements in the array whose sum = target
@@ -51,6 +51,8 @@ Solved:
 44. paranthesis: Given a set of braces determine if the order of paranthesis is correct. E,g, ((())()) is correct , but ()()) is wrong
 45. thread_order: execute threads in a specific order; e.g. 3 threads with id 1,2, and 3 should execute first() second() and third() in order
 46. TestCache: sample cache implmentation using LRU policy
+47. Wiggle_sort: Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+
 
 
 Todo Questions:
