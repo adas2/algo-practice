@@ -52,8 +52,14 @@ Solved:
 45. thread_order: execute threads in a specific order; e.g. 3 threads with id 1,2, and 3 should execute first() second() and third() in order
 46. TestCache: sample cache implmentation using LRU policy
 47. Wiggle_sort: Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
-
-
+48. Wrap_Around_Substr_Search: Unique substrings in a given patter within a infinite lenght wraparound syring "....abcd....xyzabcd...."
+49. Game Of Life: Design a game of life matrix: cell of 0's and 1's with conditions: 
+	(i) any alive cell with <2 neighbor dies
+	(ii) any alive cell with 2-3 neighbors lives
+	(iii) any  alive cell with > 3 neighbors dies
+	(iv) any dead cell with 3 live neighbors becomes alive
+50. PatternRule: Given a string and a pattern, find if the string follows the pattern rule. E.g. p="aba", str="boygirlboy" --> TRUE 
+51. 
 
 Todo Questions:
 ===============
@@ -65,11 +71,6 @@ Todo Questions:
 7. Suppose you have a sorted array of integers. Apply a function of the form f(x)=a*x^2 + b*x + c to each element 
 	x of the array such that the resulting array is still sorted. Can you do it in better than O(n)
 8. Given two n-ary trees how can you check if their structures are same? (Hard problem).
-9. Design a game of life matrix: cell of 0's and 1's with conditions: 
-	(i) any alive cell with <2 neighbor dies
-	(ii) any alive cell with 2-3 neighbors lives
-	(iii) any  alive cell with > 3 neighbors dies
-	(iv) any dead cell with 3 live neighbors becomes alive
 10. Given a array of integers find if there is an element whose sum in the left side == sum in the right side (exclude the element).
 	Optimize the soltuions to use O(1) space and O(n) time complexity
 11. Given a string return whether there is a permutation that is a palindrome
