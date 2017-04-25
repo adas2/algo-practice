@@ -42,7 +42,7 @@ Solved:
 36. k_sorted_merge: merge k sorted lists in an efficient way Hint: O(nklogk) where n is the avg. len of lists
 37. wsum: Find the first index i of an array (of integers) such that sum of elements over a window is equal to target.
 38. max_sum_subarray: Given a integer array, find the max sum of a subarray (need to be contiguos in the orifinal array)
-39. btree_lcs: Lowest Common Ancestor in a B Tree
+39. btree_lca: Lowest Common Ancestor in a B Tree
 40. Binary search tree find k-th largest node 
 41. ks: Knapsack implementation in DP
 42. mcnugget: Given you can buy mcnuggets in pack of 4, 6, and 9; can you buy N macnuggets? E.g. 17 can be bought by (4+4+9)?
@@ -59,7 +59,13 @@ Solved:
 	(iii) any  alive cell with > 3 neighbors dies
 	(iv) any dead cell with 3 live neighbors becomes alive
 50. PatternRule: Given a string and a pattern, find if the string follows the pattern rule. E.g. p="aba", str="boygirlboy" --> TRUE 
-51. 
+51. TreeZigZag: given a binary tree, find the zig zag traversal for the tree (leetcode)
+52. MatrixZero: Given a matrix convert the row and column of an element == 0 with all zeros; do this with constant space O(1)
+53. 01matrix: Given a matrix find the closest path of an element from the nearest zero. (leetcode)
+54. btree_inc_decr_sequence: Given a btree find the longest increasing or decresing sequence (does not have through go through root).
+
+
+
 
 Todo Questions:
 ===============
@@ -96,5 +102,8 @@ Todo Questions:
 	So ideally you would like to minimize the calls to this function as much a possible. If needed you can represent the parcles
 	using your own data structures.
 22. Anti-spiral traversal in a matrix
-23. 
+23. Given an NxM matrix representing a garden, each entry contains a number, which is the number of carrots in that plot. 
+	A rabbit starts in the middle, or plot closest to middle with the most carrots and always goes up down left or right after eating 
+	to the plot with the most carrots. No negative entries, write some code that given a garden matrix, you return the number of carrots 
+	a rabbit would eat in it.  
 
