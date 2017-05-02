@@ -16,7 +16,7 @@ Solved:
 11. Memread: Read chunk of memory from disk using Read4kBlock function
 12. Mergesort implementation
 13. pathwobstacles:  Find the unique path between two points given an obstacle matrix
-14. permutation: find all permuation of a string
+14. Permutation: given number of digits n and integer k find the k-th permuation of string 123...n in lexicographic order
 15. power:  given base and exponent calculate power of a number
 16. power_four: Find if a number is a power of four
 17. power_three: Find is a number is a power of three
@@ -63,8 +63,8 @@ Solved:
 52. MatrixZero: Given a matrix convert the row and column of an element == 0 with all zeros; do this with constant space O(1)
 53. 01matrix: Given a matrix find the closest path of an element from the nearest zero. (leetcode)
 54. btree_inc_decr_sequence: Given a btree find the longest increasing or decresing sequence (does not have through go through root).
-
-
+55. repeated_substring: Given a string S, find the longest repeated substring (i.e. s="abcdabc" o/p="abc") -- Eugene Problemset 4/29
+56. count_repeated_elem: Count repeated elements in a sorted array (hint: using binary search) 
 
 
 Todo Questions:
