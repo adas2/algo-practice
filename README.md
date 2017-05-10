@@ -106,4 +106,13 @@ Todo Questions:
 	A rabbit starts in the middle, or plot closest to middle with the most carrots and always goes up down left or right after eating 
 	to the plot with the most carrots. No negative entries, write some code that given a garden matrix, you return the number of carrots 
 	a rabbit would eat in it.  
-
+24. Hills zie and sea level problem. Given a matrix Hill MxN dimension Hill[i][j] represents the height of the hill for that point
+	There is also sea level which can rise and cover the height of the hills.
+	Given the Hill matrix a hiker wants to cross from the leftmost column to the rightmost column of this matrix;
+	What is the minimum change in sea level that will ensure that hiker cannot reach the other side (i.e. the last column)
+	Assume the initial sea level is 0; HINT: DP approach
+25. Given an array of integers ,find a triplet i,j,k such that sum(arr[0..i-1])==sum(arr[i+1..j-1])==sum(arr[j+1...k-1])==sum(arr[k+1...end])
+	Q: can you do better than O(n^3)
+26. Given a running stream of bits find the occurence of a given short integer. Note the the incoming stream is endless and everytime the 
+	short value is encountered a flag is raised. How to efficiently represent the data structs for doing this operation?
+27.
