@@ -65,6 +65,13 @@ Solved:
 54. btree_inc_decr_sequence: Given a btree find the longest increasing or decresing sequence (does not have through go through root).
 55. repeated_substring: Given a string S, find the longest repeated substring (i.e. s="abcdabc" o/p="abc") -- Eugene Problemset 4/29
 56. count_repeated_elem: Count repeated elements in a sorted array (hint: using binary search) 
+57. longest_palindrome (leetcode): Find the longest palindromic substring in a given string
+58. integre_dist: Given an array (i) Determine whether there exists 2 values in array with a diff at most k (i.e. diff <=k)
+	(ii) whether two values in the array are indentical and their diff in position is at most D (i.e. a[i]==a[j] && j-i<=D
+	(iii) both (i) and (ii) hold true i.e. two values seperated by at most D distance and diff in values of at most K 
+	Note: for iii. better complexity is O(NlogN) and best is O(n)
+
+59. sbbst: Self balancing BST methods and functions
 
 
 Todo Questions:
@@ -106,7 +113,7 @@ Todo Questions:
 	A rabbit starts in the middle, or plot closest to middle with the most carrots and always goes up down left or right after eating 
 	to the plot with the most carrots. No negative entries, write some code that given a garden matrix, you return the number of carrots 
 	a rabbit would eat in it.  
-24. Hills zie and sea level problem. Given a matrix Hill MxN dimension Hill[i][j] represents the height of the hill for that point
+24. Hills size and sea level problem. Given a matrix Hill MxN dimension Hill[i][j] represents the height of the hill for that point
 	There is also sea level which can rise and cover the height of the hills.
 	Given the Hill matrix a hiker wants to cross from the leftmost column to the rightmost column of this matrix;
 	What is the minimum change in sea level that will ensure that hiker cannot reach the other side (i.e. the last column)
