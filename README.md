@@ -72,6 +72,9 @@ Solved:
 	Note: for iii. better complexity is O(NlogN) and best is O(n)
 
 59. sbbst: Self balancing BST methods and functions
+60. Array_shuffle:
+61. Given a non-empty integer array, find the minimum number of moves required to make all array elements equal, where a move 
+	is incrementing a selected element by 1 or decrementing a selected element by 1.
 
 
 Todo Questions:
