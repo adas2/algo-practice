@@ -75,7 +75,17 @@ Solved:
 60. Array_shuffle:
 61. Given a non-empty integer array, find the minimum number of moves required to make all array elements equal, where a move 
 	is incrementing a selected element by 1 or decrementing a selected element by 1.
-
+62. recursive_file_read: Read a directory recursively and print all file
+63. islands: Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water 
+	and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are 
+	all surrounded by water. Leetcode (#200)
+64. Given a network in the form of a binary tree where edge weight represent network latency, find the path between two nodes with max latency
+	NOTE: Path can not pass through root; HINT: similar to diameter of binary tree
+65. unique_array_element: Given an array of repeated elements find the following (i) arra has all element repeated twice except one
+	(ii) array has all elements repeated twice except 2; (iii) array has all elements repeated 3 times except 1 (tricky)
+	All time complexity O(n) and space O(1)
+66. test_recursive_file: Iterate through the current directory structure and list all files recursively. (sample code from internet)
+67. 
 
 Todo Questions:
 ===============
