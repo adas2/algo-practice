@@ -85,7 +85,11 @@ Solved:
 	(ii) array has all elements repeated twice except 2; (iii) array has all elements repeated 3 times except 1 (tricky)
 	All time complexity O(n) and space O(1)
 66. test_recursive_file: Iterate through the current directory structure and list all files recursively. (sample code from internet)
-67. 
+67. Producer_consumer: Sample producer consumer problem with shared global Qeueue using mutex and cond_vars
+68. coin_change: Given a denomintaion vector e.e. {1,2,5,10} find how many ways can you generate change for value V (e.g. 17)
+	Hint: DP similar to Knapsack problem; assume we have infinite supply of coins for the given denominations
+	Part (ii): slight modification: find the minimum number of coins that can be used to make up the denomination
+69. 
 
 Todo Questions:
 ===============
@@ -135,4 +139,8 @@ Todo Questions:
 	Q: can you do better than O(n^3)
 26. Given a running stream of bits find the occurence of a given short integer. Note the the incoming stream is endless and everytime the 
 	short value is encountered a flag is raised. How to efficiently represent the data structs for doing this operation?
-27.
+27. Big number addtion: Given two big numbers inputed as strings find the sum of the numbers and output it as a string of another big number
+28. Circular Queue implementation [queue which wraps around with the last element]
+29. From an input stream read a short byte and raise a flag when it is of value k (eg. k=0xab)
+30. 
+
