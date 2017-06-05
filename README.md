@@ -89,7 +89,8 @@ Solved:
 68. coin_change: Given a denomintaion vector e.e. {1,2,5,10} find how many ways can you generate change for value V (e.g. 17)
 	Hint: DP similar to Knapsack problem; assume we have infinite supply of coins for the given denominations
 	Part (ii): slight modification: find the minimum number of coins that can be used to make up the denomination
-69. 
+69. sort_0_1: Given an array or 0's and 1's, sort them such that 0's appear and then 1's appear. e.g. Arr={0,1,1,0, 1,1} --> {0,0,1,1,1,1}
+70. 
 
 Todo Questions:
 ===============
@@ -142,5 +143,6 @@ Todo Questions:
 27. Big number addtion: Given two big numbers inputed as strings find the sum of the numbers and output it as a string of another big number
 28. Circular Queue implementation [queue which wraps around with the last element]
 29. From an input stream read a short byte and raise a flag when it is of value k (eg. k=0xab)
+	//try doing in single passa
 30. 
 
