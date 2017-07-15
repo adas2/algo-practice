@@ -276,8 +276,8 @@ void List::detectAndRemoveCycle()
 		return;
 	//first detect if there is a cycle
 	Node *sp=this->head;
-	Node *fp=sp->next;
-	Node *p;
+	Node *fp=sp->nex();
+	Node *p=NULL; //pointer to where slow and fast p's merge
 
 	while(sp && fp && fp->nex())
 	{
@@ -292,26 +292,45 @@ void List::detectAndRemoveCycle()
 	}
 	if(!sp || !fp || !fp->nex())
 		return; //not a cyclic linked list
-
+        else
+            cout << "List has cycle detected at " << p << endl;
 	//count the number of nodes in the cycle
-	Node *p2=p->nex();
-	int cnt =1;
+	
+        Node *p2=p->nex();
+	
+        int cnt =1;
 	while(p2!=p)
 	{
-		p2->nex();
+		p2=p2->nex();
 		cnt++;
 	}
-
+        cout << "Count of loop nodes: " << cnt << endl;
+        
 	//detect the first and last node of cycle
 	int num=1;
-	p2=this->head;
-	while(num!=cnt)
+	p=p2=this->head;
+        Node *prev=NULL; //prev node pointer
+        //set the pointer p2 to cnt+1 th node
+	while(num!=cnt+1)
 	{
 		p2=p2->nex();
+                num++;
 	}
-
-
-	//change the last cycle noe to NULL
+        //let n be the num nodes in the noncyclical part
+        //p2 is thus at (cnt+1)-n element in the cycle
+        //start moving p from head and p2 from cnt+1; after n hops they will meet at start of cycle
+        /**/
+        while(p!=p2)
+        {
+            p=p->nex();
+            prev=p2;
+            p2=p2->nex();
+            
+        }
+        /**/
+        
+        //change the last cycle node to NULL
+        prev->setNext(NULL);
 
 	return;
 
@@ -345,9 +364,12 @@ int main()
 
   //lt->printList();
 
-  if (lt->isCyclePresent())
-    cout << "List has a cycle" << endl;
-
+  //if (lt->isCyclePresent())
+    //cout << "List has a cycle" << endl;
+  
+  lt->detectAndRemoveCycle();
+  lt->printList();
+  
   //cout << "Middle value: " << lt->getMiddleValue() << endl;
 
   //cout << "3rd last element: " << lt->getNthValueFromEnd(3) << endl;;
