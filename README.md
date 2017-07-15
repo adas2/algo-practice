@@ -144,5 +144,11 @@ Todo Questions:
 28. Circular Queue implementation [queue which wraps around with the last element]
 29. From an input stream read a short byte and raise a flag when it is of value k (eg. k=0xab)
 	//try doing in single passa
-30. 
+30. Pizza Order: In a pizza shop customers order pizzas and based on the pizza then order it takes a certain amount of time. The pizza cook 
+	can only cook one pizza at a time; if the customers are served on a first come first serve basis the waiting time can be significant;
+	Given a times at which the orders come to the pizza shop and the time it takes to make each such order, how can you minimize the 
+	avergae waiting time for each order. Waiting time for each order = (finish time)-(start time for that order);
+	E.g. start_time = {1,2,3} cook_time = {2,9,6}; if the pizzas are cooked in order total wait time = (3-1)+(12-2)+(18-3)= 27
+	However; if the pizzas are cooked in the order 1,3,2 then the wait time = (3-1)+(9-3)+(18-2)=24; hence avg waiting time is less in second case
+31. Clone a linked list with next and random pointer - ideally in O(1) space. You are given a linked list which has a next pointer and a random pointer that points to a random node in the linked list. You have to clone this linked list.
 
