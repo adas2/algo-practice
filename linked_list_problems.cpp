@@ -56,9 +56,15 @@ public:
   void create_cycle(){
     this->tail->setNext(this->head);
   }
+  void createCycle(Node *rand)
+  {
+	this->tail->setNext(rand);	
+  }
   string getMiddleValue();
   string getNthValueFromEnd(int n);
+  Node* getNthPtr(int n);
   void reverseListRecursive();
+  void detectAndRemoveCycle();
 
 private:
   Node *head;
@@ -91,8 +97,9 @@ void List::insertAfterTail(string value)
 {
   //create last node
   Node *nd = new Node(value, NULL);
-  //attach the node to original tail
-  this->tail->setNext(nd);
+  //if tail is not NULL attach the node to original tail
+  if(!this->tail)
+  	this->tail->setNext(nd);
   //update tail
   this->tail = nd;
   //if only element update head 
@@ -161,7 +168,7 @@ bool List::isCyclePresent()
   n2 = head->nex();
   
   //iterate till end of the list if reached; check for n2 reaching NULL or before
-  while(n2 && (n2->nex())){
+  while(n1 && n2 && (n2->nex())){
     //cout << "n1: " << n1->val()<< "\tn2: " << n2->val()<< endl;
     if(n1==n2)
       return true;
@@ -190,6 +197,26 @@ string List::getMiddleValue()
     }
   return p1->val();
 }
+//return pointer to the nth value
+Node* List::getNthPtr(int n)
+{
+  //can't be less than tail i.e. 1
+  if (n<1)
+    return NULL;
+
+  int cnt = 1;
+  Node *curr = this->head;
+
+  //iterate till cnt is reached
+  while ((cnt!=n) && curr)
+    {
+      curr = curr->nex();
+      ++cnt;
+    }
+
+  return curr;
+}
+
 
 //one pass function
 string List::getNthValueFromEnd(int n)
@@ -222,6 +249,7 @@ string List::getNthValueFromEnd(int n)
   return p->val();
 }
 
+//Recursive version
 void List::reverseListRecursive()
 {
   //return if head ==NULL or only node 
@@ -242,6 +270,52 @@ void List::reverseListRecursive()
   
 }
 
+void List::detectAndRemoveCycle()
+{
+	if(!this->head)
+		return;
+	//first detect if there is a cycle
+	Node *sp=this->head;
+	Node *fp=sp->next;
+	Node *p;
+
+	while(sp && fp && fp->nex())
+	{
+		if(sp==fp)
+		{
+			//cycle detected at p
+			p=sp;
+			break;
+		}
+		sp=sp->nex();
+		fp=fp->nex()->nex();
+	}
+	if(!sp || !fp || !fp->nex())
+		return; //not a cyclic linked list
+
+	//count the number of nodes in the cycle
+	Node *p2=p->nex();
+	int cnt =1;
+	while(p2!=p)
+	{
+		p2->nex();
+		cnt++;
+	}
+
+	//detect the first and last node of cycle
+	int num=1;
+	p2=this->head;
+	while(num!=cnt)
+	{
+		p2=p2->nex();
+	}
+
+
+	//change the last cycle noe to NULL
+
+	return;
+
+}
 
 int main()
 {
@@ -266,14 +340,18 @@ int main()
   //test a cycle
   //lt->create_cycle();
 
-  lt->printList();
+  //create a cycle with 3rd node
+  lt->createCycle( lt->getNthPtr(3) );
+
+  //lt->printList();
+
   if (lt->isCyclePresent())
     cout << "List has a cycle" << endl;
 
-  cout << "Middle value: " << lt->getMiddleValue() << endl;
+  //cout << "Middle value: " << lt->getMiddleValue() << endl;
 
-  cout << "3rd last element: " << lt->getNthValueFromEnd(3) << endl;;
+  //cout << "3rd last element: " << lt->getNthValueFromEnd(3) << endl;;
 
-  lt->reverseListRecursive();
-  lt->printList();
+  //lt->reverseListRecursive();
+  //lt->printList();
 }

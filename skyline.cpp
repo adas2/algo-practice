@@ -1,3 +1,6 @@
+/** This is the naive solution ***/
+/** Optimal complexity is (nlogn) where n is the number of critival points***/
+
 #include <iostream>
 #include <vector>
 #include <climits>
