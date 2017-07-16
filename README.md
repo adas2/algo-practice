@@ -89,8 +89,9 @@ Solved:
 68. coin_change: Given a denomintaion vector e.e. {1,2,5,10} find how many ways can you generate change for value V (e.g. 17)
 	Hint: DP similar to Knapsack problem; assume we have infinite supply of coins for the given denominations
 	Part (ii): slight modification: find the minimum number of coins that can be used to make up the denomination
-69. sort_0_1: Given an array or 0's and 1's, sort them such that 0's appear and then 1's appear. e.g. Arr={0,1,1,0, 1,1} --> {0,0,1,1,1,1}
-70. 
+69. sort_0_1: Given an array or 0's and 1's, sort them such that 0's appear and then 1's appear. e.g. Arr={0,1,1,0, 1,1} --> {0,0,1,1,1,1} 
+70. Clone a linked list with next and random pointer - ideally in O(1) space. You are given a linked list which has a next pointer and a random pointer that points to a random node in the linked list. You have to clone this linked list.
+
 
 Todo Questions:
 ===============
@@ -150,5 +151,4 @@ Todo Questions:
 	avergae waiting time for each order. Waiting time for each order = (finish time)-(start time for that order);
 	E.g. start_time = {1,2,3} cook_time = {2,9,6}; if the pizzas are cooked in order total wait time = (3-1)+(12-2)+(18-3)= 27
 	However; if the pizzas are cooked in the order 1,3,2 then the wait time = (3-1)+(9-3)+(18-2)=24; hence avg waiting time is less in second case
-31. Clone a linked list with next and random pointer - ideally in O(1) space. You are given a linked list which has a next pointer and a random pointer that points to a random node in the linked list. You have to clone this linked list.
 
