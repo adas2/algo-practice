@@ -11,19 +11,18 @@ int countSubarrayMultiple(vector<int> arr, int k)
   if (arr.size()==0 || k<0)
     return 0;
 
-  //total count of occurences
+  //total count of occurrences
   int total_cnt = 0;
     
   //create array with modulus(k) of running array sum
-  vector<int> mod_sum;
-  //intialize
-  mod_sum.resize(arr.size());
-  int sum = arr[0];
-  mod_sum[0]=sum%k;
-  for(int i=1; i< arr.size(); ++i)
+  vector<int> mod_sum(arr.size());
+
+  int sum = 0;
+  //mod_sum[0]=sum%k;
+  for(int i=0; i< arr.size(); ++i)
     {
       sum += arr[i];
-      //store modulus k of the cumultaive sum
+      //store modulus k of the cumulative sum
       mod_sum[i] = sum%k;
     }
 
@@ -32,7 +31,7 @@ int countSubarrayMultiple(vector<int> arr, int k)
     cout << x << " ";
   cout << endl;
   
-  //define hash maps to store the mod(kof ) subarray and corresponfing freq
+  //define hash maps to store the mod(k) of subarray and corresponding freq
   unordered_map<int,int> modMap;
   //insert null count i.e. when no elements added modulus is 0 and count 1 
   modMap.insert(make_pair(0,1));
@@ -42,7 +41,7 @@ int countSubarrayMultiple(vector<int> arr, int k)
     {
       if(modMap.find(mod_sum[i])==modMap.end())
 	{//insert
-	  //first occurence hence frequency counter=1
+	  //first occurrence hence frequency counter=1
 	  modMap.insert(make_pair(mod_sum[i],1)); 
 	}
       else{

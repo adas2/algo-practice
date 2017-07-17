@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 using namespace std;
 
 int find_max_sum_subarray(vector<int> arr)
@@ -14,8 +15,8 @@ int find_max_sum_subarray(vector<int> arr)
   //define current_sum, max_sum, and max_index (optional)
   int curr_sum = arr[0];
   int max_sum = curr_sum;
-  int max_index_start = 0; //index whch starts the max sum
-  int max_index_end = 0; //index whch ends the max sum
+  int max_index_start = 0; //index which starts the max sum
+  int max_index_end = 0; //index which ends the max sum
 
   //iterate through the array 
   for(int i=0; i<arr.size()-1; ++i )
