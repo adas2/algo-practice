@@ -62,7 +62,7 @@ Solved:
 51. TreeZigZag: given a binary tree, find the zig zag traversal for the tree (leetcode)
 52. MatrixZero: Given a matrix convert the row and column of an element == 0 with all zeros; do this with constant space O(1)
 53. 01matrix: Given a matrix find the closest path of an element from the nearest zero. (leetcode)
-54. btree_inc_decr_sequence: Given a btree find the longest increasing or decresing sequence (does not have through go through root).
+54. btree_inc_decr_sequence: Given a btree find the longest increasing or decreasing sequence (does not have through go through root).
 55. repeated_substring: Given a string S, find the longest repeated substring (i.e. s="abcdabc" o/p="abc") -- Eugene Problemset 4/29
 56. count_repeated_elem: Count repeated elements in a sorted array (hint: using binary search) 
 57. longest_palindrome (leetcode): Find the longest palindromic substring in a given string
@@ -94,7 +94,9 @@ Solved:
 71. AlphaOrder: Given the alphabet encoded as numbers (e.g., a=1, b=2, ..., z=26), and a sequence of numbers (e.g., "23413259802"), how many strings can be generated
 72. SubArrayMaxAverage: Given an array with positive and negative numbers, find the maximum average subarray of given length
 73. BigNum: Big number addition: Given two big numbers inputed as strings find the sum of the numbers and output it as a string of another big number
-75. 
+75. Calendar_conflict: Given n appointments/meetings each with a start time and end time, find all conflicting meetings; find slots which does not have conflicts.
+76. BitAdder: Given two binary strings, print the binary sum of the two. E.g. A="101" B="110" C="1011"
+77. 
 
 Todo Questions:
 ===============
