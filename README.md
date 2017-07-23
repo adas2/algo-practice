@@ -96,7 +96,11 @@ Solved:
 73. BigNum: Big number addition: Given two big numbers inputed as strings find the sum of the numbers and output it as a string of another big number
 75. Calendar_conflict: Given n appointments/meetings each with a start time and end time, find all conflicting meetings; find slots which does not have conflicts.
 76. BitAdder: Given two binary strings, print the binary sum of the two. E.g. A="101" B="110" C="1011"
-77. 
+77. BracketValidator: Alternative String Parenthesis normalizer. 
+78. ShuffledDeck: Find is a shuffled deck of cards is a single riffle. (check riffle definition) 
+79. SearchRotated: 
+
+
 
 Todo Questions:
 ===============
