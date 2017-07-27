@@ -10,8 +10,9 @@ using namespace std;
 
 class Solution {
 public:
+    //Divide without using the division operator
   int divide(int dividend, int divisor) {
-    int quotient = 0; //
+    
     int remainder = abs(dividend);
     int dvsr = abs(divisor);
     //set sign bit XOR of dividend -ve? and divsr -ve?
@@ -44,8 +45,10 @@ public:
 
       //if(divisor == 1)
       //return dividend;
+    
+      int quotient = 0; //
       
-      //subtract till remiander is less that divisor
+      //subtract till remainder is less that divisor
       while(remainder >= dvsr)
 	{
 	  //increase the dvisior size by a factor 2 by shifting

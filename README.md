@@ -99,8 +99,9 @@ Solved:
 77. BracketValidator: Find if the string has unmatched brackets; alternative version: String Parenthesis normalizer/sanitizer "((((a(b)" ==> "a(b)"  
 78. ShuffledDeck: Find is a shuffled deck of cards is a single riffle. (check riffle definition) 
 79. SearchRotated: Search a number is a arbitrarily rotated sorted array e.g. arr={4,5,6,7,1,2} search (arr,1) should return 4
-80. NumberPad: Givena numerical string for a telephone number, print all possible strings for the same
-81. 
+80. NumberPad: Given a numerical string for a telephone number, print all possible strings for the same
+81. SortedIntersection: Find intersection of two sorted arrays. Use constant space and linear time algorithms.
+82.  
 
 
 Todo Questions:
@@ -127,7 +128,7 @@ Todo Questions:
 	Return the longest path size. Tip: snake is a increasing subsequence where next elements differs by 1 (consecutive path)
 17. Given a huge database with n records (equivalent to n rows), a user has changed k records (k << n) without remembering which k-s have been
 	changed; how to sync the database without transmitting the entire database.
-18. Given a number M find the smallest number consisiting of 0's and 1's that is divisible by M; e.g. for M=3 Num=111, for M=7 Num=1001
+18. Given a number M find the smallest number consisting of 0's and 1's that is divisible by M; e.g. for M=3 Num=111, for M=7 Num=1001
 	Hint: http://math.stackexchange.com/questions/388165/how-to-find-the-smallest-number-with-just-0-and-1-which-is-divided-by-a-give
 	Target O(M^2)
 19. Find the longest substring without repeating characters in a given string. target O(n) time. Hint: similar to max_sum
@@ -135,7 +136,7 @@ Todo Questions:
 	You are given the Dict structure with a method Dict.contains(string s) which return true or false.
 21. Given a map with Parcels (small variable boundary area) and given a list of points find the parcels with the max points. 
 	Note: you are given an API bool PointInParcel(lat, long, parcel_boundary) which returns true or false; but this is very expensive
-	So ideally you would like to minimize the calls to this function as much a possible. If needed you can represent the parcles
+	So ideally you would like to minimize the calls to this function as much a possible. If needed you can represent the parcels
 	using your own data structures.
 22. Anti-spiral traversal in a matrix
 23. Given an NxM matrix representing a garden, each entry contains a number, which is the number of carrots in that plot. 
@@ -151,7 +152,7 @@ Todo Questions:
 	Q: can you do better than O(n^3)
 26. Given a running stream of bits find the occurrence of a given short integer. Note the the incoming stream is endless and every time the 
 	short value is encountered a flag is raised. How to efficiently represent the data structs for doing this operation?
-27. 
+27. Print Binary Tree in level order:
 28. Circular Queue implementation [queue which wraps around with the last element]
 29. From an input stream read a short byte and raise a flag when it is of value k (eg. k=0xab)
 	//try doing in single pass
@@ -161,4 +162,11 @@ Todo Questions:
 	average waiting time for each order. Waiting time for each order = (finish time)-(start time for that order);
 	E.g. start_time = {1,2,3} cook_time = {2,9,6}; if the pizzas are cooked in order total wait time = (3-1)+(12-2)+(18-3)= 27
 	However; if the pizzas are cooked in the order 1,3,2 then the wait time = (3-1)+(9-3)+(18-2)=24; hence avg waiting time is less in second case
+31. Interval_Tree: Find calendar appointment conflicts using interval tree
+32. Implement strstr(string s1, string s2) method: Search a string s2 in a given string s1, return the position at which match occurs. 
+        Tweak: return all positions of match if there are multiple occurrences or s2 in s1
+33. Expression evaluation: Evaluate an expression containing integers, '+', '-', '*', '/' and '()'
+34. word_search: Given a set of dictionary words search a query string. The query string can have a '*' in it indicating any character can take that spot.
+    E.g. Word List = ["peak", "pete", "peek", "pint"}  Query: "p**t" -> true, "p*nk" -> false, "peak" -> true etc.
+35. 
 

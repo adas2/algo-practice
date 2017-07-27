@@ -4,6 +4,8 @@ using namespace std;
 
 class Solution {
 public:
+    //  Input: base=x, exponent=n
+    //Output: x^n
   double myPow(double x, int n) {
     if(n==0)
       return 1;
@@ -13,7 +15,7 @@ public:
     long double result = 1, temp;
     unsigned int mask =1; // masking the bits in the exponent
     while (mask !=0){
-      //first ietration is 2^0; x*(2^0)=x;
+      //first iteration is 2^0; x*(2^0)=x;
       if(count==0)
 	temp = x;
       else
