@@ -30,13 +30,14 @@ private:
   //??KEEP A STRUCT FOR KEEPING RANGES
 };
 
-//contructor
+//constructor
 SegTree::SegTree(vector<int> arr, int a_size)
 {
     //resize the main array
     s_size=a_size;
-    //calulcate depth of tree
+    //calculate depth of tree
     depth = ceil(log2(s_size));
+    //create multi-level array, lowest level original array, highest level is the cumulative sum
     s_arr.resize(depth+1);
     s_arr[0]=arr;
     
@@ -45,7 +46,8 @@ SegTree::SegTree(vector<int> arr, int a_size)
     int i=1; int cnt = s_size; 
     //cout << "main array size " << ceil((double)cnt/2) << endl;
         
-    //resize the auxillary arrays
+    //resize the auxiliary arrays
+    //i: current depth of the tree
     while(i<=depth)
       {
 	cnt = ceil((double)cnt/2);
@@ -54,7 +56,7 @@ SegTree::SegTree(vector<int> arr, int a_size)
 	//calculate the cum sum for this level
 	//j : index of previous level, k: index of current level
 	for(int j=0, k=0; k<cnt; ++k,j+=2){
-	  //if last elmemnt add it else sum of pairs
+	  //if last element add it else sum of pairs
 	  s_arr[i][k] = (j==(s_arr[i-1].size()-1))?s_arr[i-1][j]:s_arr[i-1][j]+s_arr[i-1][j+1];
 	}
 	++i;
@@ -82,14 +84,15 @@ void SegTree::printTree()
   return;
 }
 
-
+// s: start e: end d: current depth idx: starting index for current level
+//O(logN) operations to get sum for a range
 int SegTree::get_sum(int s, int e, int d, int idx)
 {
   //corner case check
   if(s<0 || e>=s_arr[0].size())
     return INT_MIN;
 
-  //start with the deeepest array (root node)
+  //start with the deepest array (root node)
   //coverage range for this depth
   int coverage = (1<<d); //i.e. idx to idx+coverage-1
   // start and end of range for this depth

@@ -32,8 +32,8 @@ Solved:
 27. twosum: Given an array and a target value find two elements in the array whose sum = target
 28. threesum: Given an array and target find 3 numbers in array whose sum = target 
 29. array_rotate: Rotate array of length N by K elements 
-30. point_dist: Given N points in a 2D plain, find k points closest to the origin (0,0). Note: k << N find optimal solution in log[k]
-31. Lined_list_problems: Linked list implementation and functions from meetup group assignment
+30. pointdist: Given N points in a 2D plain, find k points closest to the origin (0,0). Note: k << N find optimal solution in O(Nlogk)
+31. linked_list_problems: Linked list implementation and functions from meetup group assignment
 32. bst_lca: Find lowest common ancestor for Binary Search Tree (no parent pointers given)
 33. dictionary: Implement a word dictionary with following funcs: (i) insert word, (ii) search is a word is present 
 	(iii) find the number of words that start with a given prefix (prefix cannot be the whole word)
@@ -101,7 +101,8 @@ Solved:
 79. SearchRotated: Search a number is a arbitrarily rotated sorted array e.g. arr={4,5,6,7,1,2} search (arr,1) should return 4
 80. NumberPad: Given a numerical string for a telephone number, print all possible strings for the same
 81. SortedIntersection: Find intersection of two sorted arrays. Use constant space and linear time algorithms.
-82.  
+82. segment_tree: Sample Segment Tree implementation using multi-level arrays with UpdateSum() procedure.  
+83. 
 
 
 Todo Questions:

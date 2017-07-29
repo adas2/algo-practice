@@ -1,8 +1,10 @@
 #include <iostream>
 #include <queue>
-#include <cmath>
+//#include <cmath>
 
-#define dist(x,y) sqrt((x*x)+(y*y))
+//#define dist(x,y) sqrt((x*x)+(y*y))
+//Square of the distance is good enough, eliminates extra match operation
+#define dist2(x,y) ((x*x)+(y*y))
 
 using namespace std;
 
@@ -11,7 +13,7 @@ typedef struct point{
   double y;
 }pt;
 
-//given N point vector find k cloests from origin
+//given N points vector find k closest from origin
 void k_closest(vector<pt> pts_arr, int k)
 {
   if (k > pts_arr.size())
@@ -20,21 +22,24 @@ void k_closest(vector<pt> pts_arr, int k)
       return;
     }
 
-  //create prioity queue with K points
+  //create priority queue with K points [MAX-heap property by using 'less']
   priority_queue<double, vector<double>, less<int> > k_dist; 
   //calculate distance for first k points points
-  vector<pt>::iterator it = pts_arr.begin();
-  for (int i=0; i<k; ++it, ++i)  //O(k)
+  vector<pt>::iterator it;
+  //Time = O(k)
+  for (it = pts_arr.begin(); it < pts_arr.begin()+k; ++it)  
     {
-      double distance = dist((*it).x, (*it).y); 
-      k_dist.push(distance);
+      double distance = dist2((*it).x, (*it).y); 
+      k_dist.push(distance); //O(logk)
     }
 
   //for remaining N-k points choose if they can be included in the k_dist
-  while(it!=pts_arr.end())  //O(N)
+  //O(N-k) 
+  while(it!=pts_arr.end())  
     {
-      double distance = dist((*it).x, (*it).y);
-      if(distance<k_dist.top())
+      double distance = dist2((*it).x, (*it).y);
+      //distance is less than max dist in the priority queue
+      if(distance < k_dist.top())
 	{
 	  //remove highest dist from queue and push this distance
 	  k_dist.pop();   //Time: O(logK)
@@ -43,8 +48,7 @@ void k_closest(vector<pt> pts_arr, int k)
       ++it;
     }
 
-  //print k closest points
-  //priority_queue<double>::iterator qt;
+  //print the k closest distances
   while(!k_dist.empty())
     {
       cout << "Dist: " << k_dist.top() << endl;
@@ -58,7 +62,7 @@ int main()
 {
   vector<pt> my_points;
   int a, b;
-  int num = 5;
+  int num = 10;
 
   while (num){
     cout << "Enter points: " << endl;
