@@ -163,11 +163,11 @@ Todo Questions:
 	average waiting time for each order. Waiting time for each order = (finish time)-(start time for that order);
 	E.g. start_time = {1,2,3} cook_time = {2,9,6}; if the pizzas are cooked in order total wait time = (3-1)+(12-2)+(18-3)= 27
 	However; if the pizzas are cooked in the order 1,3,2 then the wait time = (3-1)+(9-3)+(18-2)=24; hence avg waiting time is less in second case
-31. Interval_Tree: Find calendar appointment conflicts using interval tree
+31. Interval_Tree: Find calendar appointment conflicts using interval tree; Alternate implementation for Calendar_conflict problem
 32. Implement strstr(string s1, string s2) method: Search a string s2 in a given string s1, return the position at which match occurs. 
         Tweak: return all positions of match if there are multiple occurrences or s2 in s1
 33. Expression evaluation: Evaluate an expression containing integers, '+', '-', '*', '/' and '()'
-34. word_search: Given a set of dictionary words search a query string. The query string can have a '*' in it indicating any character can take that spot.
+34. SearchWord: Given a set of dictionary words search a query string. The query string can have a '*' in it indicating any character can take that spot.
     E.g. Word List = ["peak", "pete", "peek", "pint"}  Query: "p**t" -> true, "p*nk" -> false, "peak" -> true etc.
 35. 
 

@@ -84,7 +84,7 @@ void SegTree::printTree()
   return;
 }
 
-// s: start e: end d: current depth idx: starting index for current level
+// s: start e: end such that s->e is thus query range; d: current depth; idx: starting index for current level
 //O(logN) operations to get sum for a range
 int SegTree::get_sum(int s, int e, int d, int idx)
 {
@@ -96,9 +96,9 @@ int SegTree::get_sum(int s, int e, int d, int idx)
   //coverage range for this depth
   int coverage = (1<<d); //i.e. idx to idx+coverage-1
   // start and end of range for this depth
-  int s_i = idx*coverage;
-  int s_j = s_i + coverage - 1;
-  //if the range is completely covered then return value;
+  int s_i = idx*coverage; //this is the starting index of the actual array covered by this range
+  int s_j = s_i + coverage - 1; //this is the ending index of the actual array covered by this range
+  //if the range covered by this level is completely within the query range then return value;
   if(s <= s_i && e >= s_j){
     //cout << "covered at depth, indx " << d << " " << idx << " returning: " << s_arr[d][idx] << endl;
     return s_arr[d][idx];
@@ -109,12 +109,14 @@ int SegTree::get_sum(int s, int e, int d, int idx)
       //cout << "Out of range at depth, idx  " << d << " " << idx << " returning: 0" << endl;
       return 0;
     }
-  //else return go one level up and send the sum of two halves
+  //else if there is a partial overlap between the query range and range of the tree
+  //    go one level up and send the sum of two halves
   return get_sum(s, e, d-1, 2*idx) + get_sum(s, e, d-1, 2*idx+1); 
 }
 
 //update the value at the index in the original array by adding val
 //NOTE: val is the delta
+//loc: index of the increment, val: new delta to add to, d: current depth, idx: starting index for the current depth
 void SegTree::update_sum(int loc, int val, int d, int idx)
 {
   //start at root node lowest depth

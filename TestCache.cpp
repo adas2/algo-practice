@@ -12,6 +12,7 @@ using namespace std;
 #define SUCCESS true
 #define FAILURE false 
 
+//cache entry: index, value
 typedef pair<string, string> EntryPair; 
 
 class TestCache
@@ -49,6 +50,8 @@ unsigned long TestCache::mSize = MAX_SIZE;
 list<EntryPair> TestCache::cacheList;
 unordered_map<string, list<EntryPair>::const_iterator> TestCache::cacheMap;
 
+
+//single object creation
 TestCache& TestCache::getInstance()
 {
   static TestCache tcache(MAX_SIZE);
@@ -76,7 +79,7 @@ bool TestCache::insertEntry(string uuid, string data)
     {
       //cache is full you need to evict entries
       cout << "cache is full" << endl;
-      //invoke LRU eviction polcy
+      //invoke LRU eviction policy
       if(!evictEntry())
 	{
 	  return FAILURE;
@@ -86,7 +89,7 @@ bool TestCache::insertEntry(string uuid, string data)
   //check case: when an existing entry is inserted
   if(cacheMap.find(uuid)!=cacheMap.end())
     {
-      cout << "Data Present and must be overwitten" << endl;
+      cout << "Data Present and must be overwritten" << endl;
       return FAILURE;
     }
   //push the data to front of cList
@@ -94,7 +97,7 @@ bool TestCache::insertEntry(string uuid, string data)
   //create entry in the map
   //error case check if entry is already present?
   cacheMap[uuid] = cacheList.begin();
-  //increment nentries
+  //increment num entries
   nEntries++;
   return SUCCESS;
   
@@ -107,7 +110,7 @@ bool TestCache::readEntry(string uuid, string &buffer)
   if(cacheMap.find(uuid)==cacheMap.end())
     return FAILURE;
   
-  //bring entry to front in list ; splice list to fring (*it) to front;
+  //bring entry to front of list ; splice() list to bring (*it) to front;
   list<EntryPair>::const_iterator it = cacheMap[uuid];
   cacheList.splice(cacheList.begin(),cacheList, it);
   //update map with new pointer
@@ -117,6 +120,7 @@ bool TestCache::readEntry(string uuid, string &buffer)
   return SUCCESS;
 }
 
+//incremental change to entry, instead of full write
 bool TestCache::modifyEntry(string uuid, string add)
 {
   //check if uuid exists 
@@ -159,7 +163,6 @@ bool TestCache::evictEntry()
   //delete Map entry
   cacheMap.erase(cacheList.back().first);
   //delete last element in list
-  //list<EntryPair>::iterator it;
   cacheList.pop_back();
 
   //reduce num entries

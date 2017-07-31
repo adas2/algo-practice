@@ -52,7 +52,7 @@ void zigzagTraverse(TreeNode *root, int level, vector<vector<int> > &tArr)
 //public:
 vector<vector<int> > zigzagLevelOrder(TreeNode* root) 
 {
-  //define a 2D sqaure matrix to hold the result
+  //define a 2D square matrix to hold the result
   
   //initialize result array
   vector<vector<int> > result;
