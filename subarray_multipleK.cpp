@@ -3,6 +3,8 @@
 #include <unordered_map>
 //#include <climits>
 
+//Incorrect solution: check
+
 using namespace std;
 
 int countSubarrayMultiple(vector<int> arr, int k)
@@ -10,6 +12,12 @@ int countSubarrayMultiple(vector<int> arr, int k)
   //error case
   if (arr.size()==0 || k<0)
     return 0;
+
+  //print array 
+  cout << "Input array" << endl;
+  for (auto& x: arr)
+    cout << x << " ";
+  cout << endl;
 
   //total count of occurrences
   int total_cnt = 0;
@@ -26,42 +34,70 @@ int countSubarrayMultiple(vector<int> arr, int k)
       mod_sum[i] = sum%k;
     }
 
-  //print mod array
+  //print modulus array
+  cout << "Modulus %k array" << endl;
   for (auto& x: mod_sum)
     cout << x << " ";
   cout << endl;
   
   //define hash maps to store the mod(k) of subarray and corresponding freq
   unordered_map<int,int> modMap;
+
   //insert null count i.e. when no elements added modulus is 0 and count 1 
   modMap.insert(make_pair(0,1));
 
-  //iterate through the cumulative sum array lookup hashtable
+  //iterate through the modulus sum array lookup hashtable
   for(int i=0; i<mod_sum.size(); ++i)
     {
-      if(modMap.find(mod_sum[i])==modMap.end())
-	{//insert
-	  //first occurrence hence frequency counter=1
-	  modMap.insert(make_pair(mod_sum[i],1)); 
-	}
-      else{
-	//else increment total_count and increase the frequency
-	total_cnt += modMap[mod_sum[i]];
-	modMap[mod_sum[i]]++;
-	//modMap.find(mod_sum[i]).second++;
-      }
-    }
-  
-  return total_cnt;
+      //check if 0 or (k-mod_sum[i]) is already in the hahsMap
+      int key = mod_sum[i];
+      /**
+      if(mod_sum[i]==0) 
+      {
 
+        key = mod_sum[i];
+        
+      }
+      else //mod_sum[i]!=0 
+      { 
+        key = mod_sum[i];
+        
+      }
+      **/
+      if(modMap.find(key)==modMap.end())
+        {
+         //insert first occurrence hence frequency counter=1
+         modMap.insert(make_pair(key,1)); 
+        }
+        else 
+        {
+         //cout << "Found a subarray sum ending at: " << i << endl; 
+         //else increment total_count and increase the frequency
+         total_cnt += modMap[key];
+         //total_cnt += 1 ;
+         modMap[key]++;
+         //cout << "Index: " << << "-"<< i << endl;
+         //modMap.find(mod_sum[i]).second++;
+        }
+      //cout << "Count: " << total_cnt << endl;
+  }  
+  return total_cnt;
 }
+
 
 int main()
 {
-  vector<int> test={4,7,-2,1,18};
-  int k = 5;
-
+  //vector<int> test={4,7,-2,1,18};
+  vector<int> test={15, -5, 3,5,3,9,1};
+  int k = 10;
+  
   int result = countSubarrayMultiple(test, k);
 
-  cout << "Result: " << result << endl;
+  cout << "Num subarray sum that are multiple of : " << k << endl;
+  cout << result << endl;
 }
+
+
+
+
+
