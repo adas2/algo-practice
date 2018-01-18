@@ -51,19 +51,7 @@ int countSubarrayMultiple(vector<int> arr, int k)
     {
       //check if 0 or (k-mod_sum[i]) is already in the hahsMap
       int key = mod_sum[i];
-      /**
-      if(mod_sum[i]==0) 
-      {
-
-        key = mod_sum[i];
-        
-      }
-      else //mod_sum[i]!=0 
-      { 
-        key = mod_sum[i];
-        
-      }
-      **/
+      
       if(modMap.find(key)==modMap.end())
         {
          //insert first occurrence hence frequency counter=1
@@ -71,13 +59,10 @@ int countSubarrayMultiple(vector<int> arr, int k)
         }
         else 
         {
-         //cout << "Found a subarray sum ending at: " << i << endl; 
          //else increment total_count and increase the frequency
          total_cnt += modMap[key];
          //total_cnt += 1 ;
          modMap[key]++;
-         //cout << "Index: " << << "-"<< i << endl;
-         //modMap.find(mod_sum[i]).second++;
         }
       //cout << "Count: " << total_cnt << endl;
   }  
