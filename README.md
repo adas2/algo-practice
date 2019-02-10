@@ -1,8 +1,7 @@
-#! Practice
-Problem solving  
+# Problem Solving Practice
 ========================
 
-Solved:
+## Solved:
 1. Alphapermutation: Find all permutations of a string
 2. bitcount: Count the number of bits in a number
 3. bytelandian problem:
@@ -102,10 +101,13 @@ Solved:
 80. NumberPad: Given a numerical string for a telephone number, print all possible strings for the same
 81. SortedIntersection: Find intersection of two sorted arrays. Use constant space and linear time algorithms.
 82. segment_tree: Sample Segment Tree implementation using multi-level arrays with UpdateSum() procedure.  
-83. 
+83. Longest repeated substring ( in O(logN)): Given a string S, find the longest repeated substring (i.e. s="abcdabc" o/p="abc") -- Eugene Problemset 4/29
+84. Cow-stable problem: Given a set of x-coordinates and num of cows distribute the cows such that max separation is achieves (cows close to each other will fight). Hint: Exp Binary Seacrh?
+85. Predecessor timestamp problem: Given hahs table with funcs: Get(key, timestamp) and Put(key, val, tstamp) find the last value with timestamp <= given timestamp(T);
+86. Sorted intersection of arrays of size N and M in ~O(M) time where M ~ N; for N >> M expected complexity O(MlogN). Note previous implementation was O(M+N).   
 
 
-Todo Questions:
+## Todo Questions:
 ===============
 1. Robot Problem
 2. Using Rand5() design Rand7()
@@ -130,7 +132,7 @@ Todo Questions:
 17. Given a huge database with n records (equivalent to n rows), a user has changed k records (k << n) without remembering which k-s have been
 	changed; how to sync the database without transmitting the entire database.
 18. Given a number M find the smallest number consisting of 0's and 1's that is divisible by M; e.g. for M=3 Num=111, for M=7 Num=1001
-	Hint: http://math.stackexchange.com/questions/388165/how-to-find-the-smallest-number-with-just-0-and-1-which-is-divided-by-a-give
+	Hint: [link](http://math.stackexchange.com/questions/388165/how-to-find-the-smallest-number-with-just-0-and-1-which-is-divided-by-a-give)
 	Target O(M^2)
 19. Find the longest substring without repeating characters in a given string. target O(n) time. Hint: similar to max_sum
 20. Word break: Given a sentence (in string) return true if the characters can be broken down into words which are contained in a dictionary.
