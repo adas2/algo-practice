@@ -6,7 +6,8 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	arr := []int{2, 4, -6, 3, 5, 1}
+	arr := []int{2, 4, -6, 7, 3, 1}
+	// arr := []int{7, 7, 7, 7, 7}
 	var out_index []int
 	var tg int = 7
 	out_index = TwoSum(arr, tg)
