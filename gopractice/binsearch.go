@@ -41,14 +41,13 @@ func BinarySearchClosest(arr []int, target int, low int, high int) int {
 			high = mid-1
 		}
 	}
-	// no match found
+	// return best candidate
 	return candidate
 }
 
-// BinarySearchRepeated find target in array of repeated elements 
-// with index of the last occurence
+// BinarySearchLast finds first index of target in array of repeated elements 
+// or index of the next larger element
 func BinarySearchLast(arr []int, target int, low int, high int) int {
-
 	if low>high{
 		return -1 //err case
 	}
@@ -57,16 +56,17 @@ func BinarySearchLast(arr []int, target int, low int, high int) int {
 	// iterative impl
 	for low <= high{
 		mid := low+(high-low)/2
-		if arr[mid] == target {
-			// potentital last element
-			candidate = mid
-		}
-		if arr[mid] <= target{ // even if a match search right half for better candidate
-			low = mid+1
-		}else{ // arr[mid] > target
+		// if arr[mid] == target {
+		// 	// potentital last element
+		// 	candidate = mid
+		// }
+		if arr[mid] >= target{ // even if a match search right half for better candidate
 			high = mid-1
+			candidate = mid
+		}else { // arr[mid] < target
+			low = mid+1
 		}
 	}
-	return candidate
+	return candidate //returns -1 if target not present
 }
 

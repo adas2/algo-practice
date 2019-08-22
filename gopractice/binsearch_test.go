@@ -18,7 +18,7 @@ func TestBinarySearchVanilla(t *testing.T){
 func TestBinarySearchClosest(t *testing.T){
 	arr := []int{2,3,4,7,7,7,7,15,23}
 	fmt.Println("Array:", arr)
-	target := 1
+	target := 7
 	index := BinarySearchClosest(arr, target, 0, len(arr)-1)
 	fmt.Println(target, index)
 	target = 28
@@ -27,12 +27,12 @@ func TestBinarySearchClosest(t *testing.T){
 }
 
 func TestBinarySearchLast(t *testing.T){
-	arr := []int{2,4,4,4,6,7}
+	arr := []int{2,4,5,5,6,7}
 	fmt.Println("Array:", arr)
-	target := 4
+	target := 5
 	index := BinarySearchLast(arr, target, 0, len(arr)-1)
 	fmt.Println(target, index)
-	target = 15
+	target = 4
 	index = BinarySearchLast(arr, target, 0, len(arr)-1)
 	fmt.Println(target, index)
 }
