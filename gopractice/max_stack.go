@@ -7,6 +7,7 @@ import (
 
 // Implement a stack with find_max() method that returns the largest (int) value in the stack
 // Expected time O(1) for find_max()
+// How abut a 0(1) time and O(1) space solution? Check: Problems.md
 
 // MaxStack is a simple array based stack
 type MaxStack struct {
