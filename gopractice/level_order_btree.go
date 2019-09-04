@@ -25,9 +25,8 @@ func PrintLevelOrder(w io.Writer, tree *bTree) {
 		// piick front node
 		node := queue[0]
 
-		// output node
+		// consume/output node
 		fmt.Fprintf(w, "%d ", node.val)
-		// fmt.Printf("%d ", queue[0])
 
 		// dequeue when done with this node [CHECK?]
 		queue = queue[1:]

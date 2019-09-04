@@ -5,11 +5,6 @@ import (
 	"testing"
 )
 
-// var (
-// 	tree *bTree
-// 	err  error
-// )
-
 func TestInsertNode(t *testing.T) {
 	bt := newBTree()
 	bt.InsertNode(35)
@@ -30,5 +25,4 @@ func TestConstructBTree(t *testing.T) {
 	}
 	fmt.Println("After Construction")
 	InorderPrintTree(tree.root)
-	// PrintLevelOrder(os.Stdout, tree)
 }

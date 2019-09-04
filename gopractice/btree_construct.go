@@ -12,13 +12,6 @@ type bTree struct {
 	root *btreeNode
 }
 
-// reeIface is a generic tree interface
-type TreeIface interface {
-	InsertNode(int)
-	DeleteNode()
-	SearchVal()
-}
-
 // tree cobstructor
 func newBTree() *bTree {
 	return &bTree{root: nil}
