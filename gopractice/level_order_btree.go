@@ -17,11 +17,9 @@ func PrintLevelOrder(w io.Writer, tree *bTree) {
 	queue := make([]*btreeNode, 0)
 	// insert root
 	queue = append(queue, tree.root)
-	// levelOrder(w, tree.root, queue)
 
 	// while queue not empty
 	for len(queue) != 0 {
-		// fmt.Println("Queue:", queue, "len: ", len(queue))
 		// piick front node
 		node := queue[0]
 
