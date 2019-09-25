@@ -5,9 +5,14 @@
 2. Add two large numbers in the form of linked list of it's digits in reverse order
 3. Level order tree traversal
 4. Construct binary tree given pre- and in-order traversals (non-empty)
+5. Array intersection (leetcode)
 
 # Todo's
 1. Max water volume problem (leetcode)
+2. Most Stones Removed (leetcode)
+3. Unique URL (leetcode)
+4. Roman numerals
+
 
 # Links
 * Golang [slice tricks](https://github.com/golang/go/wiki/SliceTricks)

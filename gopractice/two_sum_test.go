@@ -13,5 +13,4 @@ func TestTwoSum(t *testing.T) {
 	out_index = TwoSum(arr, tg)
 	fmt.Println(arr)
 	fmt.Println(out_index)
-
 }

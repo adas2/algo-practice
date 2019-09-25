@@ -38,8 +38,8 @@ func TestMaxStack(t *testing.T) {
 	}
 	fmt.Println("max:", st.FindMax())
 	fmt.Println("peek:", st.Peek(), "empty?", st.IsEmpty())
-	if err := st.Pop(); err != nil {
-		t.Fatalf("Pop error")
+	if err := st.Pop(); err == nil {
+		t.Fatalf("Expecting error")
 	}
 	// st.Pop()
 }

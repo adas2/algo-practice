@@ -31,7 +31,7 @@ func Intersect(nums1 []int, nums2 []int) []int {
 // create map with array elements as key and counter as value
 func createMap(arr []int) map[int]int {
     cMap := map[int]int{}
-    for i := 0; i < len(arr); i++ {
+    for i := range arr {
         if _, ok := cMap[arr[i]]; ok {
             cMap[arr[i]]++
         } else {
@@ -43,7 +43,7 @@ func createMap(arr []int) map[int]int {
 
 func intersectHelper(arr []int, cMap map[int]int) []int {
     var out []int
-    for j := 0; j < len(arr); j++ {
+    for j := range arr {
         if val, ok := cMap[arr[j]]; ok && val > 0 {
             out = append(out, arr[j])
             cMap[arr[j]]--
