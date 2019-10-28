@@ -6,6 +6,9 @@
 3. Level order tree traversal
 4. Construct binary tree given pre- and in-order traversals (non-empty)
 5. Array intersection (leetcode)
+6. Merge sorted linked list (revision)
+7. Longest repeated, non-overlapping substring
+
 
 # Todo's
 1. Max water volume problem (leetcode)
