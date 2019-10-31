@@ -30,20 +30,22 @@
 2. Apache log ? Find the top IP addresses, white space 
 	Parse IP address and find the top hit  						[DONE]
 
-3. Given Sentence, find which letter is missing					[]
+3. Given Sentence, find which letter is missing					[DONE]
 
 <!-- Medium: -->
 4. Cross country road trip, grid filled with matrix representating 
-find optimal path find the path with max value					[]
+find optimal path find the path with max value	NY -> San Diego	[DONE]
 
 5. Given list of scores, find average grid,
 	scores <student, score>: <A,10>, <B,5>, <A,15>: Avg: <A,12.5>, <B,5>
+																[]
 
-6. Largest tree: disconnected tress, find the tree with largest size return the id (min)
+6. Largest tree: disconnected tress, find the tree with largest size 
+	return the min id if multiple output 						[] 
 
 7. Longest word: given a string of letters and dictionary, find the longest word (sort the words)
 
-8. Distance between strings: hamming distance (DP problems); 
+8. Distance between strings: hamming distance (DP problem) 		[DONE]
 
 9. Given two words return the shortest dist between their midpoints
 E.g. Given sentence: "This is a sample doc we can use, that we just created"; shortest distnace between "we" and "created"; note word "we" can occur multiple times
