@@ -22,6 +22,7 @@
 * Golang [regular expressions](https://gobyexample.com/regular-expressions)
 * Do while/ While [loops](https://yourbasic.org/golang/do-while-loop/) 
 * Declaring [2D slices/array](https://stackoverflow.com/questions/39804861/what-is-a-concise-way-to-create-a-2d-slice-in-go)
+* [Stack](https://stackoverflow.com/questions/28541609/looking-for-reasonable-stack-implementation-in-golang) and [Queue](https://stackoverflow.com/questions/2818852/is-there-a-queue-implementation)implementations with slices
 
 
 <!-- Todos -->
@@ -40,7 +41,7 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 	scores <student, score>: <A,10>, <B,5>, <A,15>: Avg: <A,12.5>, <B,5>
 																[]
 
-6. Largest tree: disconnected tress, find the tree with largest size 
+6. Largest tree: disconnected trees, find the tree with largest size 
 	return the min id if multiple output 						[] 
 
 7. Longest word: given a string of letters and dictionary, find the longest word (sort the words)
