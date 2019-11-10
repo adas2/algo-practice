@@ -20,3 +20,19 @@ func TestFindDictWord(t *testing.T) {
 
 	fmt.Println(FindDictWord(s, d))
 }
+
+func TestFindSubstrings(t *testing.T) {
+	s := "panama"
+
+	fmt.Println(FindSubstrings(s))
+}
+
+func TestFindClosestWord(t *testing.T) {
+
+	s := "stones"
+
+	d := []string{"to", "toe", "note", "tone", "sons", "toner"}
+
+	fmt.Println(FindClosestWord(s, d))
+
+}

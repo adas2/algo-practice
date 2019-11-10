@@ -54,7 +54,7 @@ func FindMissingLetters(s string) []string {
 	return output
 }
 
-// Given a string of words, find which belong to a dictionary
+// Simple: Given a string of words, find which belong to the given dictionary
 func FindDictWord(s string, dict []string) []string {
 	// outp
 	outp := []string{}
@@ -62,13 +62,6 @@ func FindDictWord(s string, dict []string) []string {
 	// sort the dict
 	sort.Strings(dict)
 	fmt.Println(dict)
-
-	// sort the individual words of the dict
-	// for _, w := range dict {
-	// 	r := []rune(w)
-	// 	sort.Sort(str(r))
-	// 	fmt.Println(string(r))
-	// }
 
 	// create map of the sorted dic strings
 	// split sentence into words (space separate)
@@ -89,4 +82,77 @@ func FindDictWord(s string, dict []string) []string {
 // rune is the code point conversion of a char
 func toChar(i int) rune {
 	return rune('a' - 1 + i)
+}
+
+// Intermediate: Given a string and dictionary, find the longest substring match
+// E.g. Dict: {"to", "toe", "note, "tone", "ones", "toner"},
+// Input str: "stones" --> out: {"tone", "ones"}; all same len strings
+func FindClosestWord(s string, dict []string) []string {
+
+	var sortedDict []string
+
+	// sort the individual words of the dict
+	for _, w := range dict {
+		r := str(w)
+		sort.Sort(r)
+		// add to sortedDict
+		sortedDict = append(sortedDict, string(r))
+	}
+
+	// sort the sorted dictionary entries
+	sort.Strings(sortedDict)
+	fmt.Println(sortedDict)
+
+	// sort the given string
+	// r := str(s)
+	// sort.Sort(r)
+	// s = string(r)
+	// fmt.Println("Sorted string:", s)
+
+	// find all substrings of sorted string: longest to shortest
+	subStrList := FindSubstrings(s)
+	// subStr := FindPermutaionsMain(s)
+
+	// sort each substring
+	for i := range subStrList {
+		r := str(subStrList[i])
+		sort.Sort(r)
+		subStrList[i] = string(r)
+	}
+	fmt.Println(subStrList)
+
+	// for all substrings search in sorted dictionary
+	// var maxLen int = 0
+	var out []string
+	for _, sub := range subStrList {
+		index := sort.SearchStrings(sortedDict, sub)
+		if index < len(dict) && sortedDict[index] == sub {
+			// fmt.Println(wList[i])
+			out = append(out, sub)
+		}
+	}
+
+	return out
+}
+
+// Given a string find all possible substrings
+func FindSubstrings(s string) []string {
+	// null string
+	if len(s) == 0 {
+		return nil
+	}
+
+	str := []rune(s)
+	var out []string
+
+	// pick a low to high
+	for ln := 1; ln <= len(s); ln++ {
+		for start := 0; start <= len(s)-ln; start++ {
+			subS := string(str[start : start+ln])
+			// fmt.Println(subS)
+			out = append(out, subS)
+		}
+	}
+
+	return out
 }
