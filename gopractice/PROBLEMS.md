@@ -7,14 +7,15 @@
 4. Construct binary tree given pre- and in-order traversals (non-empty)
 5. Array intersection (leetcode)
 6. Merge sorted linked list (revision)
-7. Longest repeated, non-overlapping substring
+7. Find an integer convert to Roman numerals (leetcode))[https://leetcode.com/problems/
 
 
 # Todo's
 1. Max water volume problem (leetcode)
 2. Most Stones Removed (leetcode)
-3. Unique URL (leetcode)
-4. Find an integer convert to (Roman numerals)[https://leetcode.com/problems/integer-to-roman/]
+3. Unique URL (leetcode)integer-to-roman/]
+4. Longest repeated, non-overlapping substring
+5. Number of islands (leetcode link)[https://leetcode.com/problems/number-of-islands/]
 
 
 # Links
