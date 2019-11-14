@@ -27,12 +27,14 @@ func TestFindSubstrings(t *testing.T) {
 	fmt.Println(FindSubstrings(s))
 }
 
-func TestFindClosestWord(t *testing.T) {
+func TestFindLongestMatch(t *testing.T) {
 
 	s := "stones"
 
-	d := []string{"to", "toe", "note", "tone", "sons", "toner"}
+	fmt.Printf("Sorted string: %s\n", SortString(s))
 
-	fmt.Println(FindClosestWord(s, d))
+	d := []string{"to", "ton", "toe", "note", "tone", "sons", "toner", "ones"}
+
+	fmt.Println(FindLongestMatch(s, d))
 
 }

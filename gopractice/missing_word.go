@@ -6,22 +6,6 @@ import (
 	"strings"
 )
 
-// define rune type for string operations
-type str []rune
-
-// define interface
-func (r str) Swap(i, j int) {
-	r[i], r[j] = r[j], r[i]
-}
-
-func (r str) Less(i, j int) bool {
-	return r[i] < r[j]
-}
-
-func (r str) Len() int {
-	return len(r)
-}
-
 // Given a sentence and find the missing letters
 func FindMissingLetters(s string) []string {
 	// Create alphabet Map
@@ -87,48 +71,31 @@ func toChar(i int) rune {
 // Intermediate: Given a string and dictionary, find the longest substring match
 // E.g. Dict: {"to", "toe", "note, "tone", "ones", "toner"},
 // Input str: "stones" --> out: {"tone", "ones"}; all same len strings
-func FindClosestWord(s string, dict []string) []string {
+func FindLongestMatch(s string, dict []string) []string {
 
-	var sortedDict []string
+	sort.Strings(dict)
+	// fmt.Println(dict)
 
-	// sort the individual words of the dict
-	for _, w := range dict {
-		r := str(w)
-		sort.Sort(r)
-		// add to sortedDict
-		sortedDict = append(sortedDict, string(r))
-	}
-
-	// sort the sorted dictionary entries
-	sort.Strings(sortedDict)
-	fmt.Println(sortedDict)
-
-	// sort the given string
-	// r := str(s)
-	// sort.Sort(r)
-	// s = string(r)
-	// fmt.Println("Sorted string:", s)
-
-	// find all substrings of sorted string: longest to shortest
+	// find all possible substrings of sorted string: longest to shortest
 	subStrList := FindSubstrings(s)
-	// subStr := FindPermutaionsMain(s)
-
-	// sort each substring
-	for i := range subStrList {
-		r := str(subStrList[i])
-		sort.Sort(r)
-		subStrList[i] = string(r)
-	}
-	fmt.Println(subStrList)
+	// fmt.Println(subStrList)
 
 	// for all substrings search in sorted dictionary
 	// var maxLen int = 0
 	var out []string
+	var matchLen int = 0
 	for _, sub := range subStrList {
-		index := sort.SearchStrings(sortedDict, sub)
-		if index < len(dict) && sortedDict[index] == sub {
-			// fmt.Println(wList[i])
-			out = append(out, sub)
+		index := sort.SearchStrings(dict, sub)
+		if index < len(dict) && dict[index] == sub {
+			// fmt.Println("Match:", sub)
+			// matches are from longer to shorter strings
+			if matchLen <= len(sub) {
+				matchLen = len(sub)
+				out = append(out, sub)
+			} else { // shorter matches
+				break
+			}
+
 		}
 	}
 
@@ -145,8 +112,10 @@ func FindSubstrings(s string) []string {
 	str := []rune(s)
 	var out []string
 
-	// pick a low to high
-	for ln := 1; ln <= len(s); ln++ {
+	// pick a len long to short
+	// for ln := 1; ln <= len(s); ln++ {
+	for ln := len(s); ln > 0; ln-- {
+		// pick indices
 		for start := 0; start <= len(s)-ln; start++ {
 			subS := string(str[start : start+ln])
 			// fmt.Println(subS)
