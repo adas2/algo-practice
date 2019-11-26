@@ -9,6 +9,7 @@
 6. Merge sorted linked list (revision)
 7. Find an integer convert to Roman numerals (leetcode)
 8. Number of islands [leetcode link](https://leetcode.com/problems/number-of-islands/)
+9. Maximize profit over given stock prices (EPI/Leetcode)
 
 
 # Todo's
@@ -16,6 +17,8 @@
 2. Most Stones Removed (leetcode)
 3. Unique URL (leetcode)
 4. Longest repeated, non-overlapping substring
+5. Binary tree balancing
+6. Binary tree node deletion
 
 
 # Links
