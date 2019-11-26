@@ -37,7 +37,7 @@ func (t *bTree) InsertNode(aVal int) /**bTree*/ {
 	return
 }
 
-// indert a value at a given node
+// insert a value at a given node/root, return update node/root
 func (nPtr *btreeNode) insert(aVal int) *btreeNode {
 	if nPtr == nil {
 		// create node
@@ -54,8 +54,69 @@ func (nPtr *btreeNode) insert(aVal int) *btreeNode {
 }
 
 // DeleteNode searches the value and deletes it
-func (*bTree) DeleteNode(aVal int) error {
-	return nil
+// BST searching: assumes no duplicate values
+func (t *bTree) DeleteNode(aVal int) {
+	t.root = t.root.delete(aVal)
+	return
+}
+
+func (nPtr *btreeNode) delete(aVal int) *btreeNode {
+	// empty tree
+	if nPtr == nil {
+		return nil
+	}
+
+	// if value matches node vale
+	if aVal == nPtr.val {
+		fmt.Println("Match value:", aVal)
+		// case 1: leaf node: delete the node
+		if nPtr.left == nil && nPtr.right == nil {
+			nPtr = nil
+		} else if nPtr.left == nil && nPtr.right != nil {
+			// case 2a: one child only, swap child with node, delete node
+			nPtr.clearNode()
+			nPtr = nPtr.right
+		} else if nPtr.right == nil && nPtr.left != nil {
+			// case 2b: one child only, swap child with node, delete node
+			nPtr.clearNode()
+			nPtr = nPtr.left
+		} else {
+			// case 3: both children present, find next largest, i.e. leftmost in right subtree
+			aPtr := nPtr.right.findLeftmost()
+			// note successor in this case is always a leaf
+			nPtr = aPtr
+			// aPtr = nil
+		}
+
+	}
+
+	// parent = nPtr
+	if nPtr.val > aVal {
+		nPtr = nPtr.left.delete(aVal)
+	} else {
+		nPtr = nPtr.right.delete(aVal)
+	}
+	// else { //equal
+
+	// }
+	return nPtr
+}
+
+func (nPtr *btreeNode) clearNode() {
+	nPtr.val = -1   // safety
+	nPtr.left = nil //safety
+	nPtr.right = nil
+	return
+}
+
+// helper to find the next largest element
+func (nPtr *btreeNode) findLeftmost() *btreeNode {
+	// leftmost child of the right subtree
+	if nPtr.left != nil {
+		nPtr.left.findLeftmost()
+	}
+
+	return nPtr
 }
 
 // ConstructBTree creates a binary tree from inorder (iot) and preorder (pot) traversal
