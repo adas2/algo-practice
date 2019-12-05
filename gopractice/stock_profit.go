@@ -10,7 +10,7 @@ type period struct {
 }
 
 // multi transaction max profit
-// seeling allowed only after buying
+// selling allowed only after buying
 func maxProfit(prices []int) int {
 	// max profit
 	var maxP int
