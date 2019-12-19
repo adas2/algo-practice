@@ -1,2 +1,11 @@
 # Execs
 *.out
+*.exe
+
+# Folders
+backup
+
+# Data
+*.dat
+*.txt
+#
