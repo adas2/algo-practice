@@ -1,6 +1,7 @@
 package practice
 
 import (
+	"fmt"
 	"math/bits"
 )
 
@@ -15,6 +16,7 @@ func NewBitNum() BitNum {
 	return BitNum{bitSlice: []uint{}}
 }
 
+// Fix this
 func AddBits(a, b BitNum, carry uint) (BitNum, uint) {
 	var maxLen int
 	// way of finding max
@@ -36,7 +38,8 @@ func AddBits(a, b BitNum, carry uint) (BitNum, uint) {
 		bit = sum % 2
 		carry = sum / 2
 
-		out = AppenBit(out, bit)
+		// out = AppenBit(out, bit)
+		fmt.Println(bit)
 	}
 	return out, carry
 }

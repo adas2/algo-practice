@@ -22,6 +22,7 @@ func ParseIntoTokens(input string, delims ...rune) []string {
 		}
 		return flag
 	}
+	// can specify fixed number of delimeters
 	// f2 := func(c rune) bool {
 	// 	return c == ',' || c == ' ' || c == '!'
 	// }

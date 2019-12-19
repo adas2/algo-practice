@@ -21,9 +21,7 @@
 6. Binary tree node deletion
 7. K-balanced binary tree
 8. Rotation point in a string array
-
-// 2. Given a binary tree, find whether it is balanced or not? 
-// Definition of balanced: diff between the left and right subtree  at any node is <2
+9. Given a binary tree, find whether it is balanced or not? Definition of balanced: diff between the left and right subtree  at any node is <2 (EPI)
 
 ========
 
@@ -49,7 +47,7 @@
 4. Cross country road trip, grid filled with matrix representating 
 find optimal path find the path with max value	NY -> San Diego	[DONE]
 
-5. Given list of scores, find average grid,
+5. Given list of scores, find average grade, input is given in stream format
 	scores <student, score>: <A,10>, <B,5>, <A,15>: Avg: <A,12.5>, <B,5>
 																[]
 

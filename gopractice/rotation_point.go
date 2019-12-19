@@ -57,3 +57,5 @@ func findRotationPoint(strList []string) int {
 	return candidate
 
 }
+
+// Better approach with smaller code footprint available
