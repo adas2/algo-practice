@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func testChannels() {
 	ch := make(chan string, 10)
 	quit := make(chan bool, 1)
 
@@ -20,7 +20,7 @@ func main() {
 
 	// kill after sometime
 	go func() {
-		time.Sleep(5 * time.Second)
+		time.Sleep(1 * time.Second)
 		quit <- true
 	}()
 
