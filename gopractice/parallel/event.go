@@ -58,7 +58,7 @@ func (b *Button) TriggerEvent(event string, action string) {
 }
 
 // create event using channels
-func main() {
+func testEvent() {
 	myButton := createButton()
 
 	// define event handler channels
