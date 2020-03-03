@@ -24,7 +24,7 @@ func LongestRepeatingSubstring(S string) int {
 			// fmt.Println(i, j)
 			if S[i] == S[j] {
 				lrs[i][j] = lrs[i-1][j-1] + 1
-				maxLen = max(maxLen, lrs[i][j])
+				maxLen = Max(maxLen, lrs[i][j])
 			} else {
 				lrs[i][j] = 0
 			}
@@ -33,13 +33,6 @@ func LongestRepeatingSubstring(S string) int {
 
 	// return the max len
 	return maxLen
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 
 // Dynamic Porgramming approach (overlap allowed):

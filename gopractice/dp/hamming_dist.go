@@ -1,9 +1,5 @@
 package dp
 
-import (
-	"math"
-)
-
 // easy problem
 // find distance beween two strings
 func HammingDistance(s1, s2 string) int {
@@ -64,7 +60,8 @@ func EditDistance(s1, s2 string) int {
 }
 
 func findMin(a, b, c int) int {
-	return int(math.Min(math.Min(float64(a), float64(b)), float64(c)))
+	// return int(math.Min(math.Min(float64(a), float64(b)), float64(c)))
+	return Min(Min(a, b), c)
 }
 
 // Logic explained:
