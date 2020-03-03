@@ -151,6 +151,10 @@ func main() {
         for t := range tick.C {
             select {
             case timeChannel <- t:
+                // bursts of 10 for every tick
+                // for i := 0; i < 10; i++ {
+                //     timeChannel <- time.Now()
+                // }
             default:
             }
         } // does not exit after tick.Stop()
@@ -218,7 +222,8 @@ func createRequests(reqChannel chan *Request) {
     }
 
     // wait before adding new batch of requests
-    time.Sleep(5 * time.Second)
+    fmt.Println("Adding more jobs at", time.Now())
+    time.Sleep(3 * time.Second)
     for i := 25; i < 50; i++ {
         req := &Request{
             ID:  i,
@@ -226,7 +231,7 @@ func createRequests(reqChannel chan *Request) {
         }
         reqChannel <- req
     }
-    fmt.Println("Adding more jobs at", time.Now())
+
     /*
        time.Sleep(1 * time.Second)
        for i := 200; i < 300; i++ {
