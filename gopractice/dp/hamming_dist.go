@@ -1,4 +1,4 @@
-package practice
+package dp
 
 import (
 	"math"

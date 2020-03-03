@@ -1,4 +1,4 @@
-package practice
+package dp
 
 // return length; overlapping allowed
 func LongestRepeatingSubstring(S string) int {
