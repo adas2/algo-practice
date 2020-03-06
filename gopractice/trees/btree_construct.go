@@ -1,6 +1,10 @@
-package practice
+package trees
 
-import "fmt"
+import (
+	"fmt"
+
+	"adas2.io/practice"
+)
 
 type btreeNode struct {
 	val   int
@@ -142,7 +146,7 @@ func constructbNode(pot, iot []int, li, ri int) (*btreeNode, error) {
 	var index int
 	var err error
 	target := pot[li]
-	if index = BinarySearchVanilla(iot, target, 0, len(iot)-1); index == -1 {
+	if index = practice.BinarySearchVanilla(iot, target, 0, len(iot)-1); index == -1 {
 		return nil, fmt.Errorf("node %d not found in Inorder Traversal list", target)
 	}
 	// value found: create new node corresponding to same

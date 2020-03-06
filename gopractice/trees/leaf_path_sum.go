@@ -1,4 +1,4 @@
-package practice
+package trees
 
 // find the bit repesentation of the path
 func findLeafPathSum(root *btreeNode) int {
