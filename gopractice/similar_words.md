@@ -4,12 +4,13 @@
 
 2. Assume this functionality is converted into a service where multiple clients requests need to simultaneously; suggests some ways we can optimize this algorithm for performace and response time. 
 
-// sample logic
+```// sample logic
 SpellCheckService(ServiceRequest req, ServiceResponse resp){
 	word := processRequest(req)
 	candidateList := findSimilarCandidates(word)
 	resp.EncodeIntoResponse(candidateList)
 }
+```
 
 Hint: Is single synchronous process good enough? Can we have concurrency? Can we have caching?
 Bonus: Do we have any race conditions in our approach? How do we resolve them?
