@@ -1,3 +1,5 @@
+# Problem solutions in golang
+
 <!-- This describes solved/intended-to-solve problem set with pointers to sample solutions -->
 # Solved
 1. Max Element in a stack  
@@ -28,6 +30,7 @@
 * Declaring [2D slices/array](https://stackoverflow.com/questions/39804861/what-is-a-concise-way-to-create-a-2d-slice-in-go)
 * [Stack](https://stackoverflow.com/questions/28541609/looking-for-reasonable-stack-implementation-in-golang) and [Queue](https://stackoverflow.com/questions/2818852/is-there-a-queue-implementation)implementations with slices
 * [Concatanate strings](https://www.geeksforgeeks.org/different-ways-to-concatenate-two-strings-in-golang/)  in Go 
+* [Context usage](http://p.agnihotry.com/post/understanding_the_context_package_in_golang/) in Go
 
 
 <!-- Todos -->
@@ -54,7 +57,8 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 8. Distance between strings: hamming distance (DP problem) 		[DONE]
 
 9. Given two words return the shortest dist between their midpoints
-E.g. Given sentence: "This is a sample doc we can use, that we just created"; shortest distnace between "we" and "created"; note word "we" can occur multiple times
+E.g. Given sentence: "This is a sample doc we can use, that we just created"; 
+shortest distnace between "we" and "created"; note word "we" can occur multiple times
 
 
 

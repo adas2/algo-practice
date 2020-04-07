@@ -6,6 +6,7 @@ Dynamic Porgramming practice in Golang
 1. Longest repeated prefix
 2. Max profit coin game
 3. Edit distance 
+4. Min Coin change (322)
 
 
 ## Todo's
