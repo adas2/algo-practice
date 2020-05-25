@@ -1,5 +1,4 @@
-# Problems
-
+# DP Problems
 Dynamic Porgramming practice in Golang
 
 ## Solved
@@ -7,6 +6,7 @@ Dynamic Porgramming practice in Golang
 2. Max profit coin game
 3. Edit distance 
 4. Min Coin change (322)
+5. Max dot product (DP version)
 
 
 ## Todo's
