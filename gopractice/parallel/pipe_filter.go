@@ -5,7 +5,7 @@ import (
 	"runtime"
 )
 
-func main() {
+func pipeFilterMain() {
 	runtime.GOMAXPROCS(2)
 	ch := make(chan int)
 	go generate(ch)

@@ -5,18 +5,19 @@ import (
 	"fmt"
 	"math"
 )
+
 const (
 	lineNo = 10
-	colNo = 12
+	colNo  = 12
 )
 
 type SyntaxError struct {
-    Line int
-    Col  int
+	Line int
+	Col  int
 }
 
 func (e *SyntaxError) Error() string {
-    return fmt.Sprintf("%d:%d: syntax error", e.Line, e.Col)
+	return fmt.Sprintf("%d:%d: syntax error", e.Line, e.Col)
 }
 
 func circleArea(radius float64) (float64, error) {
@@ -26,24 +27,24 @@ func circleArea(radius float64) (float64, error) {
 	return math.Pi * radius * radius, nil
 }
 
-func main() {
+func errHandlingMain() {
 	radius := -20.0
 	area, err := circleArea(radius)
 	/*
-	if err != nil {
-		//etype := err.(type)
-		fmt.Printf("Error %v in line\n", err.Col)
-		return
-	}
+		if err != nil {
+			//etype := err.(type)
+			fmt.Printf("Error %v in line\n", err.Col)
+			return
+		}
 	*/
 	switch e := err.(type) {
-    	case *SyntaxError:
-        	// Do something interesting with e.Line and e.Col.
+	case *SyntaxError:
+		// Do something interesting with e.Line and e.Col.
 		fmt.Printf("Error %v in line %d\n", err, e.Line)
 		return
- 
-    	default:
-        	fmt.Println(e)
+
+	default:
+		fmt.Println(e)
 	}
-	fmt.Printf("Area of circle %0.2f", area)    
+	fmt.Printf("Area of circle %0.2f", area)
 }
