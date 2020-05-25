@@ -9,3 +9,6 @@ backup
 *.dat
 *.txt
 *.bak
+
+# env
+.vscode
