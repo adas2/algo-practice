@@ -22,6 +22,7 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 16. Largest tree: disconnected trees, find the tree with largest size 
 	return the min id if multiple output (see connected components)
 17. Dangerous Script (see regexp_fun.md)
+18. First missing positive element in an array [LC #41]
 
 
 

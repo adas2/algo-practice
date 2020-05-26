@@ -8,7 +8,7 @@ For a list of solved problems check [Problems page](./PROBLEMS.md)
 2. Elements of Programming Interviews [EPI]
 3. Leetcode [LC]
 4. GeeksForGeeks [GFG]
-5. Tech Interviews Competitive Programming [TICP]
+5. Tech Interviews & Competitive Programming [TICP]
 
 
 ## Important Links
