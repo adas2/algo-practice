@@ -9,6 +9,7 @@ For a list of solved problems check [Problems page](./PROBLEMS.md)
 3. Leetcode [LC]
 4. GeeksForGeeks [GFG]
 5. Tech Interviews & Competitive Programming [TICP]
+6. Interview cake [IC]
 
 
 ## Important Links
