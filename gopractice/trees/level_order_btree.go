@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-// level order traversal for a Binary Tree
+// PrintLevelOrder is level order traversal for a Binary Tree
 // BFS style traversal
 // Time: O(N) Space: O(N)
 func PrintLevelOrder(w io.Writer, tree *bTree) {

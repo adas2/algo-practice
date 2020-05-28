@@ -21,8 +21,7 @@ func newBTree() *bTree {
 	return &bTree{root: nil}
 }
 
-// Methods:
-// inorder traversal of the binary search
+// InorderPrintTree :inorder traversal of the binary search
 func InorderPrintTree(root *btreeNode) {
 	if root != nil {
 		// print left subtree
