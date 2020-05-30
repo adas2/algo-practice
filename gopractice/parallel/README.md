@@ -7,7 +7,7 @@
 3. Events
 4. Mutexes
 5. Pipe Filter Concurrency
-6. Sample pa 
+6. Sample parallel service
 
 ## Todo
 

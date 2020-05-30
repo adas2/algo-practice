@@ -1,7 +1,8 @@
 package dp
 
 // easy problem
-// find distance beween two strings
+
+// HammingDistance find distance beween two strings
 func HammingDistance(s1, s2 string) int {
 	// length must match
 	if len(s1) != len(s2) {
@@ -19,7 +20,8 @@ func HammingDistance(s1, s2 string) int {
 }
 
 // harder problem
-// edit distance: changes (insert, remove, alter) needed to convert string1 --> string2
+
+// EditDistance : changes (insert, remove, alter) needed to convert string1 --> string2
 func EditDistance(s1, s2 string) int {
 
 	// declare a 2D slice initialized to zero by default

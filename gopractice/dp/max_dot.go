@@ -40,7 +40,7 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 	return dp[len(nums1)][len(nums2)]
 }
 
-// util func
+// FourMax is an util func to find the max of 4 ints
 func FourMax(a, b, c, d int) int {
 	return Max(Max(Max(a, b), c), d)
 }

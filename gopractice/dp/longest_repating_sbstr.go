@@ -1,6 +1,6 @@
 package dp
 
-// return length; overlapping allowed
+// LongestRepeatingSubstring return length; overlapping allowed
 func LongestRepeatingSubstring(S string) int {
 
 	// create/init LRS 2D slice

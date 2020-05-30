@@ -13,6 +13,7 @@ import "fmt"
 // 	y int
 // }
 
+// FindMaxValuePath finds the maximum value path
 func FindMaxValuePath(valueMatrix [][]int) {
 	rows := len(valueMatrix)
 	cols := len(valueMatrix[0])
