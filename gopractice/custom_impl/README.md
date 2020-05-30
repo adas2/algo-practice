@@ -1,14 +1,14 @@
-# Parallel Problems
+# Custom Data Structs
 
-## Solved
+Implementaion of non-library based structs in Golang
 
-1. Callback
-2. Go Channels
-3. Events
-4. Mutexes
-5. Pipe Filter Concurrency
-6. Sample pa 
+## Types
 
-## Todo
+1. Set
+2. Stack (thead safe/regular)
+3. Queue (regular)
 
-1. Reader-Writer problem
+
+## Todos
+
+1. Circular Queue
