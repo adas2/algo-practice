@@ -12,3 +12,12 @@ func TestLengthofLIS(t *testing.T) {
 
 	fmt.Println("LIS:", lengthOfLIS(inp))
 }
+
+// patience sorting
+// 2,3,7,18
+
+func TestEfficientLIS(t *testing.T) {
+	inp := []int{10, 9, 2, 5, 3, 7, 101, 18}
+
+	fmt.Println("LIS:", efficientLIS(inp))
+}

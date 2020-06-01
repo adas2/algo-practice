@@ -1,40 +1,15 @@
-package practice
+package graphs
 
-import "fmt"
+import (
+	"fmt"
 
-// type GNode struct {
-// }
+	custom "adas2.io/practice/custom_impl"
+)
 
-// Queue struct used in BST
-type Queue []int
-
-func (q *Queue) Push(v int) {
-
-	*q = append(*q, v)
-}
-
-func (q *Queue) Pop() int {
-	n := len(*q)
-	old := *q
-	*q = old[:n-1]
-
-	return old[n-1]
-}
-
-func (q *Queue) IsEmpty() bool {
-	return (len(*q) == 0)
-}
-
-func (q *Queue) PrintQueue() {
-	for i := range *q {
-		fmt.Printf("%d ", (*q)[i])
-	}
-	fmt.Println()
-}
-
-// Graph struct
+// Graph adj list struct
 type gList []int
 
+// Graph struct
 type Graph struct {
 	V    int     // num vertices
 	adjV []gList // adjacency lists for each vertex
@@ -48,12 +23,7 @@ func initGraph(N int) *Graph {
 
 	// initialize empty lists
 	g.adjV = make([]gList, N)
-	// probably don't need
-	// for i := range g.adjV {
-	// 	g.adjV[i] = nil
-	// }
-
-	// fmt.Println(g.adjV)
+	// fmt.Println("adj list", g.adjV)
 	return g
 }
 
@@ -63,28 +33,24 @@ func (g *Graph) addEdge(u, v int) {
 	g.adjV[v] = append(g.adjV[v], u)
 }
 
-// BST traversal
+// TraverseBST = BST traversal
 func (g *Graph) TraverseBST(source int, discovered []bool) {
 	fmt.Println("BST travresal:")
 
-	// var u int
-	// init Queue
-	q := Queue([]int{})
+	// init Queue to empty
+	q := custom.Queue([]int{})
 
 	// start with src node
 	discovered[source] = true
 	q.Push(source)
 
-	// fmt.Println(discovered)
-	// fmt.Println(g.adjV)
-	// q.PrintQueue()
-
 	// while queue has nodes
 	for q.IsEmpty() == false {
+		// q.PrintQueue()
 		// find adjacent nodes
 		u := q.Pop()
 		// pre-process u
-		fmt.Printf("%v ", u)
+		fmt.Printf("processing %v \n", u)
 		for _, v := range g.adjV[u] {
 			if discovered[v] == false {
 				discovered[v] = true
@@ -98,24 +64,25 @@ func (g *Graph) TraverseBST(source int, discovered []bool) {
 
 }
 
+// FindConnectedComponents finds connected graphs
 func FindConnectedComponents(g *Graph) {
 
 	// create discovered array
 	numNodes := g.V
+	// default init to false
 	discovered := make([]bool, numNodes)
+	// fmt.Println("discovered", discovered)
 
-	for i := range discovered {
-		discovered[i] = false
-	}
-	var c int = 1
+	// init comp count
+	c := 0
 
 	// find components by BST traversal
 	for i := 0; i < numNodes; i++ {
 		if discovered[i] == false {
 			// new component
+			c++
 			fmt.Println("Component:", c)
 			g.TraverseBST(i, discovered)
-			c++
 		}
 	}
 

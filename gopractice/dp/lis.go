@@ -1,5 +1,10 @@
 package dp
 
+import (
+	"fmt"
+	"sort"
+)
+
 // find the longest increasing subsequence in a given array (int)
 
 // method 1: usng dp with O(N^2) complexity
@@ -41,5 +46,54 @@ func lengthOfLIS(nums []int) int {
 // else if no larger element dp[i]=dp[i-1]
 
 // method 2: using patience sorting
+// O(n log n)
+func efficientLIS(nums []int) int {
+	// create empty sequence array
+	seq := make([]int, 0)
+
+	for i, v := range nums {
+		// first num
+		if i == 0 {
+			seq = append(seq, v)
+			continue
+		}
+		// fmt.Println(seq)
+		// find the closest index < v
+		index := sort.SearchInts(seq, v)
+		if index < len(seq) {
+			seq[index] = v
+		} else {
+			// insert the num
+			seq = append(seq, v)
+		}
+		// seq = InsertSorted(seq, nums[i])
+		fmt.Printf("index: %d, sequence array: %v\n", index, seq)
+
+	}
+
+	return len(seq)
+
+}
+
+// InsertSorted inserts into sorted array maintaining its property
+func InsertSorted(s []int, e int) []int {
+	s = append(s, 0)
+	i := sort.Search(len(s), func(i int) bool { return s[i] > e })
+	copy(s[i+1:], s[i:])
+	s[i] = e
+	return s
+}
+
+// explanation:
+// use patience sorting to stack the elements in the order they appear
+// while there are no numbers leftdo the following:
+// 1. place the first number on a new stack
+// 2. one by one place the numbers on the leftmost stack whose top > its value
+// 3. if not such stack create a new one
+// 4. when no nums left calculate the num of stacks created
+// to get a LIS sequence, backtrack using the stack vals
 
 // method 3: using segment trees
+// similar in complexity different implementation
+// find relative index in the array
+// use count segment tree
