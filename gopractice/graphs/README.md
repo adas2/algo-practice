@@ -8,3 +8,4 @@
 1. Dijkstra
 2. Bellman Ford
 3. Strongly Connected Component (Kosaraju's algo)
+4. Topological sort

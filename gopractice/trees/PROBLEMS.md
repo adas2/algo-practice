@@ -9,5 +9,5 @@
 ## Todos
 1. Perimeter of a binary tree
 2. LCA of a tree (see cpp version)
-3. 
+3. Median in a stream of integers (LC #295)
 
