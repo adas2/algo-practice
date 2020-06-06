@@ -16,7 +16,7 @@ func TestThreadSafeStack(t *testing.T) {
 }
 
 func TestSimpleStack(t *testing.T) {
-	s := initStack(10)
+	s := InitStack(10)
 	s.Push(1)
 	s.Push(2)
 	s.Push(3)

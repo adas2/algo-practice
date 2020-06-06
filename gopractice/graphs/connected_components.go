@@ -13,12 +13,14 @@ type gList []int
 type Graph struct {
 	V    int     // num vertices
 	adjV []gList // adjacency lists for each vertex
+	dir  bool    // directed graph?
 }
 
 func initGraph(N int) *Graph {
 	g := &Graph{
 		V:    N,
 		adjV: nil,
+		dir:  false,
 	}
 
 	// initialize empty lists
@@ -30,7 +32,9 @@ func initGraph(N int) *Graph {
 func (g *Graph) addEdge(u, v int) {
 	// undirected graph add two edges
 	g.adjV[u] = append(g.adjV[u], v)
-	g.adjV[v] = append(g.adjV[v], u)
+	if g.dir == false {
+		g.adjV[v] = append(g.adjV[v], u)
+	}
 }
 
 // TraverseBST = BST traversal

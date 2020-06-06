@@ -7,8 +7,8 @@ import "fmt"
 // Sstack simple stack impl
 type Sstack []int
 
-// input max capacity (optional)
-func initStack(cap int) *Sstack {
+// InitStack : input max capacity (optional)
+func InitStack(cap int) *Sstack {
 	stck := make(Sstack, 0, cap)
 	return &stck
 }
@@ -31,4 +31,12 @@ func (s *Sstack) Pop() (int, error) {
 	res := (*s)[n-1]
 	*s = (*s)[:n-1]
 	return res, nil
+}
+
+// IsEmpty tells if stack is empty
+func (s *Sstack) IsEmpty() bool {
+	if len(*s) == 0 {
+		return false
+	}
+	return true
 }
