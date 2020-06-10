@@ -20,6 +20,7 @@ For a list of solved problems check [Problems page](./PROBLEMS.md)
 * [Stack](https://stackoverflow.com/questions/28541609/looking-for-reasonable-stack-implementation-in-golang) and [Queue](https://stackoverflow.com/questions/2818852/is-there-a-queue-implementation) implementations with slices
 * [Concatanate strings](https://www.geeksforgeeks.org/different-ways-to-concatenate-two-strings-in-golang/)  in Go 
 * [Context usage](http://p.agnihotry.com/post/understanding_the_context_package_in_golang/) in Go
+* Golang [bit hacking](https://medium.com/learning-the-go-programming-language/bit-hacking-with-go-e0acee258827)
 
 
 

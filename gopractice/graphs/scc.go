@@ -33,6 +33,7 @@ func (g *Graph) DFSTraversal(src int, visited []bool) {
 
 // DFSUtil is custom DFS util for SCC algo
 // returns the updated stack
+// queue is similar to Top sort (?)
 func (g *Graph) DFSUtil(src int, visited []bool, s *custom.Sstack) {
 	u := src
 	// mark u as visited
