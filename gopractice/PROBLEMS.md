@@ -43,6 +43,8 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 E.g. Given sentence: "This is a sample doc we can use, that we just created"; shortest distnace between "we" and "created"; note word "we" can occur multiple times
 13. Rolling hash for string based text (sub-problem for EPI for string matching)
 14. Substring matching from string s in given text t (Optimal O(m+n) approach where m << n) 
+15. Arithmetic operation on arrays
+16. Find median from a stream of data (order statistics tree)
 
 
 ========
