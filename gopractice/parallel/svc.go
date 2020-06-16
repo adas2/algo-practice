@@ -51,7 +51,7 @@ func testConcurrentAPI() {
 	fmt.Println(elapsed)
 }
 
-//
+// LocationResponse is a response type
 type LocationResponse []struct {
 	Title        string `json:"title"`
 	LocationType string `json:"location_type"`

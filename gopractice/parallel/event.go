@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Button is a button
 type Button struct {
 	eventMap map[string][]chan string
 }

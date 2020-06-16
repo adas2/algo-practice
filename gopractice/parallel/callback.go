@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// PurchaseOrder is sample purchase order
 type PurchaseOrder struct {
 	id    string
 	value float64
