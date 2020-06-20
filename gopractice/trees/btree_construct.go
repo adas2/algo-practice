@@ -75,31 +75,29 @@ func (nPtr *btreeNode) delete(aVal int) *btreeNode {
 		// case 1: leaf node: delete the node
 		if nPtr.left == nil && nPtr.right == nil {
 			nPtr = nil
-		} else if nPtr.left == nil && nPtr.right != nil {
-			// case 2a: one child only, swap child with node, delete node
-			nPtr.clearNode()
+		} else if nPtr.left == nil {
+			// case 2a: right child only, or no child, swap child with node, delete node
+			// nPtr.clearNode()
 			nPtr = nPtr.right
-		} else if nPtr.right == nil && nPtr.left != nil {
-			// case 2b: one child only, swap child with node, delete node
-			nPtr.clearNode()
+		} else if nPtr.right == nil {
+			// case 2b: left child only, or no child, swap child with node, delete node
+			// nPtr.clearNode()
 			nPtr = nPtr.left
 		} else {
 			// case 3: both children present, find next largest, i.e. leftmost in right subtree
 			aPtr := nPtr.right.findLeftmost()
-			// note successor in this case is always a leaf
-			nPtr = aPtr
+			nPtr.val = aPtr.val
+			// successor may not a leaf, hence recursively delete the successor
+			nPtr.right = nPtr.right.delete(aPtr.val)
+			// nPtr = aPtr
 			// aPtr = nil
 		}
 
-	}
-
-	// parent = nPtr
-	if nPtr.val > aVal {
-		nPtr = nPtr.left.delete(aVal)
+	} else if nPtr.val > aVal {
+		nPtr.left = nPtr.left.delete(aVal)
 	} else {
-		nPtr = nPtr.right.delete(aVal)
+		nPtr.right = nPtr.right.delete(aVal)
 	}
-	// else { //equal
 
 	// }
 	return nPtr

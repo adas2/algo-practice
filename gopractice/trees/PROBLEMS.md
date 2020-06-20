@@ -13,3 +13,4 @@
 2. LCA of a tree (see cpp version)
 3. Median in a stream of integers (LC #295)
 4. Tree diameter
+5. Optimal BST
