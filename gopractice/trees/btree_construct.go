@@ -121,7 +121,7 @@ func (nPtr *btreeNode) findLeftmost() *btreeNode {
 }
 
 // ConstructBTree creates a binary tree from inorder (iot) and preorder (pot) traversal
-func ConstructBTree(pot, iot []int) (*bTree, error) {
+func constructBTree(pot, iot []int) (*bTree, error) {
 	// must have equal num non-zero elements
 	if len(iot) != len(pot) {
 		return nil, fmt.Errorf("Invalid input")

@@ -19,7 +19,7 @@ func TestInsertNode(t *testing.T) {
 func TestConstructBTree(t *testing.T) {
 	inOrder := []int{1, 3, 5, 7, 10, 12}
 	preOrder := []int{5, 3, 1, 10, 7, 12}
-	tree, err := ConstructBTree(preOrder, inOrder)
+	tree, err := constructBTree(preOrder, inOrder)
 	if err != nil {
 		t.Fatalf("Contrusction failed %v", err)
 	}

@@ -37,20 +37,18 @@ func findKbalancedUtil(root *btreeNode, k int) (bool, int) {
 
 	if lcheck == true && rcheck == true && findNodeDiff(lcount, rcount) <= k {
 		return true, lcount + rcount + 1
-	} else { //any one of the above is failing
-		// TODO: return the node at which k-imbalance occurs
-		return false, -1 //error code is returned instead of count to avoid confusion
 	}
-
+	//any one of the above is failing
+	// TODO: return the node at which k-imbalance occurs
+	return false, -1 //error code is returned instead of count to avoid confusion
 }
 
 // alternative for math.Abs for ints
 func findNodeDiff(a, b int) int {
 	if a > b {
 		return a - b
-	} else {
-		return b - a
 	}
+	return b - a
 }
 
 // main func

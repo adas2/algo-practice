@@ -89,7 +89,7 @@ func (root *osTreeNode) printTree() {
 // return the node value where k = (root.count - root.right.count)
 func (root *osTreeNode) findKthValue(k int) int {
 	// kth value is is when: following condtion holds
-	// count(root) - count(root.right) == k, return root.value
+	// count(root) - count(root.left) == k, return root.value
 	// else recurse for subtress under root until above is true
 
 	// error case: k cannot be negative
@@ -97,14 +97,10 @@ func (root *osTreeNode) findKthValue(k int) int {
 		return math.MaxInt32
 	}
 
+	lCount := root.left.getCount()
+
 	// terminating condition:
 	// when left subtree has k elements root is the k-th node
-	// leftCount := root.left.count
-	lCount := 0
-	if root.left != nil {
-		lCount = root.left.count
-	}
-
 	if lCount == k {
 		return root.value
 	} else if k < lCount && root.left != nil {
