@@ -23,6 +23,7 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 	return the min id if multiple output (see connected components)
 17. Dangerous Script (see regexp_fun.md)
 18. First missing positive element in an array [LC #41]
+19. Find median from a stream of data (2 heap version) [LC #]
 
 
 
@@ -44,7 +45,7 @@ E.g. Given sentence: "This is a sample doc we can use, that we just created"; sh
 13. Rolling hash for string based text (sub-problem for EPI for string matching)
 14. Substring matching from string s in given text t (Optimal O(m+n) approach where m << n) 
 15. Arithmetic operation on arrays
-16. Find median from a stream of data (order statistics tree)
+<!-- 16. Find median from a stream of data (2 heap version); alternate approach using ostree -->
 
 
 ========

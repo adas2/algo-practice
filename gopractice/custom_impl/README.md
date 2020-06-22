@@ -7,6 +7,7 @@ Implementaion of non-library based structs in Golang
 1. Set
 2. Stack (thead safe/regular)
 3. Queue (regular)
+4. Min and Max Heap
 
 
 ## Todos
