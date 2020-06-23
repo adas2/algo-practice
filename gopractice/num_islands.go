@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-// Given 2 D grid of 0/1 find the number of islands of 1
+// NumIslands : Given 2-D grid of 0/1 find the number of islands of 1
 func NumIslands(grid [][]byte) int {
 	// convert from byte to int format
 	intGrid := convertGridFormat(grid)
@@ -28,7 +28,7 @@ func numIslandsHelper(grid [][]int, visited [][]bool) int {
 		for j := range grid[i] {
 			if grid[i][j] == 1 && !visited[i][j] {
 				visitNbr(grid, visited, i, j)
-				numIslands += 1
+				numIslands++
 				fmt.Printf("Found island: %d\n", numIslands)
 			}
 			// else 0's or visited neighbors

@@ -24,6 +24,7 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 17. Dangerous Script (see regexp_fun.md)
 18. First missing positive element in an array [LC #41]
 19. Find median from a stream of data (2 heap version) [LC #]
+20. Kth element using quickselect in O(n) average case
 
 
 
@@ -42,7 +43,7 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 11. Longest word: given a string of letters and dictionary, find the longest word 
 12. Given two words return the shortest dist between their midpoints
 E.g. Given sentence: "This is a sample doc we can use, that we just created"; shortest distnace between "we" and "created"; note word "we" can occur multiple times
-13. Rolling hash for string based text (sub-problem for EPI for string matching)
+<!-- 13. Rolling hash for string based text (sub-problem for EPI for string matching) -->
 14. Substring matching from string s in given text t (Optimal O(m+n) approach where m << n) 
 15. Arithmetic operation on arrays
 <!-- 16. Find median from a stream of data (2 heap version); alternate approach using ostree -->

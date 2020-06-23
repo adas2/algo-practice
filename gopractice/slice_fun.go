@@ -2,6 +2,7 @@ package practice
 
 import "fmt"
 
+// MySlice is custom slice struct
 type MySlice struct {
 	queue  []int
 	maxcap int

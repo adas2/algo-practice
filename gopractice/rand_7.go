@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// using given func rand5() design rand7() [CCI]
+// Rand7 is designed using given func rand5() [CCI]
 // non-deterministic solution
 func Rand7(rand5 func() int) int {
 

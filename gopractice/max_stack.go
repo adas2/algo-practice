@@ -7,7 +7,7 @@ import (
 
 // Implement a stack with find_max() method that returns the largest (int) value in the stack
 // Expected time O(1) for find_max()
-// How abut a 0(1) time and O(1) space solution? Check: Problems.md
+// How about a 0(1) time and O(1) space solution? Check: Problems.md
 
 // MaxStack is a simple array based stack
 type MaxStack struct {
@@ -18,7 +18,7 @@ type MaxStack struct {
 	maxPtr int   // stack ptr for max stack
 }
 
-// GetStack initializes return handle of MaxStack
+// GetStackHandle initializes return handle of MaxStack
 func GetStackHandle(limit int) *MaxStack {
 	st := &MaxStack{
 		limit: limit,
@@ -39,12 +39,12 @@ func (st *MaxStack) Push(val int) error {
 	}
 	// add the new value
 	st.arr = append(st.arr, val)
-	st.ptr += 1
+	st.ptr++
 
-	// for max array, insert element if largetst value of stack empty
+	// for max array, insert element if largest value of stack empty
 	if st.maxPtr == -1 || (st.max[st.maxPtr] < val) {
 		st.max = append(st.max, val)
-		st.maxPtr += 1
+		st.maxPtr++
 	}
 
 	return nil
@@ -61,11 +61,11 @@ func (st *MaxStack) Pop() error {
 	// note push/pop order is preserved between the stacks
 	// hence just peek in the max array
 	if st.arr[st.ptr] == st.max[st.maxPtr] {
-		st.maxPtr -= 1
+		st.maxPtr--
 	}
 
 	// delete the value from main array by changing stPtr
-	st.ptr -= 1
+	st.ptr--
 
 	return nil
 }

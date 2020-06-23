@@ -1,6 +1,6 @@
 package practice
 
-// Find permutations of a string using recursion,
+// RecursivePermutations finds permutations of a string using recursion,
 // return a list of strings, (pass output by reference)
 func RecursivePermutations(s string, start, end int, out *[]string) {
 	// nill string
@@ -36,14 +36,14 @@ func swapChars(s string, i, j int) string {
 	return string(str)
 }
 
-// main func using
+// FindPermutaionsMain is main func using
 func FindPermutaionsMain(s string) []string {
 
-	perm_strings := []string{}
+	permStrings := []string{}
 
-	RecursivePermutations(s, 0, len(s)-1, &perm_strings)
+	RecursivePermutations(s, 0, len(s)-1, &permStrings)
 
-	return perm_strings
+	return permStrings
 }
 
 // Logic:

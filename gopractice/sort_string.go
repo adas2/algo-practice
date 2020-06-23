@@ -20,7 +20,7 @@ func (r str) Len() int {
 	return len(r)
 }
 
-// better way other than splitting the string into characters
+// SortString is a better way other than splitting the string into characters
 func SortString(s string) string {
 	// convert to rune
 	r := str(s)

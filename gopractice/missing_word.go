@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Given a sentence and find the missing letters
+// FindMissingLetters : Given a sentence and find the missing letters
 func FindMissingLetters(s string) []string {
 	// Create alphabet Map
 	aMap := map[rune]bool{}
@@ -38,7 +38,8 @@ func FindMissingLetters(s string) []string {
 	return output
 }
 
-// Simple: Given a string of words, find which belong to the given dictionary
+// FindDictWord (Simple): Given a string of words,
+// find which belong to the given dictionary
 func FindDictWord(s string, dict []string) []string {
 	// outp
 	outp := []string{}
@@ -68,7 +69,8 @@ func toChar(i int) rune {
 	return rune('a' - 1 + i)
 }
 
-// Intermediate: Given a string and dictionary, find the longest substring match
+// FindLongestMatch (Intermediate): Given a string and dictionary,
+// find the longest substring match
 // E.g. Dict: {"to", "toe", "note, "tone", "ones", "toner"},
 // Input str: "stones" --> out: {"tone", "ones"}; all same len strings
 func FindLongestMatch(s string, dict []string) []string {
@@ -102,7 +104,7 @@ func FindLongestMatch(s string, dict []string) []string {
 	return out
 }
 
-// Given a string find all possible substrings
+// FindSubstrings : Given a string find all possible substrings
 func FindSubstrings(s string) []string {
 	// null string
 	if len(s) == 0 {

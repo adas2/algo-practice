@@ -81,9 +81,9 @@ bool TestCache::insertEntry(string uuid, string data)
       cout << "cache is full" << endl;
       //invoke LRU eviction policy
       if(!evictEntry())
-	{
-	  return FAILURE;
-	}
+      {
+        return FAILURE;
+      }
     }
   
   //check case: when an existing entry is inserted

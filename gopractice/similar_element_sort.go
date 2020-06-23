@@ -16,6 +16,7 @@ import "fmt"
 // right: first occurence of S-object
 // swap left and right, left++, right--
 
+// SortSimilarItems sorts
 func SortSimilarItems(items []string) []string {
 
 	var left, right int
