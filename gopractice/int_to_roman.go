@@ -1,7 +1,7 @@
 package practice
 
+// ConvertToRoman :
 // Given an integer convert to Roman numernals
-
 func ConvertToRoman(num int) string {
 
 	// init variables
@@ -13,7 +13,7 @@ func ConvertToRoman(num int) string {
 	return outp
 }
 
-// recursive call
+// ConvertToRomanHelper using recursive calls
 func ConvertToRomanHelper(num int, partial string, outp *string) {
 
 	// fmt.Println(num, partial)
@@ -40,7 +40,7 @@ func ConvertToRomanHelper(num int, partial string, outp *string) {
 
 }
 
-// find the sym and the num just given the given num
+// FindLargestBelowNum finds the sym and the num just given the given num
 // if eqaul return correct symbol
 func FindLargestBelowNum(num int) (int, string) {
 	// I             1

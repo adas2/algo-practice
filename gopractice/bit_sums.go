@@ -7,15 +7,18 @@ import (
 
 // utility funcs for Bitwise addtions
 
+// BitNum struct
 type BitNum struct {
 	// slice with bits from LSB to MSB (reverse order)
 	bitSlice []uint
 }
 
+// NewBitNum returns empty bitNum
 func NewBitNum() BitNum {
 	return BitNum{bitSlice: []uint{}}
 }
 
+// AddBits bitwise addition
 // Fix this
 func AddBits(a, b BitNum, carry uint) (BitNum, uint) {
 	var maxLen int

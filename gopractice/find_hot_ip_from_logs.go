@@ -8,6 +8,7 @@ import (
 	"regexp"
 )
 
+// FindHotIPAddress :
 // Given an input stream of logs find the hottest IP addresses
 func FindHotIPAddress(r io.Reader) string {
 	// Read bytes buffer from inout
@@ -41,7 +42,7 @@ func FindHotIPAddress(r io.Reader) string {
 	return result
 }
 
-// creates a map of the IP addresses accessed with count
+// CreateIPAddressMap creates a map of the IP addresses accessed with count
 func CreateIPAddressMap(ips [][]byte) map[string]int {
 
 	cMap := map[string]int{}
@@ -50,11 +51,9 @@ func CreateIPAddressMap(ips [][]byte) map[string]int {
 		if _, ok := cMap[string(ip)]; ok {
 			//present
 			cMap[string(ip)]++
-
-		} else { //not present
-
+		} else {
+			//not present
 			cMap[string(ip)] = 1
-
 		}
 	}
 

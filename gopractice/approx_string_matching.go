@@ -2,7 +2,7 @@ package practice
 
 import "sort"
 
-// Recursive backtracking func to find all substring permutations of len == k
+// FindAllSubstrings uses recursive backtracking to find all substring permutations of len == k
 func FindAllSubstrings(str, candidate string, k int, used []bool, strList *[]string) {
 	// terminating case
 	if k == 0 {
@@ -26,7 +26,8 @@ func FindAllSubstrings(str, candidate string, k int, used []bool, strList *[]str
 
 }
 
-// Returns a list of strings in decaresing len len containing letters of given str
+// FindSubtringPermutations returns
+// a list of strings in decaresing len len containing letters of given str
 func FindSubtringPermutations(str string) []string {
 	// bool slice inited to false
 	used := make([]bool, len(str))
@@ -36,13 +37,13 @@ func FindSubtringPermutations(str string) []string {
 	var candidate string
 	// from len(str) to 1 len find all permutations
 	for k := len(str); k >= 1; k-- {
-
 		FindAllSubstrings(str, candidate, k, used, &strList)
 	}
 
 	return strList
 }
 
+// FindApproximateStringMatch :
 // Given a dictionary and a word find the longest approximate match
 // If more than one match, display all
 func FindApproximateStringMatch(dict []string, str string) []string {
