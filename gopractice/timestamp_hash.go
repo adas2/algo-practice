@@ -3,28 +3,28 @@ package practice
 // Given a history hash with time stamp, find value of a key with the latest timestamp <= T
 // [key, <val, timestamp>]
 
-import(
-	"time"
+import (
 	"fmt"
+	"time"
 )
 
 const (
-	CORRECT = iota
-	TOO_LOW = iota
+	CORRECT  = iota
+	TOO_LOW  = iota
 	TOO_HIGH = iota
 )
 
-
-type Entry struct{
-	val int //value
-	ts time.Time //timestamp
+// Entry type
+type Entry struct {
+	val int       //value
+	ts  time.Time //timestamp
 }
 
-// FindLastHistory return the latest value from history with timestamp <= t
+// FindPredecessorEvent return the latest value from history with timestamp <= t
 func FindPredecessorEvent(hMap map[string][]Entry, key string, aTime time.Time) int {
 	// Appy binary search
 	elist, err := Get(hMap, key)
-	if err != nil{
+	if err != nil {
 		return -1
 	}
 	// fmt.Println(elen)
@@ -33,11 +33,12 @@ func FindPredecessorEvent(hMap map[string][]Entry, key string, aTime time.Time) 
 	return elist[index].val
 }
 
-func Get(hMap map[string][]Entry, key string) ([]Entry, error){
-	if _, exists := hMap[key]; exists{
+// Get entry
+func Get(hMap map[string][]Entry, key string) ([]Entry, error) {
+	if _, exists := hMap[key]; exists {
 		return hMap[key], nil
 	}
-	return nil, fmt.Errorf("No entry for key %v", key) 
+	return nil, fmt.Errorf("No entry for key %v", key)
 }
 
 func Put(hMap map[string][]Entry, key string, val int, t time.Time) error {
@@ -47,39 +48,38 @@ func Put(hMap map[string][]Entry, key string, val int, t time.Time) error {
 	return nil
 }
 
-func AttemptGuess(ts time.Time, guess time.Time) int{
+func AttemptGuess(ts time.Time, guess time.Time) int {
 	if ts.Equal(guess) {
 		return CORRECT
-	}else if ts.After(guess) {
+	} else if ts.After(guess) {
 		fmt.Println("low", guess.String())
 		return TOO_LOW
-	}else if ts.Before(guess){
+	} else if ts.Before(guess) {
 		fmt.Println("high", guess.String())
 		return TOO_HIGH
-	}else{
+	} else {
 		return -1 //err
 	}
 }
 
-
-// BinarySearchClosest find the elemtnor closest element <= target
+// BinarySearch find the elemtnor closest element <= target
 func BinarySearch(arr []Entry, target time.Time, low int, high int) int {
-	if low > high{
-		return -1 //error case 
+	if low > high {
+		return -1 //error case
 	}
 	candidate := -1
 
 	// begin iteration in while style in C
 	for low <= high {
-		mid := low+(high-low)/2
-		fmt.Println("index",mid)
+		mid := low + (high-low)/2
+		fmt.Println("index", mid)
 		guess := arr[mid].ts
 		// if guess <= target
-		if AttemptGuess(target, guess) == CORRECT  || AttemptGuess(target, guess) == TOO_LOW {
+		if AttemptGuess(target, guess) == CORRECT || AttemptGuess(target, guess) == TOO_LOW {
 			candidate = mid
-			low = mid+1
+			low = mid + 1
 		} else { // AttemptGuess == TOO_HIGH
-			high = mid-1
+			high = mid - 1
 		}
 	}
 	// no match found

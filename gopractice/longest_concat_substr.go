@@ -10,45 +10,63 @@ func findSubstring(s string, words []string) []int {
 		return nil //error case
 	}
 
-	// vars
 	wLen := len(words[0])
 	wListLen := len(words)
-	var startIdx, currIndex int
+	// var startIdx, currIndex int
 	// var match bool // indicates when first match has started
 	// rune format string
 	r := []rune(s)
 	result := []int{}
-	startIdx = 0
 
 	wSet := initWordSet(words)
-	startIdx = 0
-	currIndex = 0
+	startIdx, currIndex := 0, 0
 	matchCount := 0
 
 	// loop till end of string
-	for startIdx < len(r) && currIndex < len(r)-wLen {
-
+	for startIdx < len(r) && currIndex < len(r)-wLen+1 {
 		// currIndex = startIdx
 		str := string(r[currIndex : currIndex+wLen])
 		fmt.Println(str)
+		fmt.Printf("word set: %v\n", *wSet)
 
-		// check if match
-		if match := checkMatch(*wSet, str); match == 0 {
-			(*wSet)[str] = true
-			matchCount++
-			currIndex += wLen
-		} else if match == 1 {
-			fmt.Println("word matched before")
-			wSet = initWordSet(words) //re-init
-			(*wSet)[str] = true
-			currIndex += wLen
-			matchCount = 1 // add this as first word
-		} else { // = 2
-			// no match
+		/*
+			// check if match
+			if match := checkMatch(*wSet, str); match == 0 {
+				(*wSet)[str]++
+				matchCount++      // mark presence
+				currIndex += wLen //move by 1 word
+			} else if match == 1 {
+				fmt.Println("word matched before")
+				wSet = initWordSet(words) //clears the word map
+				(*wSet)[str]++            // maek present
+				currIndex += wLen         // move by one word
+				matchCount = 1            // add this as first word
+			} else { // = 2
+				// no match
+				matchCount = 0
+				fmt.Println("word mismatch")
+				wSet = initWordSet(words)
+				currIndex++
+			}
+		*/
+
+		match := updateMatch(wSet, str)
+		if match == 1 {
+			matchCount++      // mark presence
+			currIndex += wLen //move by 1 word
+		} else if match == 2 {
+			fmt.Println("word count exceeded")
+			wSet = initWordSet(words) //clears the word map
+			// currIndex += wLen         // move back for a fresh match
+			// matchCount = 1            // add this as first word
+			// currIndex -= (wLen * (wListLen - 1)) // shift left for a fresh match
+			
+		} else { //no match
 			matchCount = 0
 			fmt.Println("word mismatch")
 			wSet = initWordSet(words)
 			currIndex++
+			continue
 		}
 
 		// check if elements matched in sequence
@@ -58,27 +76,44 @@ func findSubstring(s string, words []string) []int {
 			fmt.Println("all words matched")
 			startIdx = currIndex - (wLen * wListLen)
 			result = append(result, startIdx)
-			// matchCount = 0
+			// reset for next iteration
+			matchCount = 0
+			currIndex = startIdx + wLen
 		}
 	}
 
 	return result
 }
 
+// decrement when a word count when a word matches
+// returns false if no match
+func updateMatch(wSet *map[string]int, s string) int {
+	if _, exists := (*wSet)[s]; exists {
+		if (*wSet)[s] > 0 {
+			(*wSet)[s]--
+			return 1
+		}
+		// count is 0
+		return 2
+	}
+	// not present
+	return 0
+}
+
 // reinitialize the map with contents of words[]
-func initWordSet(words []string) *map[string]bool {
+func initWordSet(words []string) *map[string]int {
 	// wordSet := map[string]bool{}
-	wordSet := make(map[string]bool)
+	wordSet := make(map[string]int)
 	for _, str := range words {
-		wordSet[str] = false
+		wordSet[str]++
 	}
 	return &wordSet
 }
 
-// check if all words covered
-func allMatched(wSet map[string]bool) bool {
+// check if all words are covered
+func allMatched(wSet map[string]int) bool {
 	for _, val := range wSet {
-		if val != true {
+		if val != 0 {
 			return false
 		}
 	}
@@ -95,16 +130,14 @@ func checkMatch(wSet map[string]bool, s string) int8 {
 	if _, exists := wSet[s]; exists {
 		if wSet[s] == true {
 			return 1
-		} else {
-			return 0
 		}
-
+		return 0
 	}
 	return 2
 }
 
 // logic:
-// create a  of the given words, will bool flag indicating seen/unseen
+// create a map of the given words, will bool flag indicating seen/unseen
 // create two indices: startIndex and currIndex to traverse the string
 // if there is s match increment currIdx+Len(word)
 // if mismatch adjust startIdx and currIdx

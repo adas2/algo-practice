@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-// SortedMergeList: Given K sorted lists, merge them
+// SortedMergeList : Given K sorted lists, merge them
 // return sorted list
 func SortedMergeList(lists []*list.List, k int) (*list.List, error) {
 	// create priority queue
@@ -39,12 +39,12 @@ func SortedMergeList(lists []*list.List, k int) (*list.List, error) {
 		// find the next element from same list in the pq
 		if lists[item.index].Len() > 0 {
 			elem := lists[item.index].Front()
-			new_item := &Item{
+			newItem := &Item{
 				value: elem.Value.(int),
 				index: item.index,
 			}
 			// push it's value/index to the list
-			heap.Push(&pq, new_item)
+			heap.Push(&pq, newItem)
 			// and delete element pushed
 			lists[item.index].Remove(elem)
 

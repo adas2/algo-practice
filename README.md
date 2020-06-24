@@ -1,5 +1,4 @@
 # Problem Solving Practice
-========================
 
 ## Solved:
 1. Alphapermutation: Find all permutations of a string

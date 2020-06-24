@@ -6,12 +6,14 @@ import (
 	"strings"
 )
 
+// ConvertToString get string buffer from input io stream
 func ConvertToString(stream io.Reader) string {
 	var buf bytes.Buffer
 	buf.ReadFrom(stream)
 	return buf.String()
 }
 
+// ParseIntoTokens pases string into tokens
 func ParseIntoTokens(input string, delims ...rune) []string {
 
 	// define delim func
