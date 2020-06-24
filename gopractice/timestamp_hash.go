@@ -48,8 +48,8 @@ func Put(hMap map[string][]Entry, key string, val int, t time.Time) error {
 	return nil
 }
 
-// AttemptGuess checks attempt
-func AttemptGuess(ts time.Time, guess time.Time) int {
+// attemptGuess checks attempt
+func attemptGuess(ts time.Time, guess time.Time) int {
 	if ts.Equal(guess) {
 		return correct
 	} else if ts.After(guess) {
@@ -76,10 +76,10 @@ func BinarySearch(arr []Entry, target time.Time, low int, high int) int {
 		fmt.Println("index", mid)
 		guess := arr[mid].ts
 		// if guess <= target
-		if AttemptGuess(target, guess) == correct || AttemptGuess(target, guess) == tooLow {
+		if attemptGuess(target, guess) == correct || attemptGuess(target, guess) == tooLow {
 			candidate = mid
 			low = mid + 1
-		} else { // AttemptGuess == tooHigh
+		} else { // attemptGuess == tooHigh
 			high = mid - 1
 		}
 	}
