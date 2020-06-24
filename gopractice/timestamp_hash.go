@@ -9,9 +9,9 @@ import (
 )
 
 const (
-	CORRECT  = iota
-	TOO_LOW  = iota
-	TOO_HIGH = iota
+	correct = iota
+	tooLow  = iota
+	tooHigh = iota
 )
 
 // Entry type
@@ -41,22 +41,23 @@ func Get(hMap map[string][]Entry, key string) ([]Entry, error) {
 	return nil, fmt.Errorf("No entry for key %v", key)
 }
 
+// Put creates new entry
 func Put(hMap map[string][]Entry, key string, val int, t time.Time) error {
-	// create entry
 	e := Entry{val: val, ts: t}
 	hMap[key] = append(hMap[key], e)
 	return nil
 }
 
+// AttemptGuess checks attempt
 func AttemptGuess(ts time.Time, guess time.Time) int {
 	if ts.Equal(guess) {
-		return CORRECT
+		return correct
 	} else if ts.After(guess) {
 		fmt.Println("low", guess.String())
-		return TOO_LOW
+		return tooLow
 	} else if ts.Before(guess) {
 		fmt.Println("high", guess.String())
-		return TOO_HIGH
+		return tooHigh
 	} else {
 		return -1 //err
 	}
@@ -75,10 +76,10 @@ func BinarySearch(arr []Entry, target time.Time, low int, high int) int {
 		fmt.Println("index", mid)
 		guess := arr[mid].ts
 		// if guess <= target
-		if AttemptGuess(target, guess) == CORRECT || AttemptGuess(target, guess) == TOO_LOW {
+		if AttemptGuess(target, guess) == correct || AttemptGuess(target, guess) == tooLow {
 			candidate = mid
 			low = mid + 1
-		} else { // AttemptGuess == TOO_HIGH
+		} else { // AttemptGuess == tooHigh
 			high = mid - 1
 		}
 	}

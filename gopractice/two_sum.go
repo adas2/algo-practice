@@ -24,15 +24,16 @@ func TwoSum(arr []int, target int) []int {
 		// else make an entry in the hash
 		if val, isPresent := htable[elem]; isPresent {
 			return []int{val, index}
-		} else {
-			htable[(target - elem)] = index
 		}
+
+		htable[(target - elem)] = index
+
 	}
 	// if not found
 	return []int{-1, -1}
 }
 
-// memory optimized version
+// TwoSumOpt is memory optimized version
 // outputs the value not index
 // S=O(1), T=O(NlogN)
 func TwoSumOpt(arr []int, target int) []int {
