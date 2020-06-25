@@ -47,7 +47,7 @@ func maxCoinProfit(C []int) int {
 	return P[0][n-1]
 }
 
-// Given a set of coinds in a row, a game is played when player 1 and player 2 can choose
+// Given a set of coins in a row, a game is played when player 1 and player 2 can choose
 // one coin from each end, objective being maximize the profit,
 // question: max profit for player 1
 // e.g. {5, 25, 10, 1} player 1 chooses 1, 25 player 2 chooses 10,5;

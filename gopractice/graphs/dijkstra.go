@@ -66,7 +66,7 @@ func (g *aGraph) dijkstraUtil(cov []bool, wt []int, src int) []int {
 			}
 		}
 
-		// mark the verted u as covered
+		// mark the vertex u as covered
 		cov[u] = true
 
 	}

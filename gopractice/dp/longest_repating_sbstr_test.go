@@ -6,7 +6,7 @@ import (
 )
 
 func TestLongestRepeatingSubstring(t *testing.T) {
-	str := "aaaaa"
+	str := "geeksforgeeksamigo"
 
 	fmt.Println(LongestRepeatingSubstring(str))
 }

@@ -18,11 +18,10 @@ func lengthOfLIS(nums []int) int {
 	dp := make([]int, len(nums))
 	// base case: LIS len for only 1 element
 	dp[0] = 1
-	var maxLIS int
+	maxLIS := 0 //init
 	result := 1
 
 	for i := 1; i < len(nums); i++ {
-		maxLIS = 0 //init
 		for j := 0; j < i; j++ {
 			if nums[i] > nums[j] {
 				// new sequence foound
@@ -41,7 +40,7 @@ func lengthOfLIS(nums []int) int {
 }
 
 // explanation:
-// dp[i] ==> LIS len for arr[0..i]
+// dp[i] ==> LIS len for arr[0..i] with sequence ending in i
 // dp[i] ==> Max(DP[j])+1, for all 0<=j<i and arr[i]>arr[j])
 // else if no larger element dp[i]=dp[i-1]
 
@@ -65,11 +64,16 @@ func efficientLIS(nums []int) int {
 		} else {
 			// insert the num
 			seq = append(seq, v)
+			// record the element which caused a new entry
+			fmt.Printf("seq num: %d\n", seq[len(seq)-2])
 		}
 		// seq = InsertSorted(seq, nums[i])
 		fmt.Printf("index: %d, sequence array: %v\n", index, seq)
 
 	}
+
+	// final seq number
+	fmt.Printf("seq num: %d\n", seq[len(seq)-1])
 
 	return len(seq)
 
@@ -86,7 +90,7 @@ func InsertSorted(s []int, e int) []int {
 
 // explanation:
 // use patience sorting to stack the elements in the order they appear
-// while there are no numbers leftdo the following:
+// while there are no numbers left do the following:
 // 1. place the first number on a new stack
 // 2. one by one place the numbers on the leftmost stack whose top > its value
 // 3. if not such stack create a new one

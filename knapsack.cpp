@@ -28,30 +28,30 @@ void find_optimal_value(vector<pair<int, int> > items, int W)
 
   //sweep over items and update
   for(int i=1; i<=n; ++i)
-    {
-      //start from weight 1
-      for(int j=1; j<=W; ++j){
-	//case 1: element i has w_i > j (current weight): reject item
-	if(items[i-1].second > j){
-	  mval[i][j] = mval[i-1][j];
-	  item_tracker[i]=item_tracker[i-1];
-	}
-	//case 2: w_i <= W
-	else { //i is taken or i is dropped
-	  //mval[i][j]= max(mval[i-1][j], mval[i-1][j-items[i-1].second]+items[i-1].first);
-	  if((mval[i-1][j-items[i-1].second]+items[i-1].first) > mval[i-1][j]){
-	    mval[i][j]=mval[i-1][j-items[i-1].second]+items[i-1].first;
-	    //somehow remember the item i-1 added: push into a list
-	    item_tracker[i]=item_tracker[i-1];
-	    item_tracker[i].push_back(i-1);
-	  }
-	  else {
-	    mval[i][j]=mval[i-1][j];
-	    item_tracker[i]=item_tracker[i-1];
-	  }
-	}
+  {
+    //start from weight 1
+    for(int j=1; j<=W; ++j){
+      //case 1: element i has w_i > j (current weight): reject item
+      if(items[i-1].second > j){
+        mval[i][j] = mval[i-1][j];
+        item_tracker[i]=item_tracker[i-1];
+      }
+      //case 2: w_i <= j
+      else { //i is taken or i is dropped
+        //mval[i][j]= max(mval[i-1][j], mval[i-1][j-items[i-1].second]+items[i-1].first);
+        if((mval[i-1][j-items[i-1].second]+items[i-1].first) > mval[i-1][j]){
+          mval[i][j]=mval[i-1][j-items[i-1].second]+items[i-1].first;
+          //somehow remember the item i-1 added: push into a list
+          item_tracker[i]=item_tracker[i-1];
+          item_tracker[i].push_back(i-1);
+        }
+        else {
+          mval[i][j]=mval[i-1][j];
+          item_tracker[i]=item_tracker[i-1];
+        }
       }
     }
+  }
   
   //find the lowest right element in matrix i.e. n items with weight W
   cout << "Max possible value of Knapsack: " << mval[n][W] << endl;

@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// Bellman Ford shorted path algorithm that finds:
+// Bellman Ford shortest path algorithm that finds:
 // i. shortest path of a directed graph with negative edge weights
 // ii. detects if negative cycle is present in the graph
 

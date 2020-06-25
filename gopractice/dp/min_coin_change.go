@@ -3,25 +3,24 @@ package dp
 import "fmt"
 
 func coinChange(coins []int, amount int) int {
-	//     define dp matrix for storing the optimal result
+	// define dp matrix for storing the optimal result
 	dp := make([][]int, amount+1)
 	for i := 0; i <= amount; i++ {
 		dp[i] = make([]int, len(coins)+1)
 	}
 
-	//     initialize the dp array with base cases
-	//     zero coins will not yield any value
+	// initialize the dp array with base cases
+	// zero coins will not yield any value
 	for i := range dp {
 		dp[i][0] = -1
 	}
-	//     zero amount requires zero coins
+	// zero amount requires zero coins
 	for j := range dp[0] {
 		dp[0][j] = 0
 	}
 
-	//     memory inefficient version:
-	// ietrate over  each amount
-	//      for each coint value
+	// memory inefficient version:
+	// ietrate over each amount and each coin value
 	for a := 1; a <= amount; a++ {
 		for c := 1; c <= len(coins); c++ {
 			//   two cases

@@ -17,7 +17,7 @@ func TestLengthofLIS(t *testing.T) {
 // 2,3,7,18
 
 func TestEfficientLIS(t *testing.T) {
-	inp := []int{10, 9, 2, 5, 3, 7, 101, 18}
+	inp := []int{10, 9, 2, 5, 3, 1, 7, 101, 18, 1, 2}
 
 	fmt.Println("LIS:", efficientLIS(inp))
 }
