@@ -7,7 +7,9 @@ import (
 
 func testConcurrency() {
 
-	runtime.GOMAXPROCS(2)
+	// defines the number of logical cores
+	// w/o this single core will execute all threads
+	runtime.GOMAXPROCS(4)
 
 	for i := 0; i < 10; i++ {
 		go func() {

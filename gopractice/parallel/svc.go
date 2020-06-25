@@ -25,12 +25,15 @@ func testConcurrentAPI() {
 	for _, symbol := range input {
 		// add concurrency by go thread
 		go func(symbol string) {
-			resp, _ := http.Get("http://www.metaweather.com/api/location/search/?query=" + symbol)
+			resp, err := http.Get("http://www.metaweather.com/api/location/search/?query=" + symbol)
+			if err != nil {
+				fmt.Println(err)
+			}
 			defer resp.Body.Close()
 			body, _ := ioutil.ReadAll(resp.Body)
 
 			var loc LocationResponse
-			err := json.Unmarshal(body, &loc)
+			err = json.Unmarshal(body, &loc)
 			if err != nil {
 				fmt.Println(err)
 			}

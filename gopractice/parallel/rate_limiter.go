@@ -180,10 +180,10 @@ func rateLimiterMain() {
 	for req := range loginCh {
 		<-timeChannel // rate limit our Service.Method RPCs
 		// fmt.Println("Processing request for", req.ID)
-		go func() {
-			rsp := ProcessAPI(req, false)
+		go func(r *Request) {
+			rsp := ProcessAPI(r, false)
 			respChannel <- rsp
-		}()
+		}(req)
 	}
 
 	// print response channel
