@@ -2,8 +2,7 @@ package trees
 
 import (
 	"fmt"
-
-	"adas2.io/practice"
+	"sort"
 )
 
 type btreeNode struct {
@@ -18,7 +17,7 @@ type bTree struct {
 
 // tree cobstructor
 func newBTree() *bTree {
-	return &bTree{root: nil}
+	return &bTree{}
 }
 
 // InorderPrintTree :inorder traversal of the binary search
@@ -44,7 +43,7 @@ func (t *bTree) InsertNode(aVal int) /**bTree*/ {
 func (nPtr *btreeNode) insert(aVal int) *btreeNode {
 	if nPtr == nil {
 		// create node
-		return &btreeNode{val: aVal, left: nil, right: nil}
+		return &btreeNode{val: aVal}
 	}
 	// evaluate based on a given property
 	if evaluate(nPtr, aVal) == true {
@@ -56,22 +55,22 @@ func (nPtr *btreeNode) insert(aVal int) *btreeNode {
 	return nPtr
 }
 
-// DeleteNode searches the value and deletes it
+// DeleteNode searches nodes for a value and deletes it
 // BST searching: assumes no duplicate values
 func (t *bTree) DeleteNode(aVal int) {
 	t.root = t.root.delete(aVal)
 	return
 }
 
+// assumes unique values
 func (nPtr *btreeNode) delete(aVal int) *btreeNode {
 	// empty tree
 	if nPtr == nil {
 		return nil
 	}
 
-	// if value matches node vale
+	// if value matches node val
 	if aVal == nPtr.val {
-		fmt.Println("Match value:", aVal)
 		// case 1: leaf node: delete the node
 		if nPtr.left == nil && nPtr.right == nil {
 			nPtr = nil
@@ -87,10 +86,8 @@ func (nPtr *btreeNode) delete(aVal int) *btreeNode {
 			// case 3: both children present, find next largest, i.e. leftmost in right subtree
 			aPtr := nPtr.right.findLeftmost()
 			nPtr.val = aPtr.val
-			// successor may not a leaf, hence recursively delete the successor
+			// tricky: successor may not a leaf, hence recursively delete the successor
 			nPtr.right = nPtr.right.delete(aPtr.val)
-			// nPtr = aPtr
-			// aPtr = nil
 		}
 
 	} else if nPtr.val > aVal {
@@ -99,15 +96,14 @@ func (nPtr *btreeNode) delete(aVal int) *btreeNode {
 		nPtr.right = nPtr.right.delete(aVal)
 	}
 
-	// }
 	return nPtr
 }
 
+// for memory safety: optional
 func (nPtr *btreeNode) clearNode() {
 	nPtr.val = -1   // safety
 	nPtr.left = nil //safety
 	nPtr.right = nil
-	return
 }
 
 // helper to find the next largest element
@@ -143,11 +139,12 @@ func constructbNode(pot, iot []int, li, ri int) (*btreeNode, error) {
 	var index int
 	var err error
 	target := pot[li]
-	if index = practice.BinarySearchVanilla(iot, target, 0, len(iot)-1); index == -1 {
-		return nil, fmt.Errorf("node %d not found in Inorder Traversal list", target)
+
+	if index = sort.SearchInts(iot, target); index >= len(iot) || iot[index] != target {
+		return nil, fmt.Errorf("index %d node %d not found in IOT", index, target)
 	}
 	// value found: create new node corresponding to same
-	node := &btreeNode{val: pot[li], left: nil, right: nil}
+	node := &btreeNode{val: target, left: nil, right: nil}
 	node.left, err = constructbNode(pot, iot[:index], li+1, li+index)
 	if err != nil {
 		return nil, err
@@ -162,10 +159,7 @@ func constructbNode(pot, iot []int, li, ri int) (*btreeNode, error) {
 }
 
 // evaluate property of tree
-// distinguishes type of tree e.g. BST has property if (val <= root) go left else go right
+// for BST (val <= root) go left else go right
 func evaluate(node *btreeNode, val int) bool {
-	if val <= node.val {
-		return true
-	}
-	return false
+	return val <= node.val
 }

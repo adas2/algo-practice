@@ -25,10 +25,9 @@ func TestConstructBTree(t *testing.T) {
 	}
 	fmt.Println("After Construction")
 	InorderPrintTree(tree.root)
+	fmt.Println()
+	fmt.Println("delete node")
 	tree.DeleteNode(5)
 	InorderPrintTree(tree.root)
+	fmt.Println()
 }
-
-// func TestDeleteNode(t *testing.T){
-
-// }
