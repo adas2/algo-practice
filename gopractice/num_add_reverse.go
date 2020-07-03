@@ -16,8 +16,8 @@ type nDig struct {
 // list for whole number
 type nList *nDig
 
-// CreateNum creates a representation linked list reverse order
-func CreateNum(n int) nList {
+// createNum creates a representation linked list reverse order
+func createNum(n int) nList {
 	div := 10
 	var d int
 	var head, last, curr *nDig = nil, nil, nil
@@ -37,8 +37,8 @@ func CreateNum(n int) nList {
 	return head
 }
 
-// PrintNum iteratively travreses and prints digits in num
-func PrintNum(num nList) {
+// printNum iteratively travreses and prints digits in num
+func printNum(num nList) {
 	var head nList
 	for head = num; head != nil; head = head.next {
 		fmt.Printf("%d->", head.digit)
@@ -46,8 +46,8 @@ func PrintNum(num nList) {
 	fmt.Printf("nil\n")
 }
 
-// NumAdd add such two nums
-func NumAdd(a, b nList) nList {
+// numAdd add such two nums
+func numAdd(a, b nList) nList {
 	// traverse list and add digits
 	var carry int = 0
 	var curr, prev *nDig = nil, nil
