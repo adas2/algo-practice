@@ -8,7 +8,7 @@ import (
 )
 
 func setupTrie() *custom.Trie {
-	words := []string{"to", "tons", "tip", "pit", "on"}
+	words := []string{"to", "ton", "tons", "tip", "pit", "on"}
 	dict := custom.InitTrie()
 
 	for _, w := range words {

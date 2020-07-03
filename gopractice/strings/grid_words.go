@@ -35,9 +35,11 @@ func findValidWords(grid [][]string, dict *custom.Trie) []string {
 	for i := range grid {
 		for j := range grid[0] {
 			candidate := ""
+			r := []rune(grid[i][j])
+			index := r[0] - 'a'
 			// optimization: if grid(i,j) is in trie then proceed
 			if isCharInTrie(dict.Root, grid[i][j]) {
-				dfsGridUtil(grid, i, j, visited, candidate, dict.Root)
+				dfsGridUtil(grid, i, j, visited, candidate, dict.Root.Childrens[index])
 			}
 		}
 	}
@@ -53,14 +55,10 @@ func dfsGridUtil(grid [][]string, i, j int, visited [][]bool, partial string, ro
 	visited[i][j] = true
 	// create candidate
 	partial += grid[i][j]
-	// fmt.Printf("%s\n", partial)
 
-	r := []rune(grid[i][j])
-	index := r[0] - 'a'
-
-	// letter match
-	if root.Childrens[index].IsWordEnd {
-		// found a word match
+	// check if root is a word
+	if root.IsWordEnd {
+		// found a match
 		fmt.Println("word match:", partial)
 	}
 
@@ -72,9 +70,10 @@ func dfsGridUtil(grid [][]string, i, j int, visited [][]bool, partial string, ro
 	for k := range row {
 		if isSsafeNeighbor(m, m, i+row[k], j+col[k], visited) {
 			// check is neighbor is in trie
-
-			if isCharInTrie(root.Childrens[index], grid[i+row[k]][j+col[k]]) {
-				// recurse
+			if isCharInTrie(root, grid[i+row[k]][j+col[k]]) {
+				// recurse with new child of trie
+				r := []rune(grid[i+row[k]][j+col[k]])
+				index := r[0] - 'a'
 				dfsGridUtil(grid, i+row[k], j+col[k], visited, partial, root.Childrens[index])
 			}
 		}
