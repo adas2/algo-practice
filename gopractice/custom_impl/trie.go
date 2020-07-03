@@ -5,45 +5,50 @@ const (
 	AlphabetSize = 26
 )
 
-type trieNode struct {
-	childrens [AlphabetSize]*trieNode
-	isWordEnd bool
+// TrieNode is a node of trie
+type TrieNode struct {
+	Childrens [AlphabetSize]*TrieNode
+	IsWordEnd bool
 }
 
-type trie struct {
-	root *trieNode
+// Trie is impl of trie
+type Trie struct {
+	Root *TrieNode
 }
 
-func initTrie() *trie {
-	return &trie{
-		root: &trieNode{},
+// InitTrie initializes a empty trie
+func InitTrie() *Trie {
+	return &Trie{
+		Root: &TrieNode{},
 	}
 }
 
-func (t *trie) insert(word string) {
+// Insert inserts a new word
+func (t *Trie) Insert(word string) {
 	wordLength := len(word)
-	current := t.root
+	current := t.Root
 	for i := 0; i < wordLength; i++ {
 		index := word[i] - 'a'
-		if current.childrens[index] == nil {
-			current.childrens[index] = &trieNode{}
+		if current.Childrens[index] == nil {
+			current.Childrens[index] = &TrieNode{}
 		}
-		current = current.childrens[index]
+		current = current.Childrens[index]
 	}
-	current.isWordEnd = true
+	current.IsWordEnd = true
 }
 
-func (t *trie) find(word string) bool {
+// Find seraches for a valid word in trie
+func (t *Trie) Find(word string) bool {
 	wordLength := len(word)
-	current := t.root
+	current := t.Root
 	for i := 0; i < wordLength; i++ {
 		index := word[i] - 'a'
-		if current.childrens[index] == nil {
+		if current.Childrens[index] == nil {
 			return false
 		}
-		current = current.childrens[index]
+		current = current.Childrens[index]
 	}
-	if current.isWordEnd {
+	if current.IsWordEnd {
 		return true
 	}
 	return false
