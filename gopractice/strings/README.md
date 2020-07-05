@@ -20,4 +20,4 @@ Includes problems on word matching, dict manipulation, regexp processing
 ## Todos
 
 ## Notes
-* 
+

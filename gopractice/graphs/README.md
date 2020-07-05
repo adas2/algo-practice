@@ -5,10 +5,10 @@
 2. Dijkstra
 3. Strongly Connected Component (Kosaraju's algo)
 4. Bellman Ford
+5. Topological sort (using Kahns algo)
 
 
 ## Todo
 1. MST impl (similar to Dijkstra; keep parent array for tree traversal)
 3. If a directed graph is cyclic (DFS use case)
-4. Topological sort (similar to SCC)
 5. MST for a directected graph (Kruskal and Prim fails)

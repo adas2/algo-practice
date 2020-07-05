@@ -40,3 +40,12 @@ func (s *Sstack) IsEmpty() bool {
 	}
 	return true
 }
+
+// Peek returns top element without popping it
+func (s *Sstack) Peek() int {
+	n := len(*s)
+	if n == 0 {
+		return -1 //error
+	}
+	return (*s)[n-1]
+}

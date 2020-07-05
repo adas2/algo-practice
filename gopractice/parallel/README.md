@@ -11,4 +11,7 @@
 
 ## Todo
 
-1. Reader-Writer problem
+1. Reader-Writer problem (RW locks impl)
+2. Dining savages problem (Little book on semaphores)
+3. Dining philosopher problem (see Cpp version)
+

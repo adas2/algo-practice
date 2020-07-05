@@ -10,7 +10,7 @@
 7. Find an integer convert to Roman numerals (leetcode)
 8. Number of islands [leetcode link](https://leetcode.com/problems/number-of-islands/)
 9. Maximize profit over given stock prices (EPI/Leetcode)
-10. Using Rand5() design Rand7()
+10. Using Rand5() design Rand7() [CCI]
 11. Is power of 10? Given number > 1 (multiply) or < 1 (divide)	[DONE]	
 12. Apache log ? Find the top IP addresses, white space 
 	Parse IP address and find the top hit  						[DONE]
@@ -25,7 +25,11 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 18. First missing positive element in an array [LC #41]
 19. Find median from a stream of data (2 heap version) [LC #]
 20. Kth element using quickselect in O(n) average case
-
+21. Nth digit in a infinite sequence of numbers 1234567891011..... [LC #400]
+<!-- hard -->
+22. Max area in given histogram [LC# 84]
+23. Max rectangle in a grid of 0's and 1's (similar to 21) [LC #]
+23. Russian doll, max envelop fitting [LC #354]
 
 
 # Todo's
