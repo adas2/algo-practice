@@ -15,7 +15,8 @@ Includes problems on word matching, dict manipulation, regexp processing
    ``` 
    given english dictionary mathes are:
    `{TO, TON, TONS, TIP, TIP, TOY}`
-3. 
+3. Palindrome pairs [LC #336]
+
 
 ## Todos
 

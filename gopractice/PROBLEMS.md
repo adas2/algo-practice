@@ -56,13 +56,20 @@ E.g. Given sentence: "This is a sample doc we can use, that we just created"; sh
 ========
 
 ## Sample short problems
-<!-- Todos -->
+<!-- Todos Easy -->
 1. Is power of 10? Given number > 1 (multiply) or < 1 (divide)	[DONE]
 	
 2. Apache log ? Find the top IP addresses, white space 
 	Parse IP address and find the top hit  						[DONE]
 
 3. Given Sentence, find which letter is missing					[DONE]
+
+4. Suppose you are given a set of building heights, and each building on the right with larger or equal height 
+blocks the view of the building on the left. Find the set of building which has a view to the sunrise. [EPI]
+```
+E.g. input hts = [6, 8, 3, 5, 1, 4]
+output = [8, 5, 4]
+```
 
 <!-- Medium: -->
 4. Cross country road trip, grid filled with matrix representating 
