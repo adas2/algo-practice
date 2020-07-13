@@ -52,7 +52,7 @@ func findSortedMedian(arr1, arr2 []int) float32 {
 			maxIdx = i - 1
 		} else {
 			// desired cond is reached,
-			// i.e. arr1[i-1] < arr2[j] && arr1[j-1] > arr2[i]
+			// i.e. arr1[i-1] < arr2[j] && arr2[j-1] < arr2[i]
 
 			// two cases even and odd
 			// within each cosider when:

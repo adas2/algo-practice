@@ -1,10 +1,5 @@
 package practice
 
-import (
-	"math/rand"
-	"time"
-)
-
 // Rand7 is designed using given func rand5() [CCI]
 // non-deterministic solution
 func Rand7(rand5 func() int) int {
@@ -17,8 +12,6 @@ func Rand7(rand5 func() int) int {
 	// we can thus discard 21-24 cases and in an endless while loop till 0-20 is generated
 
 	for {
-		// generate seed based on time
-		rand.Seed(time.Now().UnixNano())
 
 		num := 5*rand5() + rand5()
 

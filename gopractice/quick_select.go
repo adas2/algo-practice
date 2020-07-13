@@ -2,6 +2,7 @@ package practice
 
 import (
 	"math/rand"
+	"time"
 )
 
 // find the kth value from an int array using randomized quick select
@@ -9,13 +10,13 @@ import (
 // return the index and value
 func quickSelect(arr *[]int, l, r int) (int, int) {
 
-	// randomly select an idnex wbetween [0, len(arr)]
-	// rand.Seed(time.Now().UnixNano())
-	rand.Seed(2)
 	if l > r {
 		return -1, -1
 	}
 
+	// randomly select an idnex wbetween [0, len(arr)]
+	// rand.Seed(2)
+	rand.Seed(time.Now().UnixNano())
 	// n := len(*arr)
 	pivot := rand.Intn(r - l + 1)
 	// place the pivot to end of arr (swap)
