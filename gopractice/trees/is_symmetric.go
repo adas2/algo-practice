@@ -1,6 +1,7 @@
 package trees
 
 // Is BT symmetric?
+// LC # 101
 
 // recrusive O(N)
 func isSymmetric(r1 *btreeNode, r2 *btreeNode) bool {
