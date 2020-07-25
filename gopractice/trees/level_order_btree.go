@@ -20,7 +20,7 @@ func PrintLevelOrder(w io.Writer, tree *bTree) {
 
 	// while queue not empty
 	for len(queue) != 0 {
-		// piick front node
+		// pick front node
 		node := queue[0]
 
 		// consume/output node

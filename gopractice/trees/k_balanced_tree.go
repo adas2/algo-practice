@@ -21,7 +21,7 @@ import (
 //                                                H
 //
 //
-// Output: Node E
+// Output: Node E (when k=2)
 // returns the count at the node and whether the tree is k-balanced
 func findKbalancedUtil(root *btreeNode, k int) (bool, int) {
 	// traverse root recrusively and keep track of count
@@ -35,7 +35,7 @@ func findKbalancedUtil(root *btreeNode, k int) (bool, int) {
 	lcheck, lcount := findKbalancedUtil(root.left, k)
 	rcheck, rcount := findKbalancedUtil(root.right, k)
 
-	if lcheck == true && rcheck == true && findNodeDiff(lcount, rcount) <= k {
+	if lcheck == true && rcheck == true && abs(lcount-rcount) <= k {
 		return true, lcount + rcount + 1
 	}
 	//any one of the above is failing
@@ -44,17 +44,17 @@ func findKbalancedUtil(root *btreeNode, k int) (bool, int) {
 }
 
 // alternative for math.Abs for ints
-func findNodeDiff(a, b int) int {
-	if a > b {
-		return a - b
+func abs(a int) int {
+	if a > 0 {
+		return a
 	}
-	return b - a
+	return -a
 }
 
 // main func
 func findKbalancedMain(root *btreeNode) {
 	if check, _ := findKbalancedUtil(root, 2); check == false {
-		fmt.Printf("The tree is not k-balanced")
+		fmt.Printf("The tree is not k-balanced\n")
 	} else {
 		fmt.Printf("The tree is k-balanced\n")
 	}
