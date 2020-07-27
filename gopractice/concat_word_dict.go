@@ -21,7 +21,7 @@ func findAllConcatenatedWordsInADict(words []string) []string {
 		minWlen = 1
 	}
 
-	// ietrate over words
+	// iterate over words
 	for _, w := range words {
 
 		if w == "" {
