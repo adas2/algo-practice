@@ -58,7 +58,7 @@ func (g *aGraph) dijkstraUtil(cov []bool, wt []int, src int) []int {
 		// pick the uncovered vertex min wt
 		u := minDist(cov, wt)
 
-		// for all adajacent edges update the shorted path
+		// for all adjacent edges update the shortest path
 		for v := 0; v < g.V; v++ {
 			//  if edge exists, update the wt
 			if g.edges[u][v] != 0 && (wt[u]+g.edges[u][v]) < wt[v] {

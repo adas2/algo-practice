@@ -37,9 +37,9 @@ func (g *Graph) addEdge(u, v int) {
 	}
 }
 
-// TraverseBST = BST traversal
-func (g *Graph) TraverseBST(source int, discovered []bool) {
-	fmt.Println("BST travresal:")
+// TraverseBFS = BFS traversal
+func (g *Graph) TraverseBFS(source int, discovered []bool) {
+	fmt.Println("BFS travresal:")
 
 	// init Queue to empty
 	q := custom.Queue([]int{})
@@ -50,7 +50,6 @@ func (g *Graph) TraverseBST(source int, discovered []bool) {
 
 	// while queue has nodes
 	for q.IsEmpty() == false {
-		// q.PrintQueue()
 		// find adjacent nodes
 		u := q.Pop()
 		// pre-process u
@@ -80,13 +79,13 @@ func FindConnectedComponents(g *Graph) {
 	// init comp count
 	c := 0
 
-	// find components by BST traversal
+	// find components by BFS traversal
 	for i := 0; i < numNodes; i++ {
 		if discovered[i] == false {
 			// new component
 			c++
 			fmt.Println("Component:", c)
-			g.TraverseBST(i, discovered)
+			g.TraverseBFS(i, discovered)
 		}
 	}
 
