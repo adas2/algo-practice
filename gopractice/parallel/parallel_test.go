@@ -10,3 +10,9 @@ func TestParallalFuncs(t *testing.T) {
 func TestConcurrency(t *testing.T) {
 	testConcurrency()
 }
+
+func TestProducerConsumer(t *testing.T) {
+	// pcMain()
+	// mainSPMC()
+	mainMPMC()
+}
