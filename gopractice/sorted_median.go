@@ -87,18 +87,3 @@ func findSortedMedian(arr1, arr2 []int) float32 {
 
 	return median
 }
-
-// util funcs
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
