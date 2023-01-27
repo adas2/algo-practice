@@ -3,7 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-tpm-shim/tpm_shim"
+
+	// "github.com/go-tpm-shim/tpm_shim"
 	"log"
 	"net/http"
 )
@@ -36,10 +37,10 @@ func addCertificate(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Adding Certificate")
 }
 
-func check() {
-	fmt.Println(tpm_shim.IsTpmHost)
-}
+// func check() {
+// 	fmt.Println(tpm_shim.IsTpmHost)
+// }
 
 func help() {
-	fmt.Println("This is juts for help")
+	fmt.Println("This is just a help message")
 }

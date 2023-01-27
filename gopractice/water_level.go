@@ -40,3 +40,6 @@ func Trap(height []int) int {
 // keep the left max height and right max height for each index
 // traverse the array, calculate following:
 // if val[i] < min(left_max, right_max) trap_vol = +=min(left_max, right_max)-val[i]
+
+// O(1) space solution hint: use moving pointers to keep track of left_max
+// and right_max without storin in array.
