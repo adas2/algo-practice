@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// find the kth value from an int array using randomized quick select
+// find the kth smallest value in an unsorted array using randomized quick select
 
 // return the index and value
 func quickSelect(arr *[]int, l, r int) (int, int) {
@@ -14,16 +14,14 @@ func quickSelect(arr *[]int, l, r int) (int, int) {
 		return -1, -1
 	}
 
-	// randomly select an idnex wbetween [0, len(arr)]
-	// rand.Seed(2)
+	// randomly select an pivot between [0, len(arr)]
 	rand.Seed(time.Now().UnixNano())
-	// n := len(*arr)
 	pivot := rand.Intn(r - l + 1)
 	// place the pivot to end of arr (swap)
 	swap(arr, pivot, r)
 
 	// variables
-	i := l          // first index larger than pivot, init to 0th
+	i := l          // first index larger than pivot, init to 0th index
 	pv := (*arr)[r] //value of pivot
 
 	// now iterate to place pivot in the right location
@@ -57,8 +55,8 @@ func swap(arr *[]int, i, j int) {
 func findkthValue(arr []int, l, r, k int) int {
 	// quick select on random partition
 	// if pivot == k, return answer
-	// if pivot < k, try arr[pivot+1, n]
-	// else pivot > k, try arr[0, pivot-1]
+	// if pivot < k, try (k-pivot) in arr[pivot+1, n]
+	// else pivot > k, try k in arr[0, pivot-1]
 
 	// Todo: fix base case
 	// if r-l+1 <= 0 || k < 0 || k > r-l+1 {
@@ -78,3 +76,6 @@ func findkthValue(arr []int, l, r, k int) int {
 	return findkthValue(arr, pivot+1, r, k-pivot-1)
 
 }
+
+// Time complexity : O(N) in the average case, O(N^2)in the worst case.
+// Space complexity : O(1)
