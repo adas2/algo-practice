@@ -1,5 +1,5 @@
 // Test code generated from ChatGPT to generate RSA cert + private key
-package main
+package my_crypto
 
 import (
 	"crypto/rand"
@@ -7,12 +7,11 @@ import (
 	"crypto/x509"
 	"crypto/x509/pkix"
 	"encoding/pem"
-	"fmt"
 	"math/big"
 	"time"
 )
 
-func main() {
+func GenX509Cert() ([]byte, []byte) {
 	// Generate a new RSA key
 	privateKey, _ := rsa.GenerateKey(rand.Reader, 2048)
 
@@ -36,5 +35,6 @@ func main() {
 	keyOut := pem.EncodeToMemory(&pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(privateKey)})
 
 	// Print the PEM-encoded certificate and private key
-	fmt.Printf("%s\n%s", certOut, keyOut)
+	// fmt.Printf("%s\n%s", certOut, keyOut)
+	return certOut, keyOut
 }
