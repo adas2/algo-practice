@@ -24,7 +24,8 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 17. Dangerous Script (see regexp_fun.md)
 18. First missing positive element in an array [LC #41]
 19. Find median from a stream of data (2 heap version) [LC #]
-20. Kth element using quickselect in O(n) average case
+20. Kth smallest element using quickselect in O(n) average case
+21. Kth largest element using max-heap in O(Nlogk) time  
 21. Nth digit in a infinite sequence of numbers 1234567891011..... [LC #400]
 <!-- hard -->
 22. Max area in given histogram [LC# 84]

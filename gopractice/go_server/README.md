@@ -9,6 +9,6 @@ This is a sample README for myserver
 In a browser open URL:
  `http://<IP Addr>:<PORT>/v1` --> prints `hello`
 
- `http://<IP Addr>:<PORT>/cert` --> outputs list of available certificates for the host
+ `http://<IP Addr>:<PORT>/test` --> prints hostname
 
- `http://<IP Addr>:<PORT>/cert/<hostname>` --> creates a new certificate for host
+ `http://<IP Addr>:<PORT>/gen` --> creates a new certificate for host
