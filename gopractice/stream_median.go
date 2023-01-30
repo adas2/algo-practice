@@ -12,7 +12,7 @@ type MedianFinder struct {
 
 // Constructor initialize your data structure here.
 func Constructor() MedianFinder {
-	// declare emoty arrays for both halves
+	// declare empty arrays for both halves
 	l, h := []int{}, []int{}
 	minH := custom.InitMinHeap(h)
 	maxH := custom.InitMaxHeap(l)
@@ -25,10 +25,11 @@ func Constructor() MedianFinder {
 
 // AddNum adds
 func (m *MedianFinder) AddNum(num int) {
-	// m.stream = append(m.stream, num)
 	// add such that balance is maintained between lower and higher
 	// i.e. either len(lower) == len(higher) or len(lower) = len(higher) + 1 (odd case)
 	m.lower.Add(num)
+
+	// balance
 	if m.lower.Len() > m.higher.Len()-1 {
 		v := m.lower.GetMax()
 		m.higher.Add(v)
