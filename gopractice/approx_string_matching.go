@@ -27,7 +27,7 @@ func FindAllSubstrings(str, candidate string, k int, used []bool, strList *[]str
 }
 
 // FindSubtringPermutations returns
-// a list of strings in decaresing len len containing letters of given str
+// a list of strings in decreasing len containing letters of given str
 func FindSubtringPermutations(str string) []string {
 	// bool slice inited to false
 	used := make([]bool, len(str))
