@@ -31,11 +31,11 @@ find optimal path find the path with max value	NY -> San Diego	[DONE]
 22. Max area in given histogram [LC# 84]
 23. Max rectangle in a grid of 0's and 1's (similar to 21) [LC #]
 23. Russian doll, max envelop fitting [LC #354]
+24. Max water volume problem (leetcode) [lc # 11]
 
 
 # Todo's
-1. Max water volume problem (leetcode)
-2. Most Stones Removed (leetcode)
+1. Most Stones Removed (leetcode)
 3. Unique URL (leetcode)
 4. Longest repeated, non-overlapping substring
 5. Binary tree balancing
