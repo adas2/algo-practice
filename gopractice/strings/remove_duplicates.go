@@ -31,7 +31,7 @@ func removeDuplicateLetters(s string) string {
 			// case curr char is < top of stack and the top of stack appears later in the string
 			// pop all chars till we have st.tp < curr_char
 			for len(stk) > 0 && s[i] < stk[len(stk)-1] && aMap[stk[len(stk)-1]] > i {
-				// remove fro seen set and pop
+				// remove from seen set and pop from stk
 				aSet[stk[len(stk)-1]] = false
 				stk = stk[:len(stk)-1]
 			}

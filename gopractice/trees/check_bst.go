@@ -1,12 +1,16 @@
 package trees
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
-// Write a function to check that a binary tree ↴ is a valid binary search tree
-// option A: store mix maxs at each node, O(1) lookup but O(N) space
+// Write a function to check if a binary tree is a valid BST
+// option A: store min maxs at each node, O(1) lookup but O(N) space (augment tree needed)
 // option B: recursive func O(log N) lookup but O(1) space
 // option C: incorporate this in the call stack
-// umoptimized version
+
+// umoptimized version (option B)
 func checkIfBst(root *btreeNode) bool {
 	// base case
 	if root == nil {
@@ -30,7 +34,7 @@ func checkIfBst(root *btreeNode) bool {
 // optimized based on call stack (option C)
 func checkIfBst2(root *btreeNode) bool {
 	// call util function
-	return isBstUtil(root, math.MinInt32, math.MaxInt32)
+	return isBstUtil(root, math.MinInt64, math.MaxInt64)
 
 }
 
@@ -41,15 +45,18 @@ func isBstUtil(root *btreeNode, lowerBound, upperBound int) bool {
 	if root == nil {
 		return true
 	}
+
 	// check if BST property is violated
 	// Assume: all values are unique,
 	// else change equality signs to <= and >=
-	if root.val < lowerBound && root.val > upperBound {
-		return false
-	}
-	// else
-	return isBstUtil(root.left, lowerBound, root.val) && isBstUtil(root.right, root.val, upperBound)
+	if root.val > lowerBound && root.val < upperBound {
 
+		fmt.Println("Root: ", root.val, upperBound, lowerBound)
+		return isBstUtil(root.left, lowerBound, root.val) && isBstUtil(root.right, root.val, upperBound)
+	}
+
+	// else
+	return false
 }
 
 func findMin(root *btreeNode) int {
