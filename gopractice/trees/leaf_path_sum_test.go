@@ -1,8 +1,17 @@
 package trees
 
-import "testing"
+import (
+	"fmt"
+	"os"
+	"testing"
+)
 
 func TestFindLeafPathSum(t *testing.T) {
+	bt := &btreeNode{1, &btreeNode{0, &btreeNode{0, nil, nil}, &btreeNode{1, nil, nil}}, &btreeNode{1, nil, nil}}
+
+	PrintLevelOrder(os.Stdout, bt)
+
+	fmt.Println("Leaf path sum :", findLeafPathSum(bt))
 }
 
 // func TestAddBitst(t *testing.T) {

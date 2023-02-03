@@ -14,5 +14,5 @@ func TestPrintLevelOrder(t *testing.T) {
 	bt.InsertNode(2)
 
 	// InorderPrintTree(bt.root)
-	PrintLevelOrder(os.Stdout, bt)
+	PrintLevelOrder(os.Stdout, bt.root)
 }

@@ -8,15 +8,15 @@ import (
 // PrintLevelOrder is level order traversal for a Binary Tree
 // BFS style traversal
 // Time: O(N) Space: O(N)
-func PrintLevelOrder(w io.Writer, tree *bTree) {
-	if tree.root == nil {
+func PrintLevelOrder(w io.Writer, root *btreeNode) {
+	if root == nil {
 		return
 	}
 	// implement a queue and store the nodes
 	// hint: like a BFS traversal
 	queue := make([]*btreeNode, 0)
 	// insert root
-	queue = append(queue, tree.root)
+	queue = append(queue, root)
 
 	// while queue not empty
 	for len(queue) != 0 {
@@ -33,6 +33,7 @@ func PrintLevelOrder(w io.Writer, tree *bTree) {
 		if node.left != nil {
 			queue = append(queue, node.left)
 		}
+
 		if node.right != nil {
 			queue = append(queue, node.right)
 		}

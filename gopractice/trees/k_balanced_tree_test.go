@@ -21,7 +21,7 @@ func TestFindKBalancedMain(t *testing.T) {
 	bt.InsertNode(85)
 	bt.InsertNode(90)
 
-	PrintLevelOrder(os.Stdout, bt)
+	PrintLevelOrder(os.Stdout, bt.root)
 
 	findKbalancedMain(bt.root)
 

@@ -1,6 +1,14 @@
 package trees
 
-// find the bit repesentation of the path
+// given a binary tree where each node has a val of 0/1,
+// leaf path value is the integer value for the binary number with MSB as root val
+// and LSB as the leaf val. Find the sum of all such leaf path integer values
+// e.g.					1
+//					0 /    \ 1
+// 				0/ 	  \1
+// leaf path sum = (100)2 + (101)2 + (11)2 = 4 + 5 + 3 = 12
+
+// Trick: Use recursive util to calculate sum of int values up to that node
 func findLeafPathSum(root *btreeNode) int {
 
 	// int value for parent is initially zero
@@ -26,6 +34,7 @@ func leafPathSumHelper(root *btreeNode, nodeIntValue int) int {
 		return nodeIntValue
 	}
 
+	// non-leaf
 	// the sum is node_int_value(left_node) + node_int_value(right_node)
 	return leafPathSumHelper(root.right, nodeIntValue) +
 		leafPathSumHelper(root.left, nodeIntValue)
