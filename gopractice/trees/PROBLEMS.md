@@ -8,6 +8,7 @@
 5. Self balancing (AVL) tree
 6. Leaf path sum (EPI)
 7. Level order traversal
+8. Flip equivalence of two trees
 
 
 ## Todos
@@ -16,3 +17,7 @@
 3. Median in a stream of integers (LC #295)
 4. Tree diameter
 5. Optimal BST
+
+## Advanced trees
+1. B+ trees
+2. 
