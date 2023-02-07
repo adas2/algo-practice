@@ -46,6 +46,7 @@ func (g *Graph) DFSUtil(src int, visited []bool, s *custom.Sstack) {
 			g.DFSUtil(v, visited, s)
 		}
 	}
+	// u is processed
 	s.Push(u)
 }
 

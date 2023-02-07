@@ -83,5 +83,6 @@ func reverseWord(word string) string {
 	return string(r)
 }
 
-// Note this is better than bruteforce only is n >> l i.e. avg len of word is small compared to num words
+// Note this is better than bruteforce algo if n >> l
+// i.e. avg len of word is small compared to num words
 // brute force is O(n^2.l)

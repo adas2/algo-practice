@@ -60,8 +60,10 @@ func (g *aGraph) dijkstraUtil(cov []bool, wt []int, src int) []int {
 
 		// for all adjacent edges update the shortest path
 		for v := 0; v < g.V; v++ {
-			//  if edge exists, update the wt
-			if g.edges[u][v] != 0 && (wt[u]+g.edges[u][v]) < wt[v] {
+			// if edge exists, edge not covered, update wt
+			if g.edges[u][v] != 0 &&
+				!cov[v] &&
+				wt[u]+g.edges[u][v] < wt[v] {
 				wt[v] = wt[u] + g.edges[u][v]
 			}
 		}
@@ -89,7 +91,8 @@ func minDist(cov []bool, wt []int) int {
 
 // Dijkstra shortest path
 func findShortestPath(g *aGraph, src int) []int {
-	// define a covered array with default 'false'
+	// define a coverage array with default 'false'
+	// to indicate nodes whose shorted path have been calculated
 	cov := make([]bool, g.V)
 	// define a weight array with shortest path weights
 	wt := make([]int, g.V)

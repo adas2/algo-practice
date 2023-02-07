@@ -12,7 +12,6 @@ type nCnt struct {
 	cntr  int
 }
 
-// TODO: Fiximpl with stack with <alpha,counter> pair
 func removeDuplicates(s string, k int) string {
 
 	// stack to keep track of the <letter, count> seen in the order
@@ -45,7 +44,7 @@ func removeDuplicates(s string, k int) string {
 	return string(res)
 }
 
-// // Logic
+// Logic
 // Input: s = "deeedbbcccbdaa", k = 3
 // Output: "aa"
 // keep a map of char to total seen count

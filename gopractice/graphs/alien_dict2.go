@@ -8,6 +8,7 @@ const alpha = 26
 
 func alienOrder(words []string) string {
 
+	// graph with adj list representation: key: vertex, val: list of edges
 	adjList := map[rune][]rune{}
 	// ideally this should be for unique alphabets present in dict only
 	inDegree := createIndegree(words)
@@ -65,9 +66,11 @@ func alienOrder(words []string) string {
 		}
 	}
 
-	// check if all letters are covered are not, if cycle exists there will be more alpha inDegre
+	// check if all letters are covered are not,
+	// if cycle exists there will be more alpha inDegree
 	if len(res) < len(inDegree) {
 		// cycle exists (num vertices > top sort vertices)
+		// e.g. words = ["x", "y", "x"] i.e. all indegree > 0
 		return ""
 	}
 
@@ -100,4 +103,5 @@ func vertexNotInList(adjList map[rune][]rune, u, v rune) bool {
 }
 
 // Logic this uses Kahn's algo
-// impl is complicated because the vertices are not ordered nums, hence map is used instead of array
+// impl is complicated because the vertices are not ordered nums,
+// hence map is used instead of array

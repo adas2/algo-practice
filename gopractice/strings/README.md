@@ -13,9 +13,10 @@ Includes problems on word matching, dict manipulation, regexp processing
    O Y G
    N S K
    ``` 
-   given english dictionary mathes are:
+   given english dictionary matches are:
    `{TO, TON, TONS, TIP, TIP, TOY}`
 3. Palindrome pairs [LC #336]
+4. Valid Paranthesis
 
 
 ## Todos
