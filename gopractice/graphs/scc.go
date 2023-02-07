@@ -102,7 +102,7 @@ func findSCC(g *Graph) {
 	// create transpose graph
 	gT := g.transposeGraph()
 
-	// array to keep already viisted nodes in transpose graph
+	// array to keep already visited nodes in transpose graph
 	discovered := make([]bool, gT.V)
 
 	// while all nodes are visited

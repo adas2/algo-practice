@@ -9,6 +9,7 @@
 6. Leaf path sum (EPI)
 7. Level order traversal
 8. Flip equivalence of two trees
+9. Simple expression trees (e.g. for (a+b)+c)
 
 
 ## Todos
@@ -18,6 +19,6 @@
 4. Tree diameter
 5. Optimal BST
 
-## Advanced trees
+## Advanced topics
 1. B+ trees
 2. 

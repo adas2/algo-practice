@@ -35,3 +35,4 @@ func topSortGraph(g *Graph, inDegree []int) []int {
 }
 
 // time complexity: O(V+E) since for every virtex its edges is visited once
+// another option: use DfsUtil() with stack returned in reverse order of completion times

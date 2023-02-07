@@ -39,7 +39,7 @@ func (g *Graph) addEdge(u, v int) {
 
 // TraverseBFS = BFS traversal
 func (g *Graph) TraverseBFS(source int, discovered []bool) {
-	fmt.Println("BFS travresal:")
+	fmt.Println("BFS traversal:")
 
 	// init Queue to empty
 	q := custom.Queue([]int{})

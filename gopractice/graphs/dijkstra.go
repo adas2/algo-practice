@@ -93,9 +93,9 @@ func findShortestPath(g *aGraph, src int) []int {
 	cov := make([]bool, g.V)
 	// define a weight array with shortest path weights
 	wt := make([]int, g.V)
-	// initialize with max_int
+	// initialize with +infinity
 	for i := range wt {
-		wt[i] = math.MaxInt32
+		wt[i] = int(math.Inf(1))
 	}
 
 	return g.dijkstraUtil(cov, wt, src)

@@ -2,6 +2,7 @@ package graphs
 
 import (
 	"fmt"
+	"math"
 	"testing"
 )
 
@@ -22,16 +23,38 @@ func TestFindShortestPathFromSource(t *testing.T) {
 }
 
 func TestIfNegativeCycle(t *testing.T) {
-	g := initEdgeGraph(5)
+	g := initEdgeGraph(3)
 	// 0 1 -5 1 2 -6 2 0 -9
 	g.addEdge(0, 1, -5)
 	g.addEdge(1, 2, -6)
-	g.addEdge(2, 0, -9)
+	g.addEdge(0, 2, -9)
+	g.addEdge(2, 2, -1)
 
 	if isNegativeCycle(g) {
-		fmt.Printf("CYCLE EXISTS\n")
+		fmt.Printf("NEGATIVE CYCLE EXISTS\n")
 	} else {
-		fmt.Printf("NO CYCLE EXISTS")
+		fmt.Printf("NO NEGATIVE CYCLES\n")
 	}
 
+}
+
+func TestDetectNegativeCycles(t *testing.T) {
+	g := initEdgeGraph(3)
+	// 0 1 -5 1 2 -6 2 0 -9
+	g.addEdge(0, 1, 5)
+	g.addEdge(1, 2, 6)
+	g.addEdge(2, 0, 9)
+	g.addEdge(2, 2, -1)
+
+	d := detectNegativeCycles(g)
+
+	fmt.Printf("Nodes part of negative cycle:\n")
+
+	// show nodes that form negative cycle
+	for i := range d {
+		if d[i] == int(math.Inf(-1)) {
+			fmt.Printf("%d ", i)
+		}
+	}
+	fmt.Println(d)
 }

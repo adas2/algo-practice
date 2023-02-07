@@ -17,8 +17,9 @@ import (
 // relax edge: if dist[v] > d[u]+weight(u,v) { dist[v] = d[u]+weight(u,v) }
 // output dist array after V.E iteration ends
 
-// const noEdge = 0
-const inf = math.MaxInt32
+// // const noEdge = 0
+// const inf = math.Inf(1)
+// const ninf = math.Inf(-1)
 
 // edge representation of graph
 type eGraph struct {
@@ -46,10 +47,10 @@ func (g *eGraph) printEdges() {
 // using adjacency matrix representaion
 func findShortedPathFromSrc(g *eGraph, src int) ([]int, []int) {
 	numV := g.V
-	// dist array intit to inf
+	// dist array init to +inf
 	dist := make([]int, numV)
 	for i := range dist {
-		dist[i] = inf
+		dist[i] = int(math.Inf(1))
 	}
 	// parent array
 	parent := make([]int, numV)
@@ -66,7 +67,7 @@ func findShortedPathFromSrc(g *eGraph, src int) ([]int, []int) {
 		for _, e := range g.edges {
 			// relax edge
 			u, v, w := e[0], e[1], e[2]
-			if dist[u] != inf && w+dist[u] < dist[v] {
+			if w+dist[u] < dist[v] {
 				dist[v] = w + dist[u]
 				// update parent
 				parent[v] = u
@@ -94,10 +95,31 @@ func isNegativeCycle(g *eGraph) bool {
 	// if the dist/weight of any node changes return true else false
 	for _, e := range g.edges {
 		u, v, w := e[0], e[1], e[2]
-		if dist[u] != inf && w+dist[u] < dist[v] {
+		if w+dist[u] < dist[v] {
 			return true
 		}
 	}
 
 	return false
+}
+
+// note: to detect all negative cycles, run the above step for |V|-1 times
+// label each changed dist to (-inf); final list of nodes with (-inf) will gives -ve cycles
+func detectNegativeCycles(g *eGraph) []int {
+	dist, _ := findShortedPathFromSrc(g, 0)
+
+	fmt.Println(dist)
+
+	// iterate for |V|-1 nodes
+	for i := 0; i < g.V-1; i++ {
+		for _, e := range g.edges {
+			u, v, w := e[0], e[1], e[2]
+			if dist[v] > dist[u]+w {
+				dist[v] = int(math.Inf(-1))
+			}
+		}
+
+	}
+
+	return dist
 }
