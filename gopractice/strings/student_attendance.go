@@ -16,7 +16,7 @@ func checkRecord(n int) int {
 	return res % 1000000007
 }
 
-// recrusive backtracking func
+// using recursive backtracking
 func findAttendancePermutations(candidate string, countA, n int, total *int) {
 	cLen := len(candidate)
 	// check the case where A > 2 or "LLL" present

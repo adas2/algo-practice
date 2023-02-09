@@ -13,3 +13,4 @@ Implementaion of non-library based structs in Golang
 ## Todos
 
 1. Circular Queue
+2. BitSet

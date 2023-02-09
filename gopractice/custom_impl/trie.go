@@ -1,13 +1,8 @@
 package custom
 
-const (
-	//AlphabetSize total characters in english alphabet
-	AlphabetSize = 26
-)
-
 // TrieNode is a node of trie
 type TrieNode struct {
-	Childrens [AlphabetSize]*TrieNode
+	Childrens [26]*TrieNode
 	IsWordEnd bool
 }
 

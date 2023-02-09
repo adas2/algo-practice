@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// given a test T and a pattern P, find all the occurences of P in T.
+// given text T and a pattern P, find all the occurences of P in T.
 // E.g. T = "ABABABACBABA", P = "BABA" Output: {1,3,8}. Overlaps are allowed
 // Expected best case complexity O(m+n), worst case is O(mn)
 // If no match return empty array
