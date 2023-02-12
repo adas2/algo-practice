@@ -24,7 +24,7 @@ func lengthOfLIS(nums []int) int {
 	for i := 1; i < len(nums); i++ {
 		for j := 0; j < i; j++ {
 			if nums[i] > nums[j] {
-				// new sequence foound
+				// new sequence found
 				maxLIS = Max(maxLIS, dp[j])
 			}
 		}

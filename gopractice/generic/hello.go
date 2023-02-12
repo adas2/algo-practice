@@ -20,6 +20,7 @@ func main() {
 	numslice := []int{2, 3, 4, 5}
 
 	// dynamically define slice with len and capacity
+	// int slices inited to 0 for len provided
 	numslice2 := make([]int, 6, 10)
 
 	copy(numslice2, numslice)
@@ -64,7 +65,7 @@ func main() {
 		b += 2
 		return a + b
 	}
-	fmt.Printf("closure func: %d\n", prod())
+	fmt.Printf("closure func: %d, a=%d, b=%d\n", prod(), a, b)
 	//fmt.Printf("%d\n",prod());
 
 	fmt.Println(factorial(3))
@@ -95,9 +96,10 @@ func main() {
 	//string manipulation
 	myStr := "Hasta Manana Maria"
 	fmt.Println(strings.HasSuffix(myStr, "na"))
-	fmt.Println(strings.Replace(myStr, "na", "la", 5))
-	fmt.Println(strings.Index(myStr, "al"))
-	fmt.Println(strings.SplitAfter(myStr, "M"))
+	s2 := strings.Replace(myStr, "na", "la", 5)
+	fmt.Println(s2)
+	fmt.Println(strings.Index(s2, "al"))
+	fmt.Println(strings.SplitAfter(s2, "M"))
 
 	//algo
 	if !sort.IntsAreSorted(numslice2) {
@@ -112,7 +114,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	file.WriteString("Hola Senora!")
 	file.Close()
 
@@ -120,16 +121,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fmt.Println(string(stream))
 
+	e := os.Remove("sample.txt")
+	if e != nil {
+		log.Fatal(e)
+	}
+
 	fmt.Printf("\n---------------\n")
-
-	//instantiate web browser
-	// http.HandleFunc("/", handler)
-	// http.HandleFunc("/pub", handler2)
-
-	// http.ListenAndServe(":8080", nil)
 
 	//Like maps and slices, channels must be created before use:
 	c := make(chan int, 10)
@@ -142,6 +141,22 @@ func main() {
 
 	//panic
 	dontPanic()
+
+	// iterator tests tests
+	s := NewSliceIterator([]string{"a", "b", "c"})
+	IteratorFun(s)
+
+	r := NewRoundRobinSliceIterator([][]string{
+		{"a1", "a2", "a3"},
+		{"b1", "b2"},
+		{"c1", "c2", "c3"},
+	})
+
+	IteratorFun2(r)
+	IteratorFun(r)
+
+	fmt.Printf("\n---------------\n")
+
 }
 
 //----STRUCTS/INTERFACES ------
