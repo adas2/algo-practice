@@ -14,12 +14,15 @@ Includes problems on word matching, dict manipulation, regexp processing
    N S K
    ``` 
    given english dictionary matches are:
-   `{TO, TON, TONS, TIP, TIP, TOY}`
+   `{TO, TON, TONS, TIP, TOY, TOYS}`
 3. Palindrome pairs [LC #336]
 4. Valid Paranthesis
+5. String permuations
+6. String shifting groups: "abc" --> "bcd"
 
 
 ## Todos
+1. K-similarity of strings
 
 ## Notes
 
