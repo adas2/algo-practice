@@ -1,4 +1,4 @@
-package practice
+package strs
 
 // RecursivePermutations finds permutations of a string using recursion,
 // return a list of strings, (pass output by reference)
@@ -14,7 +14,7 @@ func RecursivePermutations(s string, start, end int, out *[]string) {
 		return
 	}
 
-	// ieterate on all elements
+	// iterate on all elements
 	for i := start; i <= end; i++ {
 		// swap s[0] with s[i]
 		// s[start], s[i] = s[i], s[start]
