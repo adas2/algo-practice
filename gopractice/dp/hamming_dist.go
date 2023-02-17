@@ -19,7 +19,8 @@ func HammingDistance(s1, s2 string) int {
 	return dist
 }
 
-// harder problem
+// harder problem: EPI pp 275
+// Levenshtein distance or min edit distance
 
 // EditDistance : changes (insert, remove, alter) needed to convert string1 --> string2
 func EditDistance(s1, s2 string) int {
@@ -62,7 +63,6 @@ func EditDistance(s1, s2 string) int {
 }
 
 func findMin(a, b, c int) int {
-	// return int(math.Min(math.Min(float64(a), float64(b)), float64(c)))
 	return Min(Min(a, b), c)
 }
 

@@ -7,72 +7,67 @@ import (
 
 // find the longest increasing subsequence in a given array (int)
 
-// method 1: usng dp with O(N^2) complexity
+// method 1: usng dp with T=O(N^2), S=O(N)
 // output: length of the LIS
 func lengthOfLIS(nums []int) int {
-	// error case
+	// nil case
 	if len(nums) == 0 {
 		return 0
 	}
-	// adjust size to include whole in array
+
+	// init dp array
 	dp := make([]int, len(nums))
-	// base case: LIS len for only 1 element
+	// len 1 lis = 1
 	dp[0] = 1
-	maxLIS := 0 //init
-	result := 1
+	// max lis seen so far (default 1)
+	max_seen := 1
 
 	for i := 1; i < len(nums); i++ {
+		// case 1: ith num is included in lis (provided condition satisfied)
+		// condition: there exists at least nums[j], j<i, st nums[j] < nums[i]
 		for j := 0; j < i; j++ {
-			if nums[i] > nums[j] {
-				// new sequence found
-				maxLIS = Max(maxLIS, dp[j])
+			if nums[j] < nums[i] {
+				dp[i] = Max(dp[i], dp[j]+1)
 			}
 		}
-		// in case no sequence, LIS is 1
-		dp[i] = Max(maxLIS+1, 1)
-		// fmt.Printf("maxLIS: %d, dp[%d] = %d\n", maxLIS, i, dp[i])
-		// store the max len seen so far
-		result = Max(result, dp[i])
-		// maxLIS = Max(maxLIS+1, dp[i-1])
+		// case 2: ith num starts a new lis
+		dp[i] = Max(dp[i], 1)
+		max_seen = Max(max_seen, dp[i])
 	}
 
-	return result
+	return max_seen
 }
 
-// explanation:
+// explanation (method 1):
 // dp[i] ==> LIS len for arr[0..i] with sequence ending in i
 // dp[i] ==> Max(DP[j])+1, for all 0<=j<i and arr[i]>arr[j])
 // else if no larger element dp[i]=dp[i-1]
 
 // method 2: using patience sorting
-// O(n log n)
+// T=O(nlogn) S=O(n)
 func efficientLIS(nums []int) int {
 	// create empty sequence array
 	seq := make([]int, 0)
 
-	for i, v := range nums {
-		// first num
-		if i == 0 {
+	for _, v := range nums {
+
+		// add num if it is first or larger than last num
+		// note seq is always sorted
+		if len(seq) == 0 || seq[len(seq)-1] < v {
 			seq = append(seq, v)
-			continue
-		}
-		// fmt.Println(seq)
-		// find the closest index < v
-		index := sort.SearchInts(seq, v)
-		if index < len(seq) {
-			seq[index] = v
+			// Optional: record the element which caused a new entry
+			// this helps to get an LIS
+			if len(seq) > 1 {
+				fmt.Printf("seq num: %d\n", seq[len(seq)-2])
+			}
 		} else {
-			// insert the num
-			seq = append(seq, v)
-			// record the element which caused a new entry
-			fmt.Printf("seq num: %d\n", seq[len(seq)-2])
+			// find the right index using bisnary search
+			index := sort.SearchInts(seq, v)
+			seq[index] = v
 		}
-		// seq = InsertSorted(seq, nums[i])
-		fmt.Printf("index: %d, sequence array: %v\n", index, seq)
 
 	}
-
-	// final seq number
+	// final number in LIS
 	fmt.Printf("seq num: %d\n", seq[len(seq)-1])
 
 	return len(seq)
@@ -88,7 +83,7 @@ func InsertSorted(s []int, e int) []int {
 	return s
 }
 
-// explanation:
+// explanation (method 2):
 // use patience sorting to stack the elements in the order they appear
 // while there are no numbers left do the following:
 // 1. place the first number on a new stack
