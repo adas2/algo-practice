@@ -22,7 +22,7 @@ func BinarySearchVanilla(arr []int, target int, low int, high int) int {
 	return -1
 }
 
-// BinarySearchClosest find the index of last closest element <= target
+// BinarySearchClosest: index of closest element <= target
 func BinarySearchClosest(arr []int, target int, low int, high int) int {
 	if low > high {
 		return -1 //error case
@@ -45,8 +45,8 @@ func BinarySearchClosest(arr []int, target int, low int, high int) int {
 	return candidate
 }
 
-// BinarySearchLast finds first index of target in array of repeated elements
-// or index of the next larger element
+// BinarySearchLast: index of target in array of repeated elements
+// or index of the next larger element >= target
 func BinarySearchLast(arr []int, target int, low int, high int) int {
 	if low > high {
 		return -1 //err case
