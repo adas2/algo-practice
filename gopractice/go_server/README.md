@@ -1,8 +1,10 @@
 # Sample go_server
 This is a sample README for myserver
 
-## To build and run 
+## To build 
 `go build` 
+
+## To run 
 `./go_server <PORT>`
 
 ## To test

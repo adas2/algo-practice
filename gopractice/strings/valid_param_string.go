@@ -61,3 +61,37 @@ func checkValidString(s string) bool {
 // define two stacks, one for '(' and one for '*',
 // when ')' is encountered check '(' stk, if empty pop '*' stk, if both empty false
 //  at end of str, check if len(stk1) == 0 or len(stk1) <= len(stk2), i.e. remaning *'s can match ('s
+
+// LC # 22 (Go version for GenParanthesis)
+func generateParenthesis(n int) []string {
+	res := make([]string, 0)
+	left, right := n, n
+	candidate := ""
+
+	helperGenParan(&res, candidate, left, right)
+
+	return res
+}
+
+func helperGenParan(res *[]string, candidate string, left, right int) {
+	// found a valid paran string
+	if left == 0 && right == 0 {
+		*res = append(*res, candidate)
+		return
+	}
+	// case when more left paran than right paran implies pattern ")" used before matching "("
+	if left > right {
+		return
+	}
+
+	// create new candidate and backtrack
+	if left > 0 {
+		helperGenParan(res, candidate+"(", left-1, right)
+	}
+	if right > 0 {
+		helperGenParan(res, candidate+")", left, right-1)
+	}
+
+}
+
+// Logic use bactracking to determine if candidate is a valid paran string

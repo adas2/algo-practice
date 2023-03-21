@@ -1,6 +1,7 @@
 # Execs
 *.out
 *.exe
+**go_server
 
 # Folders
 backup

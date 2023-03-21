@@ -10,14 +10,15 @@
 7. Level order traversal
 8. Flip equivalence of two trees
 9. Simple expression trees (e.g. for (a+b)+c)
+10. Perimeter of a binary tree
 
 
 ## Todos
-1. Perimeter of a binary tree
+1. Optimal BST
 2. LCA of a tree (see cpp version)
 3. Median in a stream of integers (LC #295)
 4. Tree diameter
-5. Optimal BST
+5. 
 
 ## Advanced topics
 1. B+ trees

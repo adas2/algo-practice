@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"adas2.io/practice/my_crypto"
 )
 
+// command line parameters
 var (
 	flagPort = flag.String("port", "8088", "Port to listen on")
 )
@@ -29,22 +31,27 @@ func (ws wrapperStruct) testHandler(w http.ResponseWriter, r *http.Request) {
 func testHandler2(name string) http.HandlerFunc {
 	cert, _ := my_crypto.GenX509Cert()
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Generated cert for: " + name + "\n" + string(cert)))
+		w.Write([]byte(fmt.Sprintf("X509 certificate generated at host: %s for host:port %s\n%s\n", name, r.RemoteAddr, string(cert))))
 	}
 }
 
 func main() {
+	// inline http response handler
 	http.HandleFunc("/v1", func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("request from %v\n", r.RemoteAddr)
 		w.Write([]byte("hello\n"))
 	})
-	// http.HandleFunc("/cert", getCertificate)
 
-	handlers := wrapperStruct{name: "Localhost"}
+	// using a handler struct with state
+	hostname, _ := os.Hostname()
+	handlers := wrapperStruct{name: hostname}
 	http.HandleFunc("/test", handlers.testHandler)
 
-	http.HandleFunc("/gen", testHandler2("Localhost"))
+	// another way using a wrapping func
+	http.HandleFunc("/gen", testHandler2(hostname))
 
-	fmt.Printf("Starting server for testing HTTP POST...\n")
+	flag.Parse()
+
+	fmt.Printf("Starting go server at port %s...\n", *flagPort)
 	log.Fatal(http.ListenAndServe(":"+*flagPort, nil))
 }
