@@ -2,6 +2,7 @@ package practice
 
 // Given a history hash with time stamp, find value of a key with the latest timestamp <= T
 // [key, <val, timestamp>]
+// Assumes timestamps for a key are enetered in ascending order
 
 import (
 	"fmt"
@@ -27,9 +28,8 @@ func FindPredecessorEvent(hMap map[string][]Entry, key string, aTime time.Time) 
 	if err != nil {
 		return -1
 	}
-	// fmt.Println(elen)
 	index := BinarySearch(elist, aTime, 0, len(elist)-1)
-	fmt.Println("index", index)
+	// fmt.Println("index", index)
 	return elist[index].val
 }
 
@@ -63,7 +63,7 @@ func attemptGuess(ts time.Time, guess time.Time) int {
 	}
 }
 
-// BinarySearch find the elemtnor closest element <= target
+// BinarySearch find closest element <= target
 func BinarySearch(arr []Entry, target time.Time, low int, high int) int {
 	if low > high {
 		return -1 //error case
@@ -72,7 +72,7 @@ func BinarySearch(arr []Entry, target time.Time, low int, high int) int {
 
 	// begin iteration in while style in C
 	for low <= high {
-		mid := low + (high-low)/2
+		mid := (low + high) / 2
 		fmt.Println("index", mid)
 		guess := arr[mid].ts
 		// if guess <= target

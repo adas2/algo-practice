@@ -1,11 +1,11 @@
-package practice
+package custom
 
 // An Item is something we manage in a priority queue.
 type Item struct {
-	value int // The value of the item; arbitrary.
+	Value int // The value of the item; arbitrary.
 	// priority int    // The priority of the item in the queue.
 	// The index is needed by update and is maintained by the heap.Interface methods.
-	index int // The index of the item in the heap.
+	Index int // The index of the item in the heap.
 }
 
 // A PriorityQueue implements heap.Interface and holds Items.
@@ -15,7 +15,7 @@ func (pq PriorityQueue) Len() int { return len(pq) }
 
 func (pq PriorityQueue) Less(i, j int) bool {
 	// We want Pop to give us the lowest, not highest, priority so we use lesser than here.
-	return pq[i].value < pq[j].value
+	return pq[i].Value < pq[j].Value
 }
 
 func (pq PriorityQueue) Swap(i, j int) {
@@ -26,7 +26,7 @@ func (pq PriorityQueue) Swap(i, j int) {
 func (pq *PriorityQueue) Push(x interface{}) {
 	n := len(*pq)
 	item := x.(*Item)
-	item.index = n
+	item.Index = n
 	*pq = append(*pq, item)
 }
 

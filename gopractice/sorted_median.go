@@ -2,7 +2,7 @@ package practice
 
 import "fmt"
 
-// Find median of two sorted arrays (of uequal sizes)
+// Find median of two sorted arrays (of un-equal sizes)
 // for equal size array median, simpler algo exits (hint: merge sort merge op)
 // complexity: O(log(min(n, m)))
 
