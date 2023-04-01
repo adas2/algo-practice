@@ -8,7 +8,7 @@ import (
 	custom "adas2.io/practice/custom_impl"
 )
 
-// SortedMergeList : Given K sorted lists, merge them
+// SortedMergeList: Given K sorted lists, merge them
 // return sorted list
 func SortedMergeList(lists []*list.List, k int) (*list.List, error) {
 	// create priority queue
