@@ -5,7 +5,7 @@ import "fmt"
 // Given two numbers in reverse order (as a linked list with single digit),
 // add the two numbers; no leading zeros
 // 2->4->7 + 5->6->4 = ( 7->0->2->1 ) i.e. 742+465 = 1207
-// [Leetcode med]
+// [Leetcode med # 2]
 
 // struct to hold the digits
 type nDig struct {
@@ -16,13 +16,50 @@ type nDig struct {
 // list for whole number
 type nList *nDig
 
-// createNum creates a representation linked list reverse order
+// numAdd add such two nums
+func numAdd(head1, head2 nList) nList {
+	// traverse list and add digits
+	carry := 0
+	var res, curr, prev *nDig
+
+	// terminate when all are nil and no carry
+	for head1 != nil || head2 != nil || carry > 0 {
+		v1, v2 := 0, 0
+
+		if head1 != nil {
+			v1 = head1.digit
+			head1 = head1.next
+		}
+
+		if head2 != nil {
+			v2 = head2.digit
+			head2 = head2.next
+		}
+
+		sum := (v1 + v2 + carry) % 10
+		carry = (v1 + v2 + carry) / 10
+
+		curr = &nDig{sum, nil}
+
+		// head of the final list is the first node created
+		if res == nil {
+			res = curr
+		}
+		if prev != nil {
+			prev.next = curr
+		}
+		prev = curr
+	}
+
+	return res
+}
+
+// helper: createNum creates a representation linked list reverse order
 func createNum(n int) nList {
-	div := 10
 	var d int
 	var head, last, curr *nDig = nil, nil, nil
 	for num := n; num > 0; {
-		d = num % div
+		d = num % 10
 		curr = &nDig{d, nil}
 		if head == nil {
 			head = curr
@@ -31,7 +68,7 @@ func createNum(n int) nList {
 			last.next = curr
 		}
 		last = curr
-		num /= div
+		num /= 10
 	}
 
 	return head
@@ -44,45 +81,4 @@ func printNum(num nList) {
 		fmt.Printf("%d->", head.digit)
 	}
 	fmt.Printf("nil\n")
-}
-
-// numAdd add such two nums
-func numAdd(a, b nList) nList {
-	// traverse list and add digits
-	var carry int = 0
-	var curr, prev *nDig = nil, nil
-	var head1, head2 nList = a, b
-	for head1, head2 = a, b; head1 != nil && head2 != nil; head1, head2 = head1.next, head2.next {
-		newd := (head1.digit + head2.digit + carry) % 10
-		carry = (head1.digit + head2.digit + carry) / 10
-		curr = &nDig{newd, nil}
-		curr.next = prev
-		prev = curr
-	}
-	for head1 != nil {
-		newd := (head1.digit + carry) % 10
-		carry = (head1.digit + carry) / 10
-		curr = &nDig{newd, nil}
-		curr.next = prev
-		head1 = head1.next
-
-		prev = curr
-	}
-
-	for head2 != nil {
-		newd := (head2.digit + carry) % 10
-		carry = (head2.digit + carry) / 10
-		curr = &nDig{newd, nil}
-		curr.next = prev
-		head2 = head2.next
-
-		prev = curr
-	}
-
-	if carry > 0 {
-		curr = &nDig{carry, nil}
-		curr.next = prev
-	}
-
-	return curr
 }

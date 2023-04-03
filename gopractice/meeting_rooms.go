@@ -27,7 +27,7 @@ func minMeetingRooms(intervals [][]int) int {
 		index := sort.SearchInts(roomSet, interval[0])
 
 		fmt.Printf("Start time: %d,  Search index: %d\n", interval[0], index)
-		// TODO: this needs to be changed to priorituu queue, since we need to find the element with the earliest finish time
+		// TODO: this needs to be changed to priority queue, since we need to find the element with the earliest finish time
 		// it the current start time > earliest finish time, then we can reuse a meeting room, else we need to create a new room
 		if index < len(roomSet) && roomSet[index] <= interval[0] {
 			// found an interval which ends before start

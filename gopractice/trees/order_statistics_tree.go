@@ -8,7 +8,7 @@ import (
 )
 
 // Using order statitstics tree to keep node count
-// todo: add self balancing feature
+// TODO: add self balancing feature
 
 // type osTree struct {
 // 	root *osTreeNode
