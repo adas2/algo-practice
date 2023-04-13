@@ -1,4 +1,4 @@
-// Test code generated from ChatGPT to generate RSA cert + private key
+// Sample to generate RSA cert + private key
 package my_crypto
 
 import (
@@ -19,7 +19,7 @@ func GenX509Cert() ([]byte, []byte) {
 	template := x509.Certificate{
 		SerialNumber: big.NewInt(1),
 		Subject: pkix.Name{
-			CommonName: "example.com",
+			CommonName: "abidaz.click",
 		},
 		NotBefore:   time.Now(),
 		NotAfter:    time.Now().Add(time.Hour * 24 * 365), // valid for 1 year
@@ -38,3 +38,5 @@ func GenX509Cert() ([]byte, []byte) {
 	// fmt.Printf("%s\n%s", certOut, keyOut)
 	return certOut, keyOut
 }
+
+//  Note: above is ChatGPT generated, do not use in prouction

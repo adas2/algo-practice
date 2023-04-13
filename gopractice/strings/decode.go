@@ -32,22 +32,23 @@ func decodeUtil(s string, open *[]int, index *int) string {
 		}
 
 		if r[*index] == '[' {
-			// start of a new repeated seq, recursively call to get output
-			// s[i-1] is the cnt push to stack
+			// start of a new repeated seq, the push cnt/k to stack
 			*open = append(*open, k)
 			// fmt.Printf("start [ slen %d res %s\n", len(*open), res)
 			*index += 1
+			// recursively call to get output
 			res += decodeUtil(s, open, index)
+
 		} else if r[*index] == ']' {
-			// pop from stack
+			// pop k from stack
 			slen := len(*open)
 			cnt := (*open)[slen-1]
 			*open = (*open)[:slen-1]
 			*index += 1
-			// repeat str cnt times
-			res = strings.Repeat(res, cnt)
 			// fmt.Printf("end ] slen %d cnt: %d, res: %s\n", slen, cnt, res)
-			return res
+			// repeat str cnt times, and return to the calling function
+			return strings.Repeat(res, cnt)
+
 		} else if unicode.IsDigit(r[*index]) == false {
 			// non-digit char
 			res += string(r[*index])
