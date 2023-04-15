@@ -12,7 +12,7 @@ type RandomizedSet struct {
 	cnt int //optimizes time compared to len() operation
 }
 
-func Constructor() RandomizedSet {
+func InitRandomizedSet() RandomizedSet {
 	return RandomizedSet{
 		set: make(map[int]int),
 		arr: make([]int, 0),

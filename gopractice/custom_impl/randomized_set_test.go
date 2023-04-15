@@ -11,7 +11,7 @@ func TestRandomizedSet(t *testing.T) {
 
 	// ["RandomizedSet","insert","insert","remove","insert","remove","getRandom"]
 	// [[],[0],[1],[0],[2],[1],[]]
-	obj := Constructor()
+	obj := InitRandomizedSet()
 	param_1 := obj.Insert(0)
 	fmt.Println(param_1)
 

@@ -16,7 +16,7 @@ func diameterOfBinaryTree(root *TreeNode) int {
 // util: takes root, left longest path and right longest path and
 // 	returns current height and longest diameter
 func diameterUtil(root *TreeNode) (int, int) {
-	// note: nil node hright -1 to distinguish for leaf node (else hright calc might be off by 1)
+	// note: nil node height -1 to distinguish for leaf node (else height calc will be off by 1)
 	if root == nil {
 		return -1, 0
 	}

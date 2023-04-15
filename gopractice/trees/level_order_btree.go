@@ -40,7 +40,7 @@ func PrintLevelOrder(w io.Writer, root *btreeNode) {
 	}
 }
 
-// Queue methods
+// Queue methods:
 // Enqueue: queue = append(queue, value)
 // Dequeue: queue = queue[1:]
 // Peek: queue[0]

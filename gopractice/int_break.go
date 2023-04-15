@@ -2,7 +2,7 @@ package practice
 
 import "math"
 
-// lic # 343 Integer Break
+// LC # 343 Integer Break
 
 // Non DP O(1) solution: https://twchen.gitbook.io/leetcode/dynamic-programming/integer-break
 func integerBreak2(n int) int {
@@ -60,8 +60,8 @@ func maxInt(a, b, c int) int {
 }
 
 // logic:
-// Intuition: for any number n, the k nums should be chosen such that they are similar/equal
-// Product = (n-1)*1 << (n-x)*x wheere x >> 2
+// Intuition: for any number n, the k nums should be chosen such that they are close/equal
+// Product = (n-1)*1 << (n-x)*x where x >> 2
 // generate a hash table with the optimal k for each number from 2->n
 // for each num i, change x from 2 to n-2 and see:
 // if P(i) ->(i-x)*x > current P(i) then choose x

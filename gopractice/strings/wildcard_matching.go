@@ -13,7 +13,7 @@ func isMatch(s string, p string) bool {
 	for i := range dp {
 		dp[i] = make([]bool, m+1)
 	}
-	// base case: nil string nil pattern is  match
+	// base case: nil string nil pattern is a match
 	dp[0][0] = true
 
 	for i := 0; i <= n; i++ {
@@ -49,7 +49,7 @@ func isMatch(s string, p string) bool {
 // 	i. chars match between text and pattern, t[i] == p[i] or
 //  	p[i] == '?', in this case we skip ahead by 1 char
 //  ii. pattern has a '*', this case we have 2 options:
-// 		a. '*' corresponds to no chars, i.e. we match with test by skipping the '*' in pattern,
+// 		a. '*' corresponds to no chars, i.e. we match with text by skipping the '*' in pattern,
 // 		b. '* ' corresponds to 1 or more chars in text, in this case we match 1 char in the text
 //  	and recusively check if text[i-1] is a match or not? similarly, text[i-2] is automatically checked
 // finally, we have the result in dp[n][m] i.e. for the entire len of text and pattern
